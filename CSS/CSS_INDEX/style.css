@@ -1,0 +1,96 @@
+header {
+  width: 100%;
+  height: 95px;
+  top: 0px;
+  padding: 20px 5%;
+  border-top: solid #572EE5 5px; }
+  header .logo {
+    float: left;
+    width: 54px; }
+  header nav {
+    float: right;
+    margin: 15px 15px 0px 0px; }
+    header nav .menu {
+      padding-top: 3px;
+      /*checkbox transparente y en primer plano*/
+      /*span -lineas del menu hamburguesa-*/ }
+      header nav .menu ul {
+        /*posicion absolute para que se posicione debajo del 
+        resto del header - top medida del header*/
+        width: 100%;
+        position: absolute;
+        top: 45px;
+        right: 0;
+        overflow: hidden;
+        list-style: none;
+        background: #f2f2f2;
+        height: 0px;
+        transition: height 0.5s ease; }
+        header nav .menu ul li {
+          position: relative; }
+          header nav .menu ul li a {
+            position: relative;
+            text-align: center;
+            text-decoration: none;
+            font-size: 15px;
+            line-height: 30px;
+            color: #FFFFFF;
+            padding: 16px 5%;
+            display: block;
+            font-family: "Montserrat", sans-serif; }
+            header nav .menu ul li a:hover {
+              background: unset;
+              text-decoration: underline solid #5ED7C6; }
+            header nav .menu ul li a:active {
+              color: #F3F5F8; }
+      header nav .menu input[type="checkbox"]:checked ~ ul {
+        height: 484px;
+        transition: height 0.5s ease-in-out;
+        -moz-transition: height 0.5s ease-in-out;
+        -o-transition: height 0.5s ease-in-out;
+        -webkit-transition: height 0.5s ease-in-out;
+        margin-top: 35px;
+        background: rgba(87, 46, 229, 0.9); }
+      header nav .menu input {
+        display: block;
+        width: 40px;
+        height: 32px;
+        opacity: 0;
+        z-index: 2;
+        position: absolute; }
+        header nav .menu input:checked ~ span {
+          opacity: 1;
+          transform: rotate(45deg) translate(2px, 1px); }
+        header nav .menu input:checked ~ span:nth-last-child(3) {
+          opacity: 0;
+          transform: rotate(0deg) scale(0.2, 0.2); }
+        header nav .menu input:checked ~ span:nth-last-child(2) {
+          transform: rotate(-46deg) translate(1px, 1px); }
+      header nav .menu span {
+        display: block;
+        width: 15px;
+        height: 2px;
+        margin-bottom: 3px;
+        position: relative;
+        background: #572EE5;
+        z-index: 1;
+        transform-origin: 3px 0px;
+        transition: transform 0.5s ease,opacity 0.55s ease; }
+        header nav .menu span:first-child {
+          transform-origin: 0% 0%; }
+        header nav .menu span:nth-last-child(2) {
+          transform-origin: 0% 100%; }
+
+* {
+  padding: 0%;
+  margin: 0%;
+  border: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box; }
+
+@media screen and (max-width: 1000px) {
+  main {
+    overflow: hidden; } }
+
+/*# sourceMappingURL=style.css.map */
