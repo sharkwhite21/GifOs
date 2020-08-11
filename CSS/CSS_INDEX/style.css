@@ -37,6 +37,7 @@ header {
             color: #FFFFFF;
             padding: 16px 5%;
             display: block;
+            font-weight: 700;
             font-family: "Montserrat", sans-serif; }
             header nav .menu ul li a:hover {
               background: unset;
@@ -80,6 +81,75 @@ header {
           transform-origin: 0% 0%; }
         header nav .menu span:nth-last-child(2) {
           transform-origin: 0% 100%; }
+
+main .primera_seccion {
+  display: flex;
+  align-items: center;
+  flex-direction: column; }
+  main .primera_seccion h1 {
+    font-weight: 700;
+    font-size: 25px;
+    text-align: center;
+    line-height: 33px;
+    color: #572EE5;
+    width: 286px;
+    height: 99px;
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 30px; }
+    main .primera_seccion h1 span {
+      color: #50E3C2; }
+  main .primera_seccion img {
+    width: 273px;
+    height: 130px; }
+  main .primera_seccion p {
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    color: #572EE5;
+    line-height: 25px;
+    font-weight: 700;
+    font-size: 16px; }
+    main .primera_seccion p:last-child {
+      font-weight: 500;
+      width: 225px;
+      height: 50px;
+      font-size: 14px;
+      margin-bottom: 30px; }
+  main .primera_seccion .box {
+    width: 284px;
+    height: 50px;
+    margin-bottom: 20px; }
+    main .primera_seccion .box .container-1 {
+      border: solid #572EE5 1px;
+      border-radius: 27px;
+      height: 40px;
+      padding-top: 9px; }
+      main .primera_seccion .box .container-1 input {
+        float: left;
+        margin-left: 25px;
+        font-size: 16px; }
+      main .primera_seccion .box .container-1 a {
+        float: right;
+        margin-right: 20px; }
+        main .primera_seccion .box .container-1 a img {
+          width: 20px;
+          height: 20px; }
+main .segunda_seccion {
+  background-color: #F3F5F8;
+  width: 100vmin;
+  height: 430px; }
+  main .segunda_seccion h2 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+    line-height: 30px;
+    color: #572EE5;
+    padding-top: 45px;
+    padding-bottom: 10px; }
+  main .segunda_seccion p {
+    font-family: "Roboto", sans-serif;
+    color: #000000;
+    text-align: center; }
 
 * {
   padding: 0%;
