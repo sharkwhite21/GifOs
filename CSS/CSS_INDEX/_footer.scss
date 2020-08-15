@@ -1,0 +1,22 @@
+footer{
+    width: 100vmin;
+    height: 196px;
+    border-bottom: solid $bg-primary 5px;
+    p{
+        font-size: 15px;
+        font-family: $fuente_2;
+        text-align: center;
+        padding-top: 45px;
+    }
+
+    .logos{
+        padding-top: 25px;
+        display: flex;
+        justify-content: center;
+        a{
+            width: 18px;
+            height: 18px;
+            margin: 0px 15px;
+        }
+    }
+}

@@ -86,6 +86,17 @@ main{
             padding-bottom: 10px;
         }
 
+        .Imagenes{
+            display: flex;
+            margin-top: 40px;
+            
+            img{
+                width: 243px;
+                height: 187px;
+                margin: 0px 10px;                
+            }
+        }
+
         p{
             font-family: $fuente_2;
             color: $color;

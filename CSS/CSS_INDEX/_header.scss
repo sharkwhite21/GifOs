@@ -1,7 +1,6 @@
 header{
     width: 100%;
     height: 95px;
-    top: 0px;
     padding: 20px 5%;
     border-top: solid $bg-primary 5px;
 
@@ -28,9 +27,11 @@ header{
                 background: #f2f2f2;
                 height: 0px;
                 transition: height 0.5s ease;
-
+                //text-decoration: underline solid ;
                 li{
-                    position: relative;             
+                    position: relative;
+                    border-bottom: solid $bg-four;
+                    //border-width: 10px;             
 
                     a{
                         position: relative;
@@ -42,6 +43,7 @@ header{
                         padding: 16px 5%;
                         display: block;
                         font-weight: 700;
+                        padding-bottom: 5px;
                         font-family: $fuente_1;
                         &:hover{
                             background: unset;                           

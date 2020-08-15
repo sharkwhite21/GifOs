@@ -1,7 +1,6 @@
 header {
   width: 100%;
   height: 95px;
-  top: 0px;
   padding: 20px 5%;
   border-top: solid #572EE5 5px; }
   header .logo {
@@ -27,7 +26,8 @@ header {
         height: 0px;
         transition: height 0.5s ease; }
         header nav .menu ul li {
-          position: relative; }
+          position: relative;
+          border-bottom: solid #9CAFC3; }
           header nav .menu ul li a {
             position: relative;
             text-align: center;
@@ -38,6 +38,7 @@ header {
             padding: 16px 5%;
             display: block;
             font-weight: 700;
+            padding-bottom: 5px;
             font-family: "Montserrat", sans-serif; }
             header nav .menu ul li a:hover {
               background: unset;
@@ -146,10 +147,35 @@ main .segunda_seccion {
     color: #572EE5;
     padding-top: 45px;
     padding-bottom: 10px; }
+  main .segunda_seccion .Imagenes {
+    display: flex;
+    margin-top: 40px; }
+    main .segunda_seccion .Imagenes img {
+      width: 243px;
+      height: 187px;
+      margin: 0px 10px; }
   main .segunda_seccion p {
     font-family: "Roboto", sans-serif;
     color: #000000;
     text-align: center; }
+
+footer {
+  width: 100vmin;
+  height: 196px;
+  border-bottom: solid #572EE5 5px; }
+  footer p {
+    font-size: 15px;
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+    padding-top: 45px; }
+  footer .logos {
+    padding-top: 25px;
+    display: flex;
+    justify-content: center; }
+    footer .logos a {
+      width: 18px;
+      height: 18px;
+      margin: 0px 15px; }
 
 * {
   padding: 0%;
@@ -158,6 +184,32 @@ main .segunda_seccion {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box; }
+  * .oscuro {
+    background-color: #37383C;
+    color: #FFFFFF; }
+    * .oscuro header {
+      border-top: solid #000000 5px; }
+      * .oscuro header .menu input[type="checkbox"]:checked ~ ul {
+        background: #000000; }
+      * .oscuro header .menu span {
+        background: #FFFFFF; }
+      * .oscuro header .menu ul li {
+        background-color: #000000;
+        color: #FFFFFF; }
+    * .oscuro main .primera_seccion h1 {
+      color: #FFFFFF; }
+    * .oscuro main .primera_seccion p {
+      color: #FFFFFF; }
+    * .oscuro main .primera_seccion .box .container-1 input {
+      background-color: #37383C; }
+    * .oscuro main .segunda_seccion {
+      background-color: #222326; }
+      * .oscuro main .segunda_seccion h2 {
+        color: #FFFFFF; }
+      * .oscuro main .segunda_seccion p {
+        color: #FFFFFF; }
+    * .oscuro footer {
+      border-bottom: solid #000000 5px; }
 
 @media screen and (max-width: 1000px) {
   main {
