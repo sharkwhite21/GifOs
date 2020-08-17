@@ -1,7 +1,6 @@
-
 function cambiarColor() {
-    let img = document.querySelector('.logo'); 
-    var cuerpoweb = document.body;   
+    let img = document.querySelector('.logo');
+    let cuerpoweb = document.body;   
     let comparacion = img.getAttribute('src');
 
     cuerpoweb.classList.toggle("oscuro");
@@ -10,10 +9,14 @@ function cambiarColor() {
 
     if ( comparacion == "Sources\\assets\\logo-mobile.svg" ){
         img.removeAttribute('src');
-        img.setAttribute('src','Sources\\assets\\logo-desktop-modo-noc.svg');
+        img.setAttribute('src','Sources\\assets\\logo-mobile-modo-noct.svg');
     }
     else {
        img.removeAttribute('src');
        img.setAttribute('src', 'Sources\\assets\\logo-mobile.svg');
-    }
+    }   
+}
+
+function zoom(){
+    
 }
