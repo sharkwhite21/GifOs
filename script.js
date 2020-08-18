@@ -17,6 +17,13 @@ function cambiarColor() {
     }   
 }
 
+function cambioIco(){
+    
+}
+
 function zoom(){
+    let cuerpo = document.createElement("div");
+    cuerpo.setAttribute("class","zoom")
+    document.querySelector("main").insertBefore(cuerpo, document.querySelector(".primera_seccion"));
     
 }
