@@ -11,9 +11,9 @@
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     //position: relative;
-    
-    /*
+    /*    
     .zoom{
+        
         position: absolute;
         z-index: 2;
         width: 100vw;
@@ -169,6 +169,18 @@
                         }
                     }
                 }
+            }
+
+            .failsearch{
+                h2{
+                    color: #FFFFFF;  
+                }
+
+                h3{
+                    color: #FFFFFF;
+                }
+                    
+
             }
             .segunda_seccion{
                 background-color: $bg-nocturno-dos;

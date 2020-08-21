@@ -70,21 +70,63 @@ main{
             }
         }
     }
-    .busqueda{
+
+    .failsearch{
         display: none;
-        border-top: solid $bg-four;
-        margin-bottom: 40px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 45px 0px 50px;
+        //border-top: solid $bg-four 2px;
+        span{
+            width: 150px;
+            height: 2px;
+            background: $bg-four;
+            margin-bottom: 15px;
+            
+        }
+        img{
+            width: 70px;
+            height: 70px;
+        }
+
         h2{
             font-family: $fuente_1;
             font-weight: 700;
             font-size: 25px;
-            text-align:center;
-            color: $bg-primary;
-            margin: 25px 0px;
+            color:$bg_primary;
+            margin: 35px 0px;
+
+        }
+
+        h3{
+            color:$bg-third;
+            font-size: 18px;
+            width: 256px;
+            margin-top: 30px;
+            font-family: $fuente_1;
+            font-weight: 700;
         }
     }
+
     .favoritos{
-        display: none;
+        .no_found{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin: 70px 0px;
+            img{
+                width: 70px;
+                height: 70px;
+            }
+            h2{
+                color:$bg-third;
+                font-size: 18px;
+                width: 230px;
+                margin-top: 20px;
+            }
+        }
         div{
             display: flex;
             align-items: center;
@@ -109,7 +151,8 @@ main{
     }
 
     .busqueda_img{
-        display: flex;
+
+        display: none;
         flex-flow: row wrap;
         justify-content: center;
 
@@ -132,8 +175,24 @@ main{
                 h2{
                     font-size: 13px;
                 }
+            }
+        }
+    
+
+    .busqueda{
+        display: none;
+        border-top: solid $bg-four;
+        margin-bottom: 40px;
+        h2{
+            font-family: $fuente_1;
+            font-weight: 700;
+            font-size: 25px;
+            text-align:center;
+            color: $bg-primary;
+            margin: 25px 0px;
         }
     }
+
 
     .segunda_seccion{
         background-color: $color_active;
@@ -239,4 +298,5 @@ main{
             text-align: center;
         }
     }
+
 }

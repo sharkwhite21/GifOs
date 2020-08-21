@@ -27,7 +27,7 @@ header {
         transition: height 0.5s ease; }
         header nav .menu ul li {
           position: relative;
-          border-bottom: solid #9CAFC3; }
+          width: 140px; }
           header nav .menu ul li a {
             position: relative;
             text-align: center;
@@ -45,6 +45,11 @@ header {
               text-decoration: underline solid #5ED7C6; }
             header nav .menu ul li a:active {
               color: #F3F5F8; }
+        header nav .menu ul span {
+          width: 50px;
+          height: 2px;
+          background: #9CAFC3;
+          text-align: center; }
       header nav .menu input[type="checkbox"]:checked ~ ul {
         height: 484px;
         transition: height 0.5s ease-in-out;
@@ -52,7 +57,10 @@ header {
         -o-transition: height 0.5s ease-in-out;
         -webkit-transition: height 0.5s ease-in-out;
         margin-top: 35px;
-        background: rgba(87, 46, 229, 0.9); }
+        background: rgba(87, 46, 229, 0.9);
+        display: flex;
+        flex-direction: column;
+        align-items: center; }
       header nav .menu input {
         display: block;
         width: 40px;
@@ -134,38 +142,66 @@ main .primera_seccion {
         main .primera_seccion .box .container-1 a img {
           width: 20px;
           height: 20px; }
-main .busqueda {
+main .failsearch {
   display: none;
-  border-top: solid #9CAFC3;
-  margin-bottom: 40px; }
-  main .busqueda h2 {
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 45px 0px 50px; }
+  main .failsearch span {
+    width: 150px;
+    height: 2px;
+    background: #9CAFC3;
+    margin-bottom: 15px; }
+  main .failsearch img {
+    width: 70px;
+    height: 70px; }
+  main .failsearch h2 {
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
     font-size: 25px;
-    text-align: center;
     color: #572EE5;
-    margin: 25px 0px; }
-main .favoritos {
-  display: none; }
-  main .favoritos div {
-    display: flex;
-    align-items: center;
-    justify-content: center; }
-    main .favoritos div img {
-      margin: center;
-      text-align: center; }
-  main .favoritos img {
+    margin: 35px 0px; }
+  main .failsearch h3 {
+    color: #50E3C2;
+    font-size: 18px;
+    width: 256px;
+    margin-top: 30px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700; }
+main .favoritos .no_found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 70px 0px; }
+  main .favoritos .no_found img {
+    width: 70px;
+    height: 70px; }
+  main .favoritos .no_found h2 {
+    color: #50E3C2;
+    font-size: 18px;
+    width: 230px;
+    margin-top: 20px; }
+main .favoritos div {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  main .favoritos div img {
     margin: center;
     text-align: center; }
-  main .favoritos h2 {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 700;
-    font-size: 25px;
-    text-align: center;
-    color: #572EE5;
-    margin: 10px 0px; }
+main .favoritos img {
+  margin: center;
+  text-align: center; }
+main .favoritos h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  text-align: center;
+  color: #572EE5;
+  margin: 10px 0px; }
 main .busqueda_img {
-  display: flex;
+  display: none;
   flex-flow: row wrap;
   justify-content: center; }
   main .busqueda_img img {
@@ -183,6 +219,17 @@ main .busqueda_img {
     justify-content: center; }
     main .busqueda_img .ver_mas h2 {
       font-size: 13px; }
+main .busqueda {
+  display: none;
+  border-top: solid #9CAFC3;
+  margin-bottom: 40px; }
+  main .busqueda h2 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+    text-align: center;
+    color: #572EE5;
+    margin: 25px 0px; }
 main .segunda_seccion {
   background-color: #F3F5F8;
   width: 100vw;
@@ -287,8 +334,9 @@ footer {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-    /*
+    /*    
     .zoom{
+        
         position: absolute;
         z-index: 2;
         width: 100vw;
@@ -370,7 +418,7 @@ footer {
 
             .links{
                 float:right;
-                width: 50%;
+                width: 50%; 
                 display: flex;
                 padding-left: 60px;
                 padding-top: 7px;
@@ -421,6 +469,10 @@ footer {
     * .oscuro main .primera_seccion .box .container-1 input {
       background-color: #37383C;
       color: #000000; }
+    * .oscuro main .failsearch h2 {
+      color: #FFFFFF; }
+    * .oscuro main .failsearch h3 {
+      color: #FFFFFF; }
     * .oscuro main .segunda_seccion {
       background-color: #222326; }
       * .oscuro main .segunda_seccion h2 {
