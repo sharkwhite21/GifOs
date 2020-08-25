@@ -19,4 +19,53 @@ footer{
             margin: 0px 15px;
         }
     }
+
+    @media screen and (min-width: 1000px){
+        height: 116px;
+        display: flex;
+        overflow: hidden;
+
+        p{
+            font-size:13px;
+            margin-left: 150px;
+            margin-right: 25px;
+
+            &:last-child{
+                
+                margin-right: 0px;
+                margin-left: 700px;
+            }
+        }
+
+        .logos{
+            padding-top: 45px;
+            a{
+                margin: 0px 10px;
+            }
+
+            #Clip-4:hover{
+                fill: $bg-primary;
+            }
+
+            #Clip-4:active{
+                fill: $bg-primary;
+            }
+            
+            #Clip-19:hover{
+                fill: $bg-primary;
+            }
+
+            #Clip-19:active{
+                fill: $bg-primary;
+            }
+
+            #Clip-5:hover{
+                fill: $bg-primary;
+            }
+
+            #Clip-5:active{
+                fill: $bg-primary;
+            }
+        }
+    }
 }

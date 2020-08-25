@@ -3,6 +3,8 @@ header {
   height: 95px;
   padding: 20px 5%;
   border-top: solid #572EE5 5px; }
+  header .desktop {
+    display: none; }
   header .logo {
     float: left;
     width: 54px; }
@@ -28,6 +30,8 @@ header {
         header nav .menu ul li {
           position: relative;
           width: 140px; }
+          header nav .menu ul li .desktop {
+            display: none; }
           header nav .menu ul li a {
             position: relative;
             text-align: center;
@@ -90,6 +94,49 @@ header {
           transform-origin: 0% 0%; }
         header nav .menu span:nth-last-child(2) {
           transform-origin: 0% 100%; }
+  @media screen and (min-width: 1000px) {
+    header {
+      overflow: hidden; }
+      header .logo {
+        width: 60px; }
+      header nav .menu ul {
+        position: relative;
+        top: 0;
+        right: 0;
+        overflow: hidden;
+        background: unset;
+        height: unset;
+        display: flex;
+        align-items: center; }
+        header nav .menu ul .mobile {
+          display: none; }
+        header nav .menu ul li {
+          display: inline-block; }
+          header nav .menu ul li a {
+            color: #572EE5;
+            padding: unset;
+            line-height: unset;
+            font-family: "Montserrat", sans-serif;
+            font-size: 13px; }
+            header nav .menu ul li a:hover {
+              background: unset;
+              color: #00F3BB;
+              text-decoration: line-through; }
+            header nav .menu ul li a:active {
+              color: #F3F5F8; }
+          header nav .menu ul li:nth-child(5) {
+            padding-left: 25px; }
+          header nav .menu ul li:last-child div {
+            border: solid #572EE5 1px;
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+            width: 45px;
+            height: 45px; }
+      header nav .menu input {
+        display: none; }
+      header nav .menu span {
+        display: none; } }
 
 main .primera_seccion {
   display: flex;
@@ -201,7 +248,7 @@ main .favoritos h2 {
   color: #572EE5;
   margin: 10px 0px; }
 main .busqueda_img {
-  display: none;
+  display: flex;
   flex-flow: row wrap;
   justify-content: center; }
   main .busqueda_img img {
@@ -234,26 +281,47 @@ main .segunda_seccion {
   background-color: #F3F5F8;
   width: 100vw;
   height: 430px; }
-  main .segunda_seccion h2 {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 700;
-    font-size: 20px;
-    text-align: center;
-    line-height: 30px;
-    color: #572EE5;
-    padding-top: 45px;
-    padding-bottom: 10px; }
+  main .segunda_seccion .info {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    main .segunda_seccion .info h2 {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      text-align: center;
+      line-height: 30px;
+      color: #572EE5;
+      padding-top: 45px;
+      padding-bottom: 10px; }
+    main .segunda_seccion .info p {
+      font-family: "Roboto", sans-serif;
+      color: #000000;
+      text-align: center; }
   main .segunda_seccion .imagenes {
     display: flex;
     margin-top: 40px; }
-    main .segunda_seccion .imagenes .sombra {
+    main .segunda_seccion .imagenes .flechas {
+      border: solid #572EE5 1px;
+      width: 40px;
+      height: 40px;
       display: none;
+      align-items: center;
+      justify-content: center; }
+      main .segunda_seccion .imagenes .flechas svg {
+        fill: #572EE5; }
+    main .segunda_seccion .imagenes div div {
+      position: relative; }
+    main .segunda_seccion .imagenes .sombra {
+      position: absolute;
+      display: flex;
       flex-direction: column;
       z-index: 3;
-      opacity: 0.7;
+      opacity: 0;
       background: #572EE5;
       width: 243px;
-      height: 187px; }
+      height: 187px;
+      margin-left: 10px; }
       main .segunda_seccion .imagenes .sombra .contenido {
         place-items: baseline;
         height: 60px;
@@ -298,16 +366,86 @@ main .segunda_seccion {
             padding-top: 4px; }
         main .segunda_seccion .imagenes .sombra .links .ultimo {
           opacity: 1; }
+    main .segunda_seccion .imagenes .sombra:hover {
+      opacity: 0.7; }
+    main .segunda_seccion .imagenes .flechas:hover {
+      background-color: #572EE5; }
+      main .segunda_seccion .imagenes .flechas:hover svg {
+        fill: #FFFFFF; }
     main .segunda_seccion .imagenes div {
       display: flex; }
       main .segunda_seccion .imagenes div img {
         width: 243px;
         height: 187px;
         margin: 0px 10px; }
-  main .segunda_seccion p {
-    font-family: "Roboto", sans-serif;
-    color: #000000;
-    text-align: center; }
+@media screen and (min-width: 1000px) {
+  main {
+    overflow: hidden; }
+    main .primera_seccion h1 {
+      font-size: 36px;
+      width: 585px;
+      line-height: 50px;
+      margin: 60px 0px; }
+    main .primera_seccion img {
+      width: 400px;
+      height: 190px; }
+    main .primera_seccion .box {
+      width: 551px;
+      height: 50px; }
+    main .primera_seccion p {
+      font-size: 18px;
+      margin-top: 50px; }
+      main .primera_seccion p:last-child {
+        font-size: 16px;
+        width: 402px;
+        margin-top: 0px;
+        margin-bottom: 50px; }
+    main .segunda_seccion {
+      height: 640px; }
+      main .segunda_seccion .info h2 {
+        font-size: 25px;
+        margin-top: 70px; }
+      main .segunda_seccion .info p {
+        font-size: 18px;
+        width: 390px; }
+      main .segunda_seccion .imagenes {
+        align-items: center;
+        justify-content: center;
+        margin-top: 80px; }
+        main .segunda_seccion .imagenes .flechas {
+          display: flex; }
+        main .segunda_seccion .imagenes div div img {
+          width: 357px;
+          height: 275px; }
+        main .segunda_seccion .imagenes div div .sombra {
+          width: 357px;
+          height: 275px;
+          margin-left: 10px; }
+          main .segunda_seccion .imagenes div div .sombra .links {
+            padding-top: 10px;
+            padding-right: 10px; }
+            main .segunda_seccion .imagenes div div .sombra .links .box {
+              width: 37px;
+              height: 37px; }
+          main .segunda_seccion .imagenes div div .sombra .contenido {
+            margin-top: 120px;
+            margin-left: 20px; }
+    main .favoritos .no_found {
+      display: none; }
+      main .favoritos .no_found img {
+        width: 150px;
+        height: 150px; }
+      main .favoritos .no_found h2 {
+        line-height: 33px;
+        font-size: 22px;
+        width: 430px; }
+    main .busqueda_img .imagenes_resultado {
+      margin: 0px 50px;
+      padding-left: 105px;
+      align-items: center; }
+      main .busqueda_img .imagenes_resultado img {
+        width: 260px;
+        height: 200px; } }
 
 footer {
   width: 100vw;
@@ -326,6 +464,34 @@ footer {
       width: 18px;
       height: 18px;
       margin: 0px 15px; }
+  @media screen and (min-width: 1000px) {
+    footer {
+      height: 116px;
+      display: flex;
+      overflow: hidden; }
+      footer p {
+        font-size: 13px;
+        margin-left: 150px;
+        margin-right: 25px; }
+        footer p:last-child {
+          margin-right: 0px;
+          margin-left: 700px; }
+      footer .logos {
+        padding-top: 45px; }
+        footer .logos a {
+          margin: 0px 10px; }
+        footer .logos #Clip-4:hover {
+          fill: #572EE5; }
+        footer .logos #Clip-4:active {
+          fill: #572EE5; }
+        footer .logos #Clip-19:hover {
+          fill: #572EE5; }
+        footer .logos #Clip-19:active {
+          fill: #572EE5; }
+        footer .logos #Clip-5:hover {
+          fill: #572EE5; }
+        footer .logos #Clip-5:active {
+          fill: #572EE5; } }
 
 * {
   padding: 0%;
@@ -459,6 +625,8 @@ footer {
         background: #000000; }
       * .oscuro header .menu span {
         background: #FFFFFF; }
+      * .oscuro header .menu ul .desktop {
+        background-color: #37383C; }
       * .oscuro header .menu ul li {
         background-color: #000000;
         color: #FFFFFF; }

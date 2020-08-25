@@ -3,6 +3,10 @@ header{
     height: 95px;
     padding: 20px 5%;
     border-top: solid $bg-primary 5px;
+    
+    .desktop{
+        display: none;
+    }    
 
     .logo{
         float: left;
@@ -31,7 +35,11 @@ header{
                 li{
                     position: relative;
                     width: 140px;
-        
+
+                    .desktop{
+                        display: none;
+                    }    
+            
 
                     a{
                         position: relative;
@@ -45,6 +53,7 @@ header{
                         font-weight: 700;
                         padding-bottom: 5px;
                         font-family: $fuente_1;
+
                         &:hover{
                             background: unset;                           
                             text-decoration: underline solid $color_link;                             
@@ -120,6 +129,85 @@ header{
                 }
             }
 
+        }
+    }
+
+    @media screen and (min-width: 1000px){
+        overflow: hidden;
+       //padding: 10px 5px 10px 70px;
+       .logo{
+            width: 60px;
+        }
+                    
+        nav{
+          
+            .menu{
+                                  
+                ul{
+
+                    position: relative;
+                    top: 0;
+                    right: 0;
+                    overflow: hidden;
+                    background: unset;
+                    height: unset;
+                    
+                    display: flex;
+                    align-items: center;
+                    
+
+                    .mobile{
+                        display: none;
+                    }
+
+                    li{
+                        //padding: 5px 25px;
+                        display: inline-block;
+                        
+                        a{
+                            color: $bg-primary;
+                            padding: unset;
+                            line-height: unset;
+                            font-family: $fuente_1;
+                            font-size: 13px;
+                            
+                            &:hover{
+                                background: unset;
+                                color: $bottom_1;
+                                text-decoration: line-through;
+
+                                
+                            }
+
+                            &:active{
+                                color:$color_active;
+                            }
+                        }
+
+                        &:nth-child(5){
+                            padding-left: 25px;
+                        }
+                        &:last-child{
+                            
+                          div{
+                                border: solid $bg-primary 1px;
+                                border-radius: 50px;
+                                display: flex;
+                                justify-content: center;
+                                width: 45px;
+                                height: 45px;
+                            }
+
+                        }
+                    }
+                }
+                input{
+                    display: none;
+                }
+                span{
+                    display:none;
+                }
+            }
         }
     }
 }

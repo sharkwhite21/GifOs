@@ -17,6 +17,25 @@ function cambiarColor() {
     }   
 }
 
+function cambiarColor2() {
+    let img = document.querySelector('.logo');
+    let cuerpoweb = document.body;   
+    let comparacion = img.getAttribute('src');
+
+    cuerpoweb.classList.toggle("oscuro");
+    
+    color2.innerHTML=color2.innerHTML=="MODO NOCTURNO"?"MODO DIURNO":"MODO NOCTURNO";
+
+    if ( comparacion == "Sources\\assets\\logo-mobile.svg" ){
+        img.removeAttribute('src');
+        img.setAttribute('src','Sources\\assets\\logo-mobile-modo-noct.svg');
+    }
+    else {
+       img.removeAttribute('src');
+       img.setAttribute('src', 'Sources\\assets\\logo-mobile.svg');
+    }   
+}
+
 function cambioIco(){
     
 }
