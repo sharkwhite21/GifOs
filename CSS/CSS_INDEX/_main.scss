@@ -1,6 +1,8 @@
 main{
     //width: 100vw;
-    
+
+
+
     .primera_seccion{
         display: flex;
         align-items: center;
@@ -111,6 +113,7 @@ main{
     }
 
     .favoritos{
+        margin-top: 30px;
         .no_found{
             display: flex;
             align-items: center;
@@ -153,7 +156,7 @@ main{
 
     .busqueda_img{
 
-        display: flex;
+        display: none;
         flex-flow: row wrap;
         justify-content: center;
 
@@ -175,6 +178,13 @@ main{
 
                 h2{
                     font-size: 13px;
+                }
+            }
+
+            .ver_mas:hover{
+                background-color: $bg-primary;
+                h2{
+                    color: $bg-secundary;
                 }
             }
         }
@@ -246,7 +256,7 @@ main{
             
             .sombra{
                 position: absolute;
-                display: flex;
+                display: none;
                 flex-direction: column;
                 z-index: 3;
                 opacity: 0;
@@ -407,6 +417,7 @@ main{
                             height: 275px;
                         }
                         .sombra{
+                            display: flex;
                             width: 357px;
                             height: 275px;
                             margin-left: 10px;
@@ -432,7 +443,7 @@ main{
 
         .favoritos{
             .no_found{
-                display: none;
+                display: flex;
                 img{
                     width: 150px;
                     height: 150px;

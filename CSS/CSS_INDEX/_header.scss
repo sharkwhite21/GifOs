@@ -188,15 +188,24 @@ header{
                             padding-left: 25px;
                         }
                         &:last-child{
-                            
-                          div{
+                            div{
                                 border: solid $bg-primary 1px;
                                 border-radius: 50px;
                                 display: flex;
                                 justify-content: center;
                                 width: 45px;
                                 height: 45px;
+                                svg{
+                                    margin-top: 13px;
+                                }
                             }
+                            div:hover{
+                                background-color: $bg-primary;
+                                #path-1{
+                                    fill: #f2f2f2;
+                                }
+                            }
+
 
                         }
                     }

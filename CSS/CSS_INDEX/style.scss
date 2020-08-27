@@ -2,6 +2,7 @@
 @import "header";
 @import "main";
 @import "footer";
+@import "oscuro";
 
 *{
     padding: 0%;
@@ -12,7 +13,7 @@
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     //position: relative;
-    /*    
+        
     .zoom{
         
         position: absolute;
@@ -20,7 +21,7 @@
         width: 100vw;
         height: 100vh;
         background-color:  rgba(255,255,255,0.90);
-        display: flex;
+        display: none;
         align-items: center;
         flex-direction: column;
 
@@ -34,7 +35,7 @@
             padding-right: 5px;
             padding-top: 5px;
             a{
-                width: 40px;
+                width: 50px;
                 height: 40px;
             }
             img{
@@ -127,80 +128,8 @@
                 }
             }
         }
-    }*/
-    
-    .oscuro{ 
-        background-color: $bg-nocturno; 
-        color: $bg-secundary;
-        header{
-            border-top: solid $color 5px;
-            .menu{
-
-                input[type="checkbox"]:checked ~ ul {
-                    background:$color; 
-                }
-
-                span{
-                    background:$bg-secundary;
-                }
-                
-                ul{
-                    .desktop{
-                        background-color: $bg-nocturno;
-                    }
-                    li{
-                        background-color: $color;
-                        color: $bg-secundary;
-                    }
-                }
-            }
-        }
-        main{
-            
-            .primera_seccion{
-                h1{
-                    color:$bg-secundary;
-                }
-                p{
-                    color:$bg-secundary;
-                }
-                .box{
-                    .container-1{
-                        
-                        input{
-                            background-color: $bg-nocturno;
-                            color:  #000000; 
-                        }
-                    }
-                }
-            }
-
-            .failsearch{
-                h2{
-                    color: #FFFFFF;  
-                }
-
-                h3{
-                    color: #FFFFFF;
-                }
-                    
-
-            }
-            .segunda_seccion{
-                background-color: $bg-nocturno-dos;
-                h2{
-                    color:$bg-secundary;
-                }
-                p{
-                    color:$bg-secundary;
-                }                
-            }
-        }
-
-        footer{
-            border-bottom: solid $color 5px;
-        }
     }
+    
 }
 main{
     @media screen and (max-width: 1000px){
@@ -208,3 +137,4 @@ main{
         
      }    
 }
+
