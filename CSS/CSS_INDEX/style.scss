@@ -37,6 +37,7 @@
             a{
                 width: 50px;
                 height: 40px;
+                margin-right: 7px;
             }
             img{
                 width: 15px;
@@ -72,9 +73,13 @@
             }
         }
 
-        img{
-            width: 290px;
-            height: 230px;
+        .pasarela{
+
+            img{
+                width: 290px;
+                height: 230px;
+            }
+
         }
 
         .seccion_baja{
@@ -101,7 +106,7 @@
                 display: flex;
                 padding-left: 60px;
                 padding-top: 7px;
-
+                
                 img{
                     width: 25px;
                     height: 25px;
@@ -119,6 +124,7 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    padding-top: 3px;
                     img{
                         width: 20px;
                         height: 20px;
@@ -131,10 +137,53 @@
     }
     
 }
-main{
-    @media screen and (max-width: 1000px){
-        overflow: hidden;
+
+@media screen and (min-width: 1000px){
+
+
+    .zoom{
+        display: flex;
+        background-color:  rgba(255,255,255,1);
         
-     }    
+        .pasarela{
+            
+            .flechas{
+                border:solid $bg-primary 1px;
+                width: 40px;
+                height: 40px;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                svg{
+                    fill: $bg-primary;
+                }
+            }
+
+            .flechas:hover{
+                background-color: $bg-primary;
+                svg{
+                    fill: #FFFFFF;
+                }
+            }
+
+            img{
+                width: 695px;
+                height: 385px;
+            }
+        }
+
+        .seccion_baja{
+            width: 50vmax;
+            .contenido{
+            //width: 0%;
+            padding-left: 0px;
+            }
+
+            .links{
+                //width: 0%;
+                padding-left: 250px;
+            }
+        }
+    }    
 }
 

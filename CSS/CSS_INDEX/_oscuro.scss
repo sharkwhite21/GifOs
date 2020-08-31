@@ -16,6 +16,9 @@
             ul{
                 .desktop{
                     background-color: $bg-nocturno;
+                    a{
+                        color: $bg-secundary;
+                    }
                 }
                 li{
                     background-color: $color;
@@ -63,6 +66,17 @@
             p{
                 color:$bg-secundary;
             }                
+        }
+
+        .favoritos{
+            h2{
+                color: $bg-secundary;
+            }
+            .no_found{
+                h2{
+                    color: $bg-secundary;
+                }
+            }
         }
     }
 

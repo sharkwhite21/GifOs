@@ -197,11 +197,14 @@ header{
                                 height: 45px;
                                 svg{
                                     margin-top: 13px;
+                                    &:hover{
+                                        color: #f2f2f2;
+                                    }
                                 }
                             }
                             div:hover{
                                 background-color: $bg-primary;
-                                #path-1{
+                                svg:hover{
                                     fill: #f2f2f2;
                                 }
                             }

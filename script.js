@@ -1,3 +1,4 @@
+//variables a declara para el cambio nocturno y diurno.
 let cambio = document.querySelector('.cambio');
 cambio.addEventListener('click', cambiarColor, false);
 
@@ -6,8 +7,6 @@ cambio2.addEventListener('click', cambiarColor, false);
 
 let color = document.querySelector('#color');
 let color2 = document.querySelector('#color2'); 
-//let img = document.querySelector('.logo');
-//let comparacion = img.getAttribute('src');
 
 function cambiarColor() {
 
@@ -78,34 +77,37 @@ if (localStorage.getItem('dark')=== 'true') {
     }
 }
 
-/*
+
+//codigo para el zoom, de las imagenes.
+
 let lista = document.querySelectorAll(".contenedor > div");
-
-for (i = 0; i < lista.length; i++) {
-    lista[i].childNodes[1].addEventListener('touchstart', zoom(lista[i].childNodes[1].getAttribute('src')), false);
-  };
-
-function zoom(foto){
-    
-    window.scroll(0, 0);
-
-    let vista = document.querySelector('.zoom');
-    vista.style.display= "flex";
-    
-    let menu = document.querySelector('.menu');
-    menu.style.display="none";
-
-    let primer = document.querySelector('.primera_seccion');
-    primer.style.display = "none";
-
-    vista.childNodes[3].removeAttribute('src');
-    vista.setAttribute('scr', foto)
-}
-
-
 let cierre =document.querySelector(".zoom > .close");
 cierre.addEventListener('touchstart', close, false);
 
+for (i = 0; i < lista.length; i++) {
+    lista[i].childNodes[1].addEventListener('touchstart', zoom, false);
+};
+
+function zoom(e){
+    
+    
+    let imagen = e.target.getAttribute('src');
+    
+    let vista = document.querySelector('.zoom');
+    vista.style.display= "flex";
+    
+    
+    let menu = document.querySelector('.menu');
+    menu.style.display="none";
+    
+    let primer = document.querySelector('.primera_seccion');
+    primer.style.display = "none";
+    
+    vista.childNodes[3].removeAttribute('src');
+    vista.childNodes[3].setAttribute('scr', imagen);
+    
+    window.scroll(0, 0);
+}
 
 function close(){
     let vista = document.querySelector('.zoom');
@@ -116,4 +118,4 @@ function close(){
 
     let primer = document.querySelector('.primera_seccion');
     primer.style.display = "flex";
-}*/
+}
