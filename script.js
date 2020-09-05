@@ -18,6 +18,17 @@ const buttonNext = document.querySelector('.right');
 let imagenes_resultado = document.querySelector('.imagenes_resultado');
 const search = document.querySelector('#search');
 let tituloBusqueda = document.querySelector('.busqueda > h2');
+let tituloFail = document.querySelector ('.failsearch > h2')
+const ver = document.querySelector('.ver_mas');
+
+
+ver.onclick = () => {
+    obtenerBusquedaGifs(search.value);
+};
+
+
+const failSearch = document.querySelector('.failsearch');
+
 
 function cambiarColor() {
 
@@ -233,11 +244,24 @@ function obtenerBusquedaGifs(searching) {
         if (success.ok) {
             return success.json();
         } else {
+            failsearch.style.display = 'flex';
             throw new Error(('success') + 'no se puede comunicar con la API');
         }
     })
     .then((data) => {
-        data.data.forEach((el) => {
+        console.log(data.data.length);
+
+        if (data.data.length == '0') {
+            tituloFail.innerHTML= searching;
+            busqueda.style.display = 'none';
+            failSearch.style.display ='flex';         
+        }
+        else{
+            tituloBusqueda.innerHTML= searching;
+
+            failSearch.style.display ='none'; 
+            busqueda.style.display = 'flex';
+            data.data.forEach((el) => {
             
             //aqui va  la creacion de cada imagen
             /**
@@ -261,11 +285,12 @@ function obtenerBusquedaGifs(searching) {
             const image = document.createElement('img');
             image.src = el.images.downsized.url;
             div.appendChild(image); */
-
+            
             const image = document.createElement('img');
             image.src = el.images.downsized.url;
             imagenes_resultado.appendChild(image); 
         });
+        }
     })
 
     .catch((err) => {
@@ -273,16 +298,12 @@ function obtenerBusquedaGifs(searching) {
     })
 }
 
+//ver.addEventListener('click', obtenerBusquedaGifs(search.value));
+
 function busquedaGifs(){
-
-    tituloBusqueda.innerHTML= search.value;
-    //console.log(search.value);
-
-    // if (condition) {
-        
-    // }
     obtenerBusquedaGifs(search.value);
 }
 
+//function nuevaBusqueda()
 
 
