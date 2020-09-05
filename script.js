@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 const api_key = "ROPHynejg9EN2A3Ck1EJ1zYD0rOs6cCg";
-=======
->>>>>>> bf31d6e0c244d7b22677b767943b1fee6b0d5459
 //variables a declara para el cambio nocturno y diurno.
 let cambio = document.querySelector('.cambio');
 cambio.addEventListener('click', cambiarColor, false);
@@ -11,7 +8,6 @@ cambio2.addEventListener('click', cambiarColor, false);
 
 let color = document.querySelector('#color');
 let color2 = document.querySelector('#color2'); 
-<<<<<<< HEAD
 
 let contenedor = document.querySelector('.contenedor');
 const busqueda = document.querySelector('.busqueda')
@@ -22,8 +18,6 @@ const buttonNext = document.querySelector('.right');
 let imagenes_resultado = document.querySelector('.imagenes_resultado');
 const search = document.querySelector('#search');
 let tituloBusqueda = document.querySelector('.busqueda > h2');
-=======
->>>>>>> bf31d6e0c244d7b22677b767943b1fee6b0d5459
 
 function cambiarColor() {
 
@@ -161,12 +155,6 @@ function Move(number) {
     
 //codigo para el zoom, de las imagenes.
 
-<<<<<<< HEAD
-=======
-
-//codigo para el zoom, de las imagenes.
-
->>>>>>> bf31d6e0c244d7b22677b767943b1fee6b0d5459
 let lista = document.querySelectorAll(".contenedor > div");
 let cierre =document.querySelector(".zoom > .close");
 cierre.addEventListener('touchstart', close, false);
@@ -190,13 +178,8 @@ function zoom(e){
     let primer = document.querySelector('.primera_seccion');
     primer.style.display = "none";
     
-<<<<<<< HEAD
     vista.childNodes[3].childNodes[3].removeAttribute('src');
     vista.childNodes[3].childNodes[3].setAttribute('scr', imagen);
-=======
-    vista.childNodes[3].removeAttribute('src');
-    vista.childNodes[3].setAttribute('scr', imagen);
->>>>>>> bf31d6e0c244d7b22677b767943b1fee6b0d5459
     
     window.scroll(0, 0);
 }
@@ -210,7 +193,6 @@ function close(){
 
     let primer = document.querySelector('.primera_seccion');
     primer.style.display = "flex";
-<<<<<<< HEAD
 }
 
 let ampliar = document.querySelectorAll(".links > .ultimo ");
@@ -304,6 +286,3 @@ function busquedaGifs(){
 
 
 
-=======
-}
->>>>>>> bf31d6e0c244d7b22677b767943b1fee6b0d5459
