@@ -74,13 +74,9 @@
         }
 
         .pasarela{
-<<<<<<< HEAD
             .flechas{
                 display: none;
             }
-=======
-
->>>>>>> bf31d6e0c244d7b22677b767943b1fee6b0d5459
             img{
                 width: 290px;
                 height: 230px;
@@ -146,7 +142,6 @@
 
 @media screen and (min-width: 1000px){
 
-<<<<<<< HEAD
     body{
         overflow-x: hidden;
     }
@@ -167,29 +162,14 @@
             display: flex;
             align-items: center;
 
-=======
-
-    .zoom{
-        display: flex;
-        background-color:  rgba(255,255,255,1);
-        
-        .pasarela{
-            
->>>>>>> bf31d6e0c244d7b22677b767943b1fee6b0d5459
             .flechas{
                 border:solid $bg-primary 1px;
                 width: 40px;
                 height: 40px;
-<<<<<<< HEAD
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 margin: 0px 35px;
-=======
-                display: none;
-                align-items: center;
-                justify-content: center;
->>>>>>> bf31d6e0c244d7b22677b767943b1fee6b0d5459
                 svg{
                     fill: $bg-primary;
                 }
