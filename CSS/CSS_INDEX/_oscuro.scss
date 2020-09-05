@@ -23,6 +23,22 @@
                 li{
                     background-color: $color;
                     color: $bg-secundary;
+
+                    &:last-child{
+                        div{
+                            border: solid $bg-secundary 1px;
+                            svg{
+                                margin-top: 13px;
+                            }
+                        }
+
+                        div:hover{
+                            background-color: $bg-secundary;
+                            svg{
+                                color: $color;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -41,7 +57,7 @@
                     
                     input{
                         background-color: $bg-nocturno;
-                        color:  #000000; 
+                        color: $bg-secundary; 
                     }
                 }
             }
@@ -82,5 +98,35 @@
 
     footer{
         border-bottom: solid $color 5px;
+        .logos{
+            padding-top: 45px;
+            a{
+                margin: 0px 10px;
+            }
+
+            #Clip-4:hover{
+                fill: $bg-secundary;
+            }
+
+            #Clip-4:active{
+                fill: $bg-secundary;
+            }
+            
+            #Clip-19:hover{
+                fill: $bg-secundary;
+            }
+
+            #Clip-19:active{
+                fill: $bg-secundary;
+            }
+
+            #Clip-5:hover{
+                fill: $bg-secundary;
+            }
+
+            #Clip-5:active{
+                fill: $bg-secundary;
+            }
+        }
     }
 }

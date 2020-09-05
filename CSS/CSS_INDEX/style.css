@@ -120,8 +120,7 @@ header {
             font-size: 13px; }
             header nav .menu ul li a:hover {
               background: unset;
-              color: #00F3BB;
-              text-decoration: line-through; }
+              color: #00F3BB; }
             header nav .menu ul li a:active {
               color: #F3F5F8; }
           header nav .menu ul li:nth-child(5) {
@@ -135,12 +134,10 @@ header {
             height: 45px; }
             header nav .menu ul li:last-child div svg {
               margin-top: 13px; }
-              header nav .menu ul li:last-child div svg:hover {
-                color: #f2f2f2; }
-          header nav .menu ul li:last-child div:hover {
+          header nav .menu ul li div:hover {
             background-color: #572EE5; }
-            header nav .menu ul li:last-child div:hover svg:hover {
-              fill: #f2f2f2; }
+            header nav .menu ul li div:hover svg {
+              color: #f2f2f2; }
       header nav .menu input {
         display: none; }
       header nav .menu span {
@@ -557,13 +554,21 @@ footer {
     .oscuro header .menu ul li {
       background-color: #000000;
       color: #FFFFFF; }
+      .oscuro header .menu ul li:last-child div {
+        border: solid #FFFFFF 1px; }
+        .oscuro header .menu ul li:last-child div svg {
+          margin-top: 13px; }
+      .oscuro header .menu ul li:last-child div:hover {
+        background-color: #FFFFFF; }
+        .oscuro header .menu ul li:last-child div:hover svg {
+          color: #000000; }
   .oscuro main .primera_seccion h1 {
     color: #FFFFFF; }
   .oscuro main .primera_seccion p {
     color: #FFFFFF; }
   .oscuro main .primera_seccion .box .container-1 input {
     background-color: #37383C;
-    color: #000000; }
+    color: #FFFFFF; }
   .oscuro main .failsearch h2 {
     color: #FFFFFF; }
   .oscuro main .failsearch h3 {
@@ -580,6 +585,22 @@ footer {
     color: #FFFFFF; }
   .oscuro footer {
     border-bottom: solid #000000 5px; }
+    .oscuro footer .logos {
+      padding-top: 45px; }
+      .oscuro footer .logos a {
+        margin: 0px 10px; }
+      .oscuro footer .logos #Clip-4:hover {
+        fill: #FFFFFF; }
+      .oscuro footer .logos #Clip-4:active {
+        fill: #FFFFFF; }
+      .oscuro footer .logos #Clip-19:hover {
+        fill: #FFFFFF; }
+      .oscuro footer .logos #Clip-19:active {
+        fill: #FFFFFF; }
+      .oscuro footer .logos #Clip-5:hover {
+        fill: #FFFFFF; }
+      .oscuro footer .logos #Clip-5:active {
+        fill: #FFFFFF; }
 
 * {
   padding: 0%;

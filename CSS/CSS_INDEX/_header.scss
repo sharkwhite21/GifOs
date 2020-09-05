@@ -174,7 +174,7 @@ header{
                             &:hover{
                                 background: unset;
                                 color: $bottom_1;
-                                text-decoration: line-through;
+                                //text-decoration: line-through;
 
                                 
                             }
@@ -197,19 +197,15 @@ header{
                                 height: 45px;
                                 svg{
                                     margin-top: 13px;
-                                    &:hover{
-                                        color: #f2f2f2;
-                                    }
                                 }
                             }
-                            div:hover{
-                                background-color: $bg-primary;
-                                svg:hover{
-                                    fill: #f2f2f2;
-                                }
+                        }
+
+                        div:hover{
+                            background-color: $bg-primary;
+                            svg{
+                                color: #f2f2f2;
                             }
-
-
                         }
                     }
                 }

@@ -257,8 +257,8 @@ function obtenerBusquedaGifs(searching) {
             failSearch.style.display ='flex';         
         }
         else{
+            
             tituloBusqueda.innerHTML= searching;
-
             failSearch.style.display ='none'; 
             busqueda.style.display = 'flex';
             data.data.forEach((el) => {
