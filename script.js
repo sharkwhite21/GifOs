@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+const api_key = "ROPHynejg9EN2A3Ck1EJ1zYD0rOs6cCg";
+=======
+>>>>>>> bf31d6e0c244d7b22677b767943b1fee6b0d5459
+//variables a declara para el cambio nocturno y diurno.
 let cambio = document.querySelector('.cambio');
 cambio.addEventListener('click', cambiarColor, false);
 
@@ -6,8 +11,19 @@ cambio2.addEventListener('click', cambiarColor, false);
 
 let color = document.querySelector('#color');
 let color2 = document.querySelector('#color2'); 
-//let img = document.querySelector('.logo');
-//let comparacion = img.getAttribute('src');
+<<<<<<< HEAD
+
+let contenedor = document.querySelector('.contenedor');
+const busqueda = document.querySelector('.busqueda')
+
+const buttonPrev = document.querySelector('.left');
+const buttonNext = document.querySelector('.right');
+
+let imagenes_resultado = document.querySelector('.imagenes_resultado');
+const search = document.querySelector('#search');
+let tituloBusqueda = document.querySelector('.busqueda > h2');
+=======
+>>>>>>> bf31d6e0c244d7b22677b767943b1fee6b0d5459
 
 function cambiarColor() {
 
@@ -77,35 +93,113 @@ if (localStorage.getItem('dark')=== 'true') {
         img.setAttribute('src','Sources\\assets\\logo-mobile.svg');
     }
 }
+ //traida de las imagenes.
+document.addEventListener('DOMContentLoaded', getTendring);
 
-/*
-let lista = document.querySelectorAll(".contenedor > div");
-
-for (i = 0; i < lista.length; i++) {
-    lista[i].childNodes[1].addEventListener('touchstart', zoom(lista[i].childNodes[1].getAttribute('src')), false);
-  };
-
-function zoom(foto){
+function getTendring() {
+    const url = `http://api.giphy.com/v1/gifs/trending?api_key=${api_key}&limit=20`;
     
-    window.scroll(0, 0);
+    fetch(url)
+        .then((success) => {
+            if (success.ok) {
+                return success.json();
+            } else {
+                throw new Error(('success') + 'no se puede comunicar con la API');
+            }
+        })
 
-    let vista = document.querySelector('.zoom');
-    vista.style.display= "flex";
+        .then((data) => {
+            data.data.forEach((el) => {
+                //aqui va  la creacion de cada imagen
+                let div = document.createElement('div');
+                div.classList.add('imagen');
+                contenedor.appendChild(div);
+                const image = document.createElement('img');
+                image.src = el.images.downsized.url;
+                div.appendChild(image);               
+            });
+
+            window.slick = document.querySelectorAll('.imagen');
+            window.slickWidth = slick[0].offsetWidth;
+        })
+
+        .catch((err) => {
+            console.log(`${err}`);
+        })
+}
+
+// interacion carrousel
+
+
+const slickList = document.querySelector('.imagenes');
+const track = document.querySelector('.contenedor');
+
+buttonPrev.onclick = () => {
+    Move(1);
+};
+
+buttonNext.onclick = () => {
+    Move(2);
+};
+
     
-    let menu = document.querySelector('.menu');
-    menu.style.display="none";
+function Move(number) {
+ 
+    const trackWidth = track.offsetWidth;
+    const listWidth = slickList.offsetWidth;
 
-    let primer = document.querySelector('.primera_seccion');
-    primer.style.display = "none";
+    track.style.left == "" ? leftPosition = track.style.left = 0 : leftPosition = parseFloat(track.style.left.slice(0, -2) * -1);
 
-    vista.childNodes[3].removeAttribute('src');
-    vista.setAttribute('scr', foto)
+    if(leftPosition < (trackWidth - listWidth) && number == 2) {
+        track.style.left = `${-1 * (leftPosition + slickWidth)}px`;
+    } else if(leftPosition > 0 && number == 1) {
+        track.style.left = `${-1 * (leftPosition - slickWidth)}px`;
+    }
 }
 
 
+    
+//codigo para el zoom, de las imagenes.
+
+<<<<<<< HEAD
+=======
+
+//codigo para el zoom, de las imagenes.
+
+>>>>>>> bf31d6e0c244d7b22677b767943b1fee6b0d5459
+let lista = document.querySelectorAll(".contenedor > div");
 let cierre =document.querySelector(".zoom > .close");
 cierre.addEventListener('touchstart', close, false);
 
+for (i = 0; i < lista.length; i++) {
+    lista[i].childNodes[1].addEventListener('touchstart', zoom, false);
+};
+
+function zoom(e){
+    
+    
+    let imagen = e.target.getAttribute('src');
+    
+    let vista = document.querySelector('.zoom');
+    vista.style.display= "flex";
+    
+    
+    let menu = document.querySelector('.menu');
+    menu.style.display="none";
+    
+    let primer = document.querySelector('.primera_seccion');
+    primer.style.display = "none";
+    
+<<<<<<< HEAD
+    vista.childNodes[3].childNodes[3].removeAttribute('src');
+    vista.childNodes[3].childNodes[3].setAttribute('scr', imagen);
+=======
+    vista.childNodes[3].removeAttribute('src');
+    vista.childNodes[3].setAttribute('scr', imagen);
+>>>>>>> bf31d6e0c244d7b22677b767943b1fee6b0d5459
+    
+    window.scroll(0, 0);
+}
 
 function close(){
     let vista = document.querySelector('.zoom');
@@ -116,4 +210,100 @@ function close(){
 
     let primer = document.querySelector('.primera_seccion');
     primer.style.display = "flex";
-}*/
+<<<<<<< HEAD
+}
+
+let ampliar = document.querySelectorAll(".links > .ultimo ");
+
+for (i = 0; i < lista.length; i++) {
+    ampliar[i].addEventListener( 'click', zoom_2, false);
+};
+
+let cierre2 =document.querySelector(".zoom > .close");
+cierre2.addEventListener('click', close, false);
+
+function zoom_2(e){
+
+    let imagen = e.target.parentElement.parentElement.parentElement.childNodes[1].getAttribute('src');
+    
+    let vista = document.querySelector('.zoom');
+    vista.style.display= "flex";
+    
+    //let menu = document.querySelector('.menu');
+   //menu.style.display="none";
+        
+    vista.childNodes[3].childNodes[3].removeAttribute('src');
+    vista.childNodes[3].childNodes[3].setAttribute('scr', imagen);
+    
+    window.scroll(0, 0);
+};
+
+//Barra de busqueda funcionamiento. 
+
+const lupa = document.querySelector(".lupa");
+lupa.addEventListener('click', busquedaGifs);
+
+function obtenerBusquedaGifs(searching) {
+    const url = `http://api.giphy.com/v1/gifs/search?q=${searching}&api_key=${api_key}&limit=12`;
+    
+    fetch(url)
+    .then((success) => {
+        if (success.ok) {
+            return success.json();
+        } else {
+            throw new Error(('success') + 'no se puede comunicar con la API');
+        }
+    })
+    .then((data) => {
+        data.data.forEach((el) => {
+            
+            //aqui va  la creacion de cada imagen
+            /**
+             * se tiene que crear un h2= donde va el nombre de la busqueda.
+             * un section llamado busqueda_img
+             *      otro section llamado imagenes_resultado
+             *          en este section es que van las imagenes. 
+             *      otro section llamado ver_mas
+             *          aqui va un h2
+             */
+
+
+
+            /*
+            busqueda.appendChild(tituloBusqueda);
+            let busqueda_img = document.createElement('section');
+            busqueda_img.classList.add('busqueda_img');
+            busqueda.appendChild(busqueda_img);
+            div.classList.add('imagen');
+            contenedor.appendChild(div);
+            const image = document.createElement('img');
+            image.src = el.images.downsized.url;
+            div.appendChild(image); */
+
+            const image = document.createElement('img');
+            image.src = el.images.downsized.url;
+            imagenes_resultado.appendChild(image); 
+        });
+    })
+
+    .catch((err) => {
+        console.log(`${err}`);
+    })
+}
+
+function busquedaGifs(){
+
+    tituloBusqueda.innerHTML= search.value;
+    //console.log(search.value);
+
+    // if (condition) {
+        
+    // }
+    obtenerBusquedaGifs(search.value);
+}
+
+
+
+=======
+}
+>>>>>>> bf31d6e0c244d7b22677b767943b1fee6b0d5459

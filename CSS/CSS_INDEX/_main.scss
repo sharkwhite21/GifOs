@@ -1,8 +1,5 @@
 main{
     //width: 100vw;
-
-
-
     .primera_seccion{
         display: flex;
         align-items: center;
@@ -156,10 +153,10 @@ main{
 
     .busqueda_img{
 
-        display: none;
+        display:  flex; //block-none
         flex-flow: row wrap;
         justify-content: center;
-
+        
             img{
                 padding: 8px;
                 width: 150px;
@@ -191,9 +188,19 @@ main{
     
 
     .busqueda{
-        display: none;
-        border-top: solid $bg-four;
-        margin-bottom: 40px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      
+        span{
+            width: 80px;
+            height: 2px;
+            background: $bg-four;
+            text-align: center;
+            display: inline-block; 
+            margin: auto;                  
+        }
+
         h2{
             font-family: $fuente_1;
             font-weight: 700;
@@ -203,7 +210,6 @@ main{
             margin: 25px 0px;
         }
     }
-
 
     .segunda_seccion{
         background-color: $color_active;
@@ -236,6 +242,7 @@ main{
 
             display: flex;
             margin-top: 40px;
+            
             .flechas{
                 border:solid $bg-primary 1px;
                 width: 40px;
@@ -248,12 +255,6 @@ main{
                 }
             }
 
-            div{
-                div{
-                    position: relative;
-                }
-            }
-            
             .sombra{
                 position: absolute;
                 display: none;
@@ -334,13 +335,20 @@ main{
                 }
             }
             
-   
-            div{
+            .contenedor{
                 display: flex;
-                img{
-                    width: 243px;
-                    height: 187px;
-                    margin: 0px 10px;                
+                .imagen{
+
+                    img{
+                        width: 243px;
+                        height: 187px;
+                        margin: 0px 10px;                
+                    }
+    
+                    div{
+                        position: relative;
+                    }
+                    
                 }
             }
         }
@@ -351,6 +359,8 @@ main{
 
         overflow: hidden;
         .primera_seccion{
+            
+
             h1{
                 font-size: 36px;
                 width: 585px;
@@ -368,7 +378,11 @@ main{
                 width: 551px;
                 height: 50px;
                 
-
+                .container-1{
+                    input{
+                        width: 85%;
+                    }
+                }
             }
 
             p{
@@ -389,7 +403,8 @@ main{
             height: 640px;
 
             .info{
-                
+                margin-bottom: 40px;
+
                 h2{
                     font-size: 25px;
                     margin-top: 70px;
@@ -402,16 +417,41 @@ main{
             }
 
             .imagenes{
+
+                //position: relative;
+               
                 align-items: center;
-                justify-content: center;
-                margin-top: 80px;
+                width: 83vw;
+                overflow: hidden;
+                margin: auto;
 
                 .flechas{
                     display: flex;
+                    align-items: center;
+                    position: absolute;   
+                }
+                .left{
+                    left: 73px;
                 }
 
-                div{
-                    div{
+                .right{
+                    right: 60px;
+                }
+
+                .contenedor{
+
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    transition: .5s ease-in-out;
+
+                    .imagen{
+                        position: relative;
+                        display: flex;
+                        justify-content: center;
+                        float: left;
+                        box-sizing: border-box;
+                        
                         img{
                             width: 357px;
                             height: 275px;
@@ -458,7 +498,10 @@ main{
         }
 
         .busqueda_img{
-            
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            //flex-direction: column;
             .imagenes_resultado{
                 margin: 0px 50px;
                 padding-left: 105px;
