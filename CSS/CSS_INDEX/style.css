@@ -1,21 +1,21 @@
 /*
 Error: Invalid CSS after "...  display: flex": expected "{", was ";"
-        on line 184 of C:\Users\mbald\Documents\GitHub\GifOs\CSS\CSS_INDEX\style.scss
+        on line 195 of C:\Users\mbald\Documents\GitHub\GifOs\CSS\CSS_INDEX\style.scss
 
-179:             .flechas{
-180:                 border:solid $bg-primary 1px;
-181:                 width: 40px;
-182:                 height: 40px;
-183: <<<<<<< HEAD
-184:                 display: flex;
-185:                 align-items: center;
-186:                 justify-content: center;
-187:                 margin: 0px 35px;
-188: =======
-189:                 display: none;
+190:                 border:solid $bg-primary 1px;
+191:                 width: 40px;
+192:                 height: 40px;
+193: <<<<<<< HEAD
+194: <<<<<<< HEAD
+195:                 display: flex;
+196:                 align-items: center;
+197:                 justify-content: center;
+198:                 margin: 0px 35px;
+199: =======
+200:                 display: none;
 
 Backtrace:
-C:\Users\mbald\Documents\GitHub\GifOs\CSS\CSS_INDEX\style.scss:184
+C:\Users\mbald\Documents\GitHub\GifOs\CSS\CSS_INDEX\style.scss:195
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:1278:in `expected'
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:1208:in `expected'
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:1203:in `tok!'
@@ -65,4 +65,4 @@ C:/Program Files (x86)/Koala/bin/sass:22:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"...  display: flex\": expected \"{\", was \";\"\A         on line 184 of C:\Users\mbald\Documents\GitHub\GifOs\CSS\CSS_INDEX\style.scss\A \A 179:             .flechas{\A 180:                 border:solid $bg-primary 1px;\A 181:                 width: 40px;\A 182:                 height: 40px;\A 183: <<<<<<< HEAD\A 184:                 display: flex;\A 185:                 align-items: center;\A 186:                 justify-content: center;\A 187:                 margin: 0px 35px;\A 188: =======\A 189:                 display: none;"; }
+  content: "Error: Invalid CSS after \"...  display: flex\": expected \"{\", was \";\"\A         on line 195 of C:\Users\mbald\Documents\GitHub\GifOs\CSS\CSS_INDEX\style.scss\A \A 190:                 border:solid $bg-primary 1px;\A 191:                 width: 40px;\A 192:                 height: 40px;\A 193: <<<<<<< HEAD\A 194: <<<<<<< HEAD\A 195:                 display: flex;\A 196:                 align-items: center;\A 197:                 justify-content: center;\A 198:                 margin: 0px 35px;\A 199: =======\A 200:                 display: none;"; }
