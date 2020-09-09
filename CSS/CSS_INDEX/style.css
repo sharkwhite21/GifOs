@@ -222,7 +222,24 @@ main .failsearch {
     font-family: "Montserrat", sans-serif;
     font-weight: 700; }
 main .favoritos {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   margin-top: 30px; }
+  main .favoritos .logo_corazon {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    main .favoritos .logo_corazon img {
+      margin: center;
+      text-align: center; }
+  main .favoritos h2 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+    text-align: center;
+    color: #572EE5;
+    margin: 10px 0px; }
   main .favoritos .no_found {
     display: flex;
     align-items: center;
@@ -237,23 +254,85 @@ main .favoritos {
       font-size: 18px;
       width: 230px;
       margin-top: 20px; }
-  main .favoritos div {
+  main .favoritos .busqueda_fav {
+    display: none;
+    flex-flow: row wrap;
+    justify-content: center; }
+    main .favoritos .busqueda_fav .lista_favoritos img {
+      padding: 8px;
+      width: 150px;
+      height: 120px; }
+    main .favoritos .busqueda_fav .ver_mas {
+      border: solid #572EE5 1px;
+      border-radius: 35px;
+      width: 127px;
+      height: 50px;
+      margin: 40px 0px;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      main .favoritos .busqueda_fav .ver_mas h2 {
+        font-size: 13px; }
+    main .favoritos .busqueda_fav .ver_mas:hover {
+      background-color: #572EE5; }
+      main .favoritos .busqueda_fav .ver_mas:hover h2 {
+        color: #FFFFFF; }
+main .mis_gifos {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 30px; }
+  main .mis_gifos .logo_rostro {
     display: flex;
     align-items: center;
     justify-content: center; }
-    main .favoritos div img {
+    main .mis_gifos .logo_rostro img {
       margin: center;
       text-align: center; }
-  main .favoritos img {
-    margin: center;
-    text-align: center; }
-  main .favoritos h2 {
+  main .mis_gifos h2 {
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
     font-size: 25px;
     text-align: center;
     color: #572EE5;
     margin: 10px 0px; }
+  main .mis_gifos .no_found {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 70px 0px; }
+    main .mis_gifos .no_found img {
+      width: 70px;
+      height: 70px; }
+    main .mis_gifos .no_found h2 {
+      color: #50E3C2;
+      font-size: 18px;
+      width: 230px;
+      margin-top: 20px; }
+  main .mis_gifos .busqueda_mis {
+    display: none;
+    flex-flow: row wrap;
+    justify-content: center; }
+    main .mis_gifos .busqueda_mis .lista_misgifos img {
+      padding: 8px;
+      width: 150px;
+      height: 120px; }
+    main .mis_gifos .busqueda_mis .ver_mas {
+      border: solid #572EE5 1px;
+      border-radius: 35px;
+      width: 127px;
+      height: 50px;
+      margin: 40px 0px;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      main .mis_gifos .busqueda_mis .ver_mas h2 {
+        font-size: 13px; }
+    main .mis_gifos .busqueda_mis .ver_mas:hover {
+      background-color: #572EE5; }
+      main .mis_gifos .busqueda_mis .ver_mas:hover h2 {
+        color: #FFFFFF; }
 main .busqueda_img {
   display: flex;
   flex-flow: row wrap;
@@ -461,7 +540,7 @@ main .segunda_seccion {
               display: flex;
               width: 357px;
               height: 275px;
-              margin-left: 10px; }
+              margin-left: -1px; }
               main .segunda_seccion .imagenes .contenedor .imagen .sombra .links {
                 padding-top: 10px;
                 padding-right: 10px; }

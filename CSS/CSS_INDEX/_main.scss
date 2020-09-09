@@ -110,9 +110,33 @@ main{
     }
 
     .favoritos{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        
         margin-top: 30px;
-        .no_found{
+
+        .logo_corazon{
             display: flex;
+            align-items: center;
+            justify-content: center;
+            img{
+                margin: center;
+                text-align: center;
+            }
+        }
+
+        h2{
+            font-family: $fuente_1;
+            font-weight: 700;
+            font-size: 25px;
+            text-align:center;
+            color: $bg-primary;
+            margin: 10px 0px;
+        }
+
+        .no_found{
+            display: flex; //none-flex
             align-items: center;
             justify-content: center;
             flex-direction: column;
@@ -128,7 +152,52 @@ main{
                 margin-top: 20px;
             }
         }
-        div{
+
+        .busqueda_fav{
+            display: none; //block-none
+            flex-flow: row wrap;
+            justify-content: center;
+
+            .lista_favoritos{
+                img{
+                    padding: 8px;
+                    width: 150px;
+                    height: 120px;
+                }
+            }
+            .ver_mas{
+                border: solid $bg-primary 1px;
+                border-radius: 35px;
+                width: 127px;
+                height: 50px;
+                margin: 40px 0px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                h2{
+                    font-size: 13px;
+                }
+            }
+
+            .ver_mas:hover{
+                background-color: $bg-primary;
+                h2{
+                    color: $bg-secundary;
+                }
+            }
+        }
+
+    }
+
+    .mis_gifos{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        
+        margin-top: 30px;
+
+        .logo_rostro{
             display: flex;
             align-items: center;
             justify-content: center;
@@ -137,10 +206,7 @@ main{
                 text-align: center;
             }
         }
-        img{
-            margin: center;
-            text-align: center;
-        }
+
         h2{
             font-family: $fuente_1;
             font-weight: 700;
@@ -149,14 +215,72 @@ main{
             color: $bg-primary;
             margin: 10px 0px;
         }
+
+        .no_found{
+            display: flex; //none-flex
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin: 70px 0px;
+            img{
+                width: 70px;
+                height: 70px;
+            }
+            h2{
+                color:$bg-third;
+                font-size: 18px;
+                width: 230px;
+                margin-top: 20px;
+            }
+        }
+
+        .busqueda_mis{
+            display: none; //block-none
+            flex-flow: row wrap;
+            justify-content: center;
+
+            .lista_misgifos{
+                img{
+                    padding: 8px;
+                    width: 150px;
+                    height: 120px;
+                }
+            }
+            
+            .ver_mas{
+                border: solid $bg-primary 1px;
+                border-radius: 35px;
+                width: 127px;
+                height: 50px;
+                margin: 40px 0px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                h2{
+                    font-size: 13px;
+                }
+            }
+
+            .ver_mas:hover{
+                background-color: $bg-primary;
+                h2{
+                    color: $bg-secundary;
+                }
+            }
+        }
+
     }
+
+
 
     .busqueda_img{
 
         display:  flex; //block-none
         flex-flow: row wrap;
         justify-content: center;
-        
+
+
             img{
                 padding: 8px;
                 width: 150px;
@@ -186,7 +310,6 @@ main{
             }
         }
     
-
     .busqueda{
         display: none;
         align-items: center;
@@ -265,6 +388,7 @@ main{
                 width: 243px;
                 height: 187px;
                 margin-left: 10px;
+                
                 .contenido{
                     place-items: baseline;
                     height: 60px;
@@ -272,6 +396,7 @@ main{
                     flex-direction: column;
                     margin-top: 80px;
                     margin-left: 10px;
+
                     p{
                         font-size: 15px;
                         font-family: $fuente_2;
@@ -457,10 +582,11 @@ main{
                             height: 275px;
                         }
                         .sombra{
+
                             display: flex;
                             width: 357px;
                             height: 275px;
-                            margin-left: 10px;
+                            margin-left: -1px;
 
                             .links{
                                padding-top: 10px;

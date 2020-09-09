@@ -1,4 +1,5 @@
 const api_key = "ROPHynejg9EN2A3Ck1EJ1zYD0rOs6cCg";
+//http://api.giphy.com/v1/gifs/trending?api_key=ROPHynejg9EN2A3Ck1EJ1zYD0rOs6cCg&limit=20
 //variables a declara para el cambio nocturno y diurno.
 let cambio = document.querySelector('.cambio');
 cambio.addEventListener('click', cambiarColor, false);
@@ -119,13 +120,84 @@ function getTendring() {
                 let div = document.createElement('div');
                 div.classList.add('imagen');
                 contenedor.appendChild(div);
+
                 const image = document.createElement('img');
                 image.src = el.images.downsized.url;
-                div.appendChild(image);               
+                div.appendChild(image);
+
+
+                //creacion del div hover para cada imagen.
+
+                let section = document.createElement('section');
+                section.classList.add('sombra');
+                section.classList.add('desktop');
+                image.after(section);
+                                
+                let links = document.createElement('div');
+                links.classList.add('links');
+                section.appendChild(links);
+
+                
+                let box_1 = document.createElement('div');
+                box_1.classList.add('box');
+                links.appendChild(box_1);
+
+                let a_1 = document.createElement('a');
+                a_1.setAttribute( 'href','#');
+                box_1.appendChild(a_1);
+
+                let imagen_2 = document.createElement('img');
+                imagen_2.setAttribute('src', 'Sources\\assets\\icon-fav-hover.svg');
+                a_1.appendChild(imagen_2);
+                
+                
+                let div_4 = document.createElement('div');
+                div_4.classList.add('box');
+                box_1.after(div_4);
+
+                let a_2 = document.createElement('a');
+                a_2.setAttribute( 'href','#');
+                div_4.appendChild(a_2);
+
+                let imagen_3 = document.createElement('img');
+                imagen_3.setAttribute('src', 'Sources\\assets\\icon-download.svg');
+                a_2.appendChild(imagen_3);
+                
+                let div_5 = document.createElement('div');
+                div_5.classList.add('box');
+                div_5.classList.add('ultimo');
+                div_4.after(div_5);
+                
+                let a_3 = document.createElement('a');
+                a_3.setAttribute( 'href','#');
+                div_5.appendChild(a_3);
+
+                let imagen_4 = document.createElement('img');
+                imagen_4.setAttribute('src', 'Sources\\assets\\icon-max.svg');
+                a_3.appendChild(imagen_4);
+                
+                
+                let div_6 = document.createElement('div');
+                div_6.classList.add('contenido');
+                links.after(div_6);
+                
+                let p = document.createElement('p');
+                let h2 = document.createElement('h2');
+                
+                p.innerText = el.username;
+                div_6.appendChild(p)
+                h2.innerText = el.title;
+                h2.after(p);
             });
 
             window.slick = document.querySelectorAll('.imagen');
             window.slickWidth = slick[0].offsetWidth;
+
+            let lista = document.querySelectorAll(".imagen > img");
+
+            for (i = 0; i < lista.length; i++) {
+                lista[i].addEventListener('touchstart', zoom, false);
+            };
         })
 
         .catch((err) => {
@@ -166,22 +238,22 @@ function Move(number) {
     
 //codigo para el zoom, de las imagenes.
 
-let lista = document.querySelectorAll(".contenedor > div");
 let cierre =document.querySelector(".zoom > .close");
 cierre.addEventListener('touchstart', close, false);
 
-for (i = 0; i < lista.length; i++) {
-    lista[i].childNodes[1].addEventListener('touchstart', zoom, false);
-};
+// let lista = document.querySelectorAll(".contenedor > div");
+
+// for (i = 0; i < lista.length; i++) {
+//     lista[i].childNodes[1].addEventListener('touchstart', zoom, false);
+// };
 
 function zoom(e){
-    
+    window.scroll(0, 0);
     
     let imagen = e.target.getAttribute('src');
     
     let vista = document.querySelector('.zoom');
     vista.style.display= "flex";
-    
     
     let menu = document.querySelector('.menu');
     menu.style.display="none";
@@ -189,10 +261,18 @@ function zoom(e){
     let primer = document.querySelector('.primera_seccion');
     primer.style.display = "none";
     
-    vista.childNodes[3].childNodes[3].removeAttribute('src');
-    vista.childNodes[3].childNodes[3].setAttribute('scr', imagen);
+    let flecha = document.querySelector('.flechas');
+    //let pasarela = document.querySelector('pasarela');
+    const image = document.createElement('img');
+    image.src = imagen;
+    flecha.after(image);
     
-    window.scroll(0, 0);
+    //div.appendChild(image);
+
+   
+
+    // vista.childNodes[3].childNodes[3].removeAttribute('src');
+    // vista.childNodes[3].childNodes[3].setAttribute('scr', imagen);
 }
 
 function close(){
@@ -204,13 +284,16 @@ function close(){
 
     let primer = document.querySelector('.primera_seccion');
     primer.style.display = "flex";
+
+    let imagen = document.querySelector('.pasarela > img');
+    imagen.remove();
 }
 
 let ampliar = document.querySelectorAll(".links > .ultimo ");
 
-for (i = 0; i < lista.length; i++) {
-    ampliar[i].addEventListener( 'click', zoom_2, false);
-};
+// for (let i = 0; i < lista.length; i++) {
+//     ampliar[i].addEventListener( 'click', zoom_2, false);
+// };
 
 let cierre2 =document.querySelector(".zoom > .close");
 cierre2.addEventListener('click', close, false);
@@ -221,12 +304,14 @@ function zoom_2(e){
     
     let vista = document.querySelector('.zoom');
     vista.style.display= "flex";
-    
-    //let menu = document.querySelector('.menu');
-   //menu.style.display="none";
+      
+    window.scroll(0, 0);
         
-    vista.childNodes[3].childNodes[3].removeAttribute('src');
-    vista.childNodes[3].childNodes[3].setAttribute('scr', imagen);
+    let flecha = document.querySelector('.flechas');
+    //let pasarela = document.querySelector('pasarela');
+    const image = document.createElement('img');
+    image.src = imagen;
+    flecha.after(image);
     
     window.scroll(0, 0);
 };
@@ -263,19 +348,7 @@ function obtenerBusquedaGifs(searching) {
             busqueda.style.display = 'flex';
             data.data.forEach((el) => {
             
-            //aqui va  la creacion de cada imagen
             /**
-             * se tiene que crear un h2= donde va el nombre de la busqueda.
-             * un section llamado busqueda_img
-             *      otro section llamado imagenes_resultado
-             *          en este section es que van las imagenes. 
-             *      otro section llamado ver_mas
-             *          aqui va un h2
-             */
-
-
-
-            /*
             busqueda.appendChild(tituloBusqueda);
             let busqueda_img = document.createElement('section');
             busqueda_img.classList.add('busqueda_img');
