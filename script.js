@@ -198,8 +198,13 @@ function getTendring() {
             for (i = 0; i < lista.length; i++) {
                 lista[i].addEventListener('touchstart', zoom, false);
             };
-        })
 
+            let ampliar = document.querySelectorAll(".links > .ultimo ");
+
+            for (let i = 0; i < lista.length; i++) {
+                 ampliar[i].addEventListener( 'click', zoom_2, false);
+            };
+        })
         .catch((err) => {
             console.log(`${err}`);
         })
@@ -218,7 +223,6 @@ buttonPrev.onclick = () => {
 buttonNext.onclick = () => {
     Move(2);
 };
-
     
 function Move(number) {
  
@@ -241,16 +245,15 @@ function Move(number) {
 let cierre =document.querySelector(".zoom > .close");
 cierre.addEventListener('touchstart', close, false);
 
-// let lista = document.querySelectorAll(".contenedor > div");
-
-// for (i = 0; i < lista.length; i++) {
-//     lista[i].childNodes[1].addEventListener('touchstart', zoom, false);
-// };
-
 function zoom(e){
     window.scroll(0, 0);
     
     let imagen = e.target.getAttribute('src');
+    console.log(imagen);
+    let flecha = document.querySelector('.flechas');
+    const image = document.createElement('img');
+    image.src = imagen;
+    flecha.after(image);
     
     let vista = document.querySelector('.zoom');
     vista.style.display= "flex";
@@ -261,19 +264,10 @@ function zoom(e){
     let primer = document.querySelector('.primera_seccion');
     primer.style.display = "none";
     
-    let flecha = document.querySelector('.flechas');
-    //let pasarela = document.querySelector('pasarela');
-    const image = document.createElement('img');
-    image.src = imagen;
-    flecha.after(image);
-    
-    //div.appendChild(image);
-
-   
-
-    // vista.childNodes[3].childNodes[3].removeAttribute('src');
-    // vista.childNodes[3].childNodes[3].setAttribute('scr', imagen);
 }
+
+let cierre2 =document.querySelector(".zoom > .close");
+cierre2.addEventListener('click', close, false);
 
 function close(){
     let vista = document.querySelector('.zoom');
@@ -289,32 +283,24 @@ function close(){
     imagen.remove();
 }
 
-let ampliar = document.querySelectorAll(".links > .ultimo ");
-
-// for (let i = 0; i < lista.length; i++) {
-//     ampliar[i].addEventListener( 'click', zoom_2, false);
-// };
-
-let cierre2 =document.querySelector(".zoom > .close");
-cierre2.addEventListener('click', close, false);
-
 function zoom_2(e){
 
-    let imagen = e.target.parentElement.parentElement.parentElement.childNodes[1].getAttribute('src');
+    let imagen = e.target.parentElement.parentElement.parentElement.parentElement.parentElement.children[0].getAttribute('src');
+    console.log(imagen);
     
+    let flecha = document.querySelector('.flechas');
+    const image = document.createElement('img');
+    image.src = imagen;
+    flecha.after(image);
+
     let vista = document.querySelector('.zoom');
     vista.style.display= "flex";
       
     window.scroll(0, 0);
         
-    let flecha = document.querySelector('.flechas');
-    //let pasarela = document.querySelector('pasarela');
-    const image = document.createElement('img');
-    image.src = imagen;
-    flecha.after(image);
-    
-    window.scroll(0, 0);
 };
+
+
 
 //Barra de busqueda funcionamiento. 
 
