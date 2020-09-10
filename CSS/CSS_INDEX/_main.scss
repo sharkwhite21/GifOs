@@ -281,10 +281,14 @@ main{
         justify-content: center;
 
 
-            img{
-                padding: 8px;
-                width: 150px;
-                height: 120px;
+            .imagenes_resultado{
+                .imagens{
+                    img{
+                        padding: 8px;
+                        width: 150px;
+                        height: 120px;
+                    }
+                }
             }
 
             .ver_mas{
@@ -408,7 +412,7 @@ main{
                         font-family: $fuente_1;
                         font-weight: 700;
                         color: $color_two;
-                        padding: 0px;
+                        margin-top: 15px;
                     }
                 }
 
@@ -452,6 +456,7 @@ main{
             .sombra:hover{
                 opacity: 0.7;
             }
+
 
             .flechas:hover{
                 background-color: $bg-primary;
@@ -625,17 +630,110 @@ main{
 
         .busqueda_img{
             display: flex;
-            flex-flow: row wrap;
             justify-content: center;
-            //flex-direction: column;
+            flex-direction: column;
+            //width: 80%;
+            align-items: center;
+            
             .imagenes_resultado{
-                margin: 0px 50px;
-                padding-left: 105px;
-                align-items: center;
 
-                img{
+                display: flex;
+                flex-flow: row wrap;
+                //margin: 0px 50px;
+                //padding-left: 105px;
+                justify-content: center;
+
+                .imagens{
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    margin: 10px;
                     width: 260px;
                     height: 200px;
+
+                    img{
+                        padding: 0px;
+                        width: 260px;
+                        height: 200px;
+                    }
+
+                    .sombra_2{
+                        position: absolute;
+                        display: flex;
+                        flex-direction: column;
+                        z-index: 3;
+                        opacity: 0;
+                        background: #572EE5 ;
+                        width: 260px;
+                        height: 200px;
+                        //margin-left: 8px;
+                        //margin-top: 16px;
+
+                        .contenido_2{
+                            place-items: baseline;
+                            height: 60px;
+                            display: flex;
+                            flex-direction: column;
+                            margin-top: 80px;
+                            margin-left: 10px;
+        
+                            p{
+                                font-size: 15px;
+                                font-family: $fuente_2;
+                                color: $color_two;
+                                margin: 0px;
+                            }
+                            h2{
+                                font-size: 16px;
+                                font-family: $fuente_1;
+                                font-weight: 700;
+                                color: $color_two;
+                                margin-top: 10px;
+                            }
+                        }
+        
+                        .links_2{
+        
+                            align-self: flex-end;
+                            display: flex;
+                            padding-top: 6px;
+                            padding-right: 8px;
+            
+                            img{
+                                width: 25px;
+                                height: 25px;
+                               
+                            }
+            
+                            .box_2{
+                                opacity: 0.5;
+                                margin-left: 15px;
+                                //margin-bottom: 7px;
+                                width: 32px;
+                                height: 32px;
+                                background: #FFFFFF;
+                                border: solid $bg-primary 1px;
+                                border-radius: 10px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                a{
+                                    img{
+                                        width: 20px;
+                                        height: 20px;
+                                        padding-top: 4px;
+                                    }   
+                                }
+                            }
+        
+                            .ultimo_2{
+                                opacity: 1;
+                            }
+                        }
+                    }
+                    .sombra_2:hover{
+                        opacity: 0.7;
+                    }   
                 }
             }
         }

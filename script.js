@@ -184,10 +184,23 @@ function getTendring() {
                 let p = document.createElement('p');
                 let h2 = document.createElement('h2');
                 
-                p.innerText = el.username;
+                if (el.username == '') {
+                    p.innerHTML = 'Sin Usuario'
+                }
+                else{
+                    p.innerText = el.username;
+                }
                 div_6.appendChild(p)
-                h2.innerText = el.title;
-                h2.after(p);
+
+                //console.log(el.title);
+                if (el.title == '') {
+                    h2.innerText = 'Sin Titulo'
+                }
+                else{
+                    h2.innerText = el.title;
+                }
+
+                div_6.appendChild(h2);
             });
 
             window.slick = document.querySelectorAll('.imagen');
@@ -288,15 +301,18 @@ function zoom_2(e){
     let imagen = e.target.parentElement.parentElement.parentElement.parentElement.parentElement.children[0].getAttribute('src');
     console.log(imagen);
     
+    let title = e.target.parentElement;
+    console.log(title);
+    /*
     let flecha = document.querySelector('.flechas');
     const image = document.createElement('img');
     image.src = imagen;
     flecha.after(image);
 
     let vista = document.querySelector('.zoom');
-    vista.style.display= "flex";
+    vista.style.display= "flex";*/
       
-    window.scroll(0, 0);
+    //window.scroll(0, 0);
         
 };
 
@@ -327,27 +343,98 @@ function obtenerBusquedaGifs(searching) {
             busqueda.style.display = 'none';
             failSearch.style.display ='flex';         
         }
+
         else{
-            
             tituloBusqueda.innerHTML= searching;
             failSearch.style.display ='none'; 
             busqueda.style.display = 'flex';
+
             data.data.forEach((el) => {
+                
+                let div = document.createElement('div');
+                div.classList.add('imagens');
+                imagenes_resultado.appendChild(div);
+
+                const image = document.createElement('img');
+                image.src = el.images.downsized.url;
+                div.appendChild(image);
+
+                //creacion del div hover para cada imagen.
+
+                let section = document.createElement('section');
+                section.classList.add('sombra_2');
+                section.classList.add('desktop');
+                div.appendChild(section);
+                            
+                let links = document.createElement('div');
+                links.classList.add('links_2');
+                section.appendChild(links);
+
             
-            /**
-            busqueda.appendChild(tituloBusqueda);
-            let busqueda_img = document.createElement('section');
-            busqueda_img.classList.add('busqueda_img');
-            busqueda.appendChild(busqueda_img);
-            div.classList.add('imagen');
-            contenedor.appendChild(div);
-            const image = document.createElement('img');
-            image.src = el.images.downsized.url;
-            div.appendChild(image); */
+                let box_1 = document.createElement('div');
+                box_1.classList.add('box_2');
+                links.appendChild(box_1);
+
+                let a_1 = document.createElement('a');
+                a_1.setAttribute( 'href','#');
+                box_1.appendChild(a_1);
+
+                let imagen_2 = document.createElement('img');
+                imagen_2.setAttribute('src', 'Sources\\assets\\icon-fav-hover.svg');
+                a_1.appendChild(imagen_2);
             
-            const image = document.createElement('img');
-            image.src = el.images.downsized.url;
-            imagenes_resultado.appendChild(image); 
+            
+                let div_4 = document.createElement('div');
+                div_4.classList.add('box_2');
+                box_1.after(div_4);
+
+                let a_2 = document.createElement('a');
+                a_2.setAttribute( 'href','#');
+                div_4.appendChild(a_2);
+
+                let imagen_3 = document.createElement('img');
+                imagen_3.setAttribute('src', 'Sources\\assets\\icon-download.svg');
+                a_2.appendChild(imagen_3);
+            
+                let div_5 = document.createElement('div');
+                div_5.classList.add('box_2');
+                div_5.classList.add('ultimo_2');
+                div_4.after(div_5);
+                
+                let a_3 = document.createElement('a');
+                a_3.setAttribute( 'href','#');
+                div_5.appendChild(a_3);
+
+                let imagen_4 = document.createElement('img');
+                imagen_4.setAttribute('src', 'Sources\\assets\\icon-max.svg');
+                a_3.appendChild(imagen_4);
+            
+            
+                let div_6 = document.createElement('div');
+                div_6.classList.add('contenido_2');
+                links.after(div_6);
+            
+                let p = document.createElement('p');
+                let h2 = document.createElement('h2');
+                
+                if (el.username == '') {
+                    p.innerHTML = 'Sin Usuario'
+                }
+                else{
+                    p.innerText = el.username;
+                }
+                div_6.appendChild(p)
+
+                //console.log(el.title);
+                if (el.title == '') {
+                    h2.innerText = 'Sin Titulo'
+                }
+                else{
+                    h2.innerText = el.title;
+                }
+
+                div_6.appendChild(h2);        
+            
         });
         }
     })
