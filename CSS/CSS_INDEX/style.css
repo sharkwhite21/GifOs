@@ -337,10 +337,23 @@ main .busqueda_img {
   display: flex;
   flex-flow: row wrap;
   justify-content: center; }
-  main .busqueda_img .imagenes_resultado .imagens img {
-    padding: 8px;
-    width: 150px;
-    height: 120px; }
+  main .busqueda_img .imagenes_resultado {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center; }
+    main .busqueda_img .imagenes_resultado .imagens {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      margin: 1px;
+      width: 156px;
+      height: 120px; }
+      main .busqueda_img .imagenes_resultado .imagens img {
+        padding: 8px;
+        width: 156px;
+        height: 120px; }
+    main .busqueda_img .imagenes_resultado .sombra_2 {
+      display: none; }
   main .busqueda_img .ver_mas {
     border: solid #572EE5 1px;
     border-radius: 35px;
@@ -440,9 +453,6 @@ main .segunda_seccion {
         display: flex;
         padding-top: 6px;
         padding-right: 8px; }
-        main .segunda_seccion .imagenes .sombra .links img {
-          width: 25px;
-          height: 25px; }
         main .segunda_seccion .imagenes .sombra .links .box {
           opacity: 0.5;
           margin-left: 15px;
@@ -458,7 +468,7 @@ main .segunda_seccion {
           main .segunda_seccion .imagenes .sombra .links .box img {
             width: 20px;
             height: 20px;
-            padding-top: 4px; }
+            cursor: pointer; }
         main .segunda_seccion .imagenes .sombra .links .ultimo {
           opacity: 1; }
     main .segunda_seccion .imagenes .sombra:hover {
@@ -611,9 +621,6 @@ main .segunda_seccion {
               display: flex;
               padding-top: 6px;
               padding-right: 8px; }
-              main .busqueda_img .imagenes_resultado .imagens .sombra_2 .links_2 img {
-                width: 25px;
-                height: 25px; }
               main .busqueda_img .imagenes_resultado .imagens .sombra_2 .links_2 .box_2 {
                 opacity: 0.5;
                 margin-left: 15px;
@@ -625,10 +632,10 @@ main .segunda_seccion {
                 display: flex;
                 justify-content: center;
                 align-items: center; }
-                main .busqueda_img .imagenes_resultado .imagens .sombra_2 .links_2 .box_2 a img {
+                main .busqueda_img .imagenes_resultado .imagens .sombra_2 .links_2 .box_2 img {
                   width: 20px;
                   height: 20px;
-                  padding-top: 4px; }
+                  cursor: pointer; }
               main .busqueda_img .imagenes_resultado .imagens .sombra_2 .links_2 .ultimo_2 {
                 opacity: 1; }
           main .busqueda_img .imagenes_resultado .imagens .sombra_2:hover {

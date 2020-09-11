@@ -273,21 +273,32 @@ main{
     }
 
 
-
     .busqueda_img{
-
-        display:  flex; //block-none
+        display:  flex; 
         flex-flow: row wrap;
         justify-content: center;
-
-
             .imagenes_resultado{
+
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: center;
+
                 .imagens{
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    margin: 1px;
+                    width: 156px;
+                    height: 120px;
                     img{
                         padding: 8px;
-                        width: 150px;
+                        width: 156px;
                         height: 120px;
                     }
+                }
+
+                .sombra_2{
+                    display: none;
                 }
             }
 
@@ -423,11 +434,10 @@ main{
                     padding-top: 6px;
                     padding-right: 8px;
     
-                    img{
-                        width: 25px;
-                        height: 25px;
-                       
-                    }
+                    // img{
+                    //     width: 25px;
+                    //     height: 25px;
+                    // }
     
                     .box{
                         opacity: 0.5;
@@ -444,7 +454,8 @@ main{
                         img{
                             width: 20px;
                             height: 20px;
-                            padding-top: 4px;
+                            cursor: pointer;
+                            //padding-top: 4px;
                         }   
                     }
 
@@ -632,15 +643,12 @@ main{
             display: flex;
             justify-content: center;
             flex-direction: column;
-            //width: 80%;
             align-items: center;
             
             .imagenes_resultado{
 
                 display: flex;
                 flex-flow: row wrap;
-                //margin: 0px 50px;
-                //padding-left: 105px;
                 justify-content: center;
 
                 .imagens{
@@ -697,13 +705,7 @@ main{
                             align-self: flex-end;
                             display: flex;
                             padding-top: 6px;
-                            padding-right: 8px;
-            
-                            img{
-                                width: 25px;
-                                height: 25px;
-                               
-                            }
+                            padding-right: 8px;       
             
                             .box_2{
                                 opacity: 0.5;
@@ -717,13 +719,13 @@ main{
                                 display: flex;
                                 justify-content: center;
                                 align-items: center;
-                                a{
-                                    img{
-                                        width: 20px;
-                                        height: 20px;
-                                        padding-top: 4px;
-                                    }   
-                                }
+                                img{
+                                    width: 20px;
+                                    height: 20px;
+                                    //padding-top: 4px;
+                                    cursor: pointer;
+                                }   
+
                             }
         
                             .ultimo_2{

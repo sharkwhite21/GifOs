@@ -142,39 +142,39 @@ function getTendring() {
                 box_1.classList.add('box');
                 links.appendChild(box_1);
 
-                let a_1 = document.createElement('a');
-                a_1.setAttribute( 'href','#');
-                box_1.appendChild(a_1);
+                // let a_1 = document.createElement('a');
+                // a_1.setAttribute( 'href','#');
+                // box_1.appendChild(a_1);
 
                 let imagen_2 = document.createElement('img');
                 imagen_2.setAttribute('src', 'Sources\\assets\\icon-fav-hover.svg');
-                a_1.appendChild(imagen_2);
+                box_1.appendChild(imagen_2);
                 
                 
                 let div_4 = document.createElement('div');
                 div_4.classList.add('box');
                 box_1.after(div_4);
 
-                let a_2 = document.createElement('a');
-                a_2.setAttribute( 'href','#');
-                div_4.appendChild(a_2);
+                // let a_2 = document.createElement('a');
+                // a_2.setAttribute( 'href','#');
+                // div_4.appendChild(a_2);
 
                 let imagen_3 = document.createElement('img');
                 imagen_3.setAttribute('src', 'Sources\\assets\\icon-download.svg');
-                a_2.appendChild(imagen_3);
+                div_4.appendChild(imagen_3);
                 
                 let div_5 = document.createElement('div');
                 div_5.classList.add('box');
                 div_5.classList.add('ultimo');
                 div_4.after(div_5);
                 
-                let a_3 = document.createElement('a');
-                a_3.setAttribute( 'href','#');
-                div_5.appendChild(a_3);
+                // let a_3 = document.createElement('a');
+                // a_3.setAttribute( 'href','#');
+                // div_5.appendChild(a_3);
 
                 let imagen_4 = document.createElement('img');
                 imagen_4.setAttribute('src', 'Sources\\assets\\icon-max.svg');
-                a_3.appendChild(imagen_4);
+                div_5.appendChild(imagen_4);
                 
                 
                 let div_6 = document.createElement('div');
@@ -192,7 +192,6 @@ function getTendring() {
                 }
                 div_6.appendChild(p)
 
-                //console.log(el.title);
                 if (el.title == '') {
                     h2.innerText = 'Sin Titulo'
                 }
@@ -259,10 +258,12 @@ let cierre =document.querySelector(".zoom > .close");
 cierre.addEventListener('touchstart', close, false);
 
 function zoom(e){
-    window.scroll(0, 0);
-    
+        
     let imagen = e.target.getAttribute('src');
-    console.log(imagen);
+    let title = e.target;
+    //console.log(imagen);
+
+
     let flecha = document.querySelector('.flechas');
     const image = document.createElement('img');
     image.src = imagen;
@@ -273,9 +274,20 @@ function zoom(e){
     
     let menu = document.querySelector('.menu');
     menu.style.display="none";
+
+    // let titulo_busqueda = document.querySelector('.primera_seccion > h1');
+    // titulo_busqueda.style.display = 'none';
+
+    // let imagen_busqueda = document.querySelector('.primera_seccion > img');
+    // imagen_busqueda.style.display = 'none';
+
+    let busqueda = document.querySelector('.busqueda');
+    busqueda.style.display = "none"
     
     let primer = document.querySelector('.primera_seccion');
     primer.style.display = "none";
+
+    window.scroll(0, 0);
     
 }
 
@@ -292,27 +304,36 @@ function close(){
     let primer = document.querySelector('.primera_seccion');
     primer.style.display = "flex";
 
+    let busqueda = document.querySelector('.busqueda');
+    busqueda.style.display = "flex";
+
+    // let titulo_busqueda = document.querySelector('.primera_seccion > h2');
+    // titulo_busqueda.style.display = 'block';
+
+    // let imagen_busqueda = document.querySelector('.primera_seccion > img');
+    // imagen_busqueda.style.display = 'block';
+
     let imagen = document.querySelector('.pasarela > img');
     imagen.remove();
 }
 
 function zoom_2(e){
 
-    let imagen = e.target.parentElement.parentElement.parentElement.parentElement.parentElement.children[0].getAttribute('src');
+    let imagen = e.target.parentElement.parentElement.parentElement.parentElement.children[0].getAttribute('src');
     console.log(imagen);
     
-    let title = e.target.parentElement;
-    console.log(title);
-    /*
+    // let title = e.target.parentElement;
+    // console.log(title);
+    
     let flecha = document.querySelector('.flechas');
     const image = document.createElement('img');
     image.src = imagen;
     flecha.after(image);
 
     let vista = document.querySelector('.zoom');
-    vista.style.display= "flex";*/
+    vista.style.display= "flex";
       
-    //window.scroll(0, 0);
+    window.scroll(0, 0);
         
 };
 
@@ -375,41 +396,27 @@ function obtenerBusquedaGifs(searching) {
                 box_1.classList.add('box_2');
                 links.appendChild(box_1);
 
-                let a_1 = document.createElement('a');
-                a_1.setAttribute( 'href','#');
-                box_1.appendChild(a_1);
-
                 let imagen_2 = document.createElement('img');
                 imagen_2.setAttribute('src', 'Sources\\assets\\icon-fav-hover.svg');
-                a_1.appendChild(imagen_2);
-            
-            
+                box_1.appendChild(imagen_2);
+                        
                 let div_4 = document.createElement('div');
                 div_4.classList.add('box_2');
                 box_1.after(div_4);
 
-                let a_2 = document.createElement('a');
-                a_2.setAttribute( 'href','#');
-                div_4.appendChild(a_2);
-
                 let imagen_3 = document.createElement('img');
                 imagen_3.setAttribute('src', 'Sources\\assets\\icon-download.svg');
-                a_2.appendChild(imagen_3);
+                div_4.appendChild(imagen_3);
             
                 let div_5 = document.createElement('div');
                 div_5.classList.add('box_2');
                 div_5.classList.add('ultimo_2');
                 div_4.after(div_5);
-                
-                let a_3 = document.createElement('a');
-                a_3.setAttribute( 'href','#');
-                div_5.appendChild(a_3);
 
                 let imagen_4 = document.createElement('img');
                 imagen_4.setAttribute('src', 'Sources\\assets\\icon-max.svg');
-                a_3.appendChild(imagen_4);
-            
-            
+                div_5.appendChild(imagen_4);
+                        
                 let div_6 = document.createElement('div');
                 div_6.classList.add('contenido_2');
                 links.after(div_6);
@@ -425,7 +432,6 @@ function obtenerBusquedaGifs(searching) {
                 }
                 div_6.appendChild(p)
 
-                //console.log(el.title);
                 if (el.title == '') {
                     h2.innerText = 'Sin Titulo'
                 }
@@ -433,9 +439,30 @@ function obtenerBusquedaGifs(searching) {
                     h2.innerText = el.title;
                 }
 
-                div_6.appendChild(h2);        
-            
+                div_6.appendChild(h2);                
         });
+            let lista = document.querySelectorAll(".imagens > img");
+            let ampliar = document.querySelectorAll(".links_2 > .ultimo_2 ");
+
+            for (i = 0; i < lista.length; i++) {
+                lista[i].addEventListener('touchstart', zoom, false);
+            };
+
+            for (let i = 0; i < lista.length; i++) {
+                ampliar[i].addEventListener( 'click', zoom_2, false);
+            };
+
+            console.log(screen.width);
+            if ( screen.width <= 1000) {
+                let titulo_busqueda = document.querySelector('.primera_seccion > h1');
+                titulo_busqueda.style.display = 'none';
+            
+                let imagen_busqueda = document.querySelector('.primera_seccion > img');
+                imagen_busqueda.style.display = 'none';
+            }
+            else{
+                console.log('nada del otro mundo.');
+            }
         }
     })
 
