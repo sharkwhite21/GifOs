@@ -36,18 +36,25 @@ function cambiarColor() {
     let img = document.querySelector('.logo');
     let comparacion = img.getAttribute('src');
 
+    let lupa = document.querySelector('#lupas');
+    let comparacion_2 = lupa.getAttribute('src');
+
     document.body.classList.toggle("oscuro");
 
     color.innerHTML=color.innerHTML=="Modo Nocturno"?"Modo Diurno":"Modo Nocturno";
     color2.innerHTML=color2.innerHTML=="MODO NOCTURNO"?"MODO DIURNO":"MODO NOCTURNO";
 
-    if ( comparacion == "Sources\\assets\\logo-mobile.svg" ){
+    if ( comparacion == "Sources\\assets\\logo-mobile.svg" && comparacion_2 == "Sources\\assets\\icon-search.svg"){
         img.removeAttribute('src');
+        lupa.removeAttribute('src');
         img.setAttribute('src','Sources\\assets\\logo-mobile-modo-noct.svg');
+        lupa.setAttribute('src','Sources\\assets\\icon-search-mod-noc.svg')
     }
     else {
        img.removeAttribute('src');
        img.setAttribute('src', 'Sources\\assets\\logo-mobile.svg');
+       lupa.removeAttribute('src');
+       lupa.setAttribute('src', 'Sources\\assets\\icon-search.svg');
     }
     
     if (document.body.classList.contains("oscuro")) {
@@ -260,10 +267,6 @@ cierre.addEventListener('touchstart', close, false);
 function zoom(e){
         
     let imagen = e.target.getAttribute('src');
-    let title = e.target;
-    //console.log(imagen);
-
-
     let flecha = document.querySelector('.flechas');
     const image = document.createElement('img');
     image.src = imagen;
@@ -271,15 +274,17 @@ function zoom(e){
     
     let vista = document.querySelector('.zoom');
     vista.style.display= "flex";
+
+    let titulo = document.querySelector('.seccion_baja > .contenido > h2');
+    titulo.innerHTML =  e.target.parentElement.childNodes[1].childNodes[1].childNodes[1].innerHTML;
+
+    let user = document.querySelector('.seccion_baja > .contenido > p');
+    user.innerHTML = e.target.parentElement.childNodes[1].childNodes[1].childNodes[0].innerHTML;
+    
+
     
     let menu = document.querySelector('.menu');
     menu.style.display="none";
-
-    // let titulo_busqueda = document.querySelector('.primera_seccion > h1');
-    // titulo_busqueda.style.display = 'none';
-
-    // let imagen_busqueda = document.querySelector('.primera_seccion > img');
-    // imagen_busqueda.style.display = 'none';
 
     let busqueda = document.querySelector('.busqueda');
     busqueda.style.display = "none"
@@ -304,8 +309,6 @@ function close(){
     let primer = document.querySelector('.primera_seccion');
     primer.style.display = "flex";
 
-    let busqueda = document.querySelector('.busqueda');
-    busqueda.style.display = "flex";
 
     // let titulo_busqueda = document.querySelector('.primera_seccion > h2');
     // titulo_busqueda.style.display = 'block';
@@ -320,10 +323,6 @@ function close(){
 function zoom_2(e){
 
     let imagen = e.target.parentElement.parentElement.parentElement.parentElement.children[0].getAttribute('src');
-    console.log(imagen);
-    
-    // let title = e.target.parentElement;
-    // console.log(title);
     
     let flecha = document.querySelector('.flechas');
     const image = document.createElement('img');
@@ -332,6 +331,12 @@ function zoom_2(e){
 
     let vista = document.querySelector('.zoom');
     vista.style.display= "flex";
+
+    let titulo = document.querySelector('.seccion_baja > .contenido > h2');
+    titulo.innerHTML =  e.target.parentElement.parentElement.parentElement.childNodes[1].childNodes[1].innerHTML;
+
+    let user = document.querySelector('.seccion_baja > .contenido > p');
+    user.innerHTML = e.target.parentElement.parentElement.parentElement.childNodes[1].childNodes[0].innerHTML;
       
     window.scroll(0, 0);
         

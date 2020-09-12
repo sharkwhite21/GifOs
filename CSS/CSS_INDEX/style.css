@@ -188,10 +188,10 @@ main .primera_seccion {
         float: left;
         margin-left: 25px;
         font-size: 16px; }
-      main .primera_seccion .box .container-1 a {
+      main .primera_seccion .box .container-1 .lupa {
         float: right;
         margin-right: 20px; }
-        main .primera_seccion .box .container-1 a img {
+        main .primera_seccion .box .container-1 .lupa img {
           width: 20px;
           height: 20px; }
 main .failsearch {
@@ -715,15 +715,25 @@ footer {
     color: #FFFFFF; }
   .oscuro main .primera_seccion p {
     color: #FFFFFF; }
-  .oscuro main .primera_seccion .box .container-1 input {
-    background-color: #37383C;
-    color: #FFFFFF; }
+  .oscuro main .primera_seccion .box .container-1 {
+    border: solid #FFFFFF 1px; }
+    .oscuro main .primera_seccion .box .container-1 input {
+      background-color: #37383C;
+      color: #FFFFFF; }
   .oscuro main .failsearch h2 {
     color: #FFFFFF; }
   .oscuro main .failsearch h3 {
     color: #FFFFFF; }
   .oscuro main .segunda_seccion {
     background-color: #222326; }
+    .oscuro main .segunda_seccion .imagenes .flechas {
+      border: solid #FFFFFF 1px; }
+      .oscuro main .segunda_seccion .imagenes .flechas svg {
+        fill: #FFFFFF; }
+      .oscuro main .segunda_seccion .imagenes .flechas:hover {
+        background-color: #FFFFFF; }
+        .oscuro main .segunda_seccion .imagenes .flechas:hover svg {
+          fill: #000000; }
     .oscuro main .segunda_seccion h2 {
       color: #FFFFFF; }
     .oscuro main .segunda_seccion p {
@@ -731,6 +741,16 @@ footer {
   .oscuro main .favoritos h2 {
     color: #FFFFFF; }
   .oscuro main .favoritos .no_found h2 {
+    color: #FFFFFF; }
+  .oscuro main .busqueda_img .ver_mas {
+    border: solid #FFFFFF 1px; }
+    .oscuro main .busqueda_img .ver_mas h2 {
+      color: #FFFFFF; }
+  .oscuro main .busqueda_img .ver_mas:hover {
+    background-color: #FFFFFF; }
+    .oscuro main .busqueda_img .ver_mas:hover h2 {
+      color: #000000; }
+  .oscuro main .busqueda h2 {
     color: #FFFFFF; }
   .oscuro footer {
     border-bottom: solid #000000 5px; }
@@ -750,6 +770,17 @@ footer {
         fill: #FFFFFF; }
       .oscuro footer .logos #Clip-5:active {
         fill: #FFFFFF; }
+  .oscuro .zoom {
+    background-color: #37383C;
+    color: #FFFFFF; }
+    .oscuro .zoom .pasarela .flechas {
+      border: solid #FFFFFF 1px; }
+      .oscuro .zoom .pasarela .flechas svg {
+        fill: #FFFFFF; }
+      .oscuro .zoom .pasarela .flechas:hover {
+        background-color: #FFFFFF; }
+        .oscuro .zoom .pasarela .flechas:hover svg {
+          fill: #000000; }
 
 * {
   padding: 0%;
@@ -821,7 +852,8 @@ footer {
         * .zoom .seccion_baja .contenido h2 {
           font-size: 16px;
           font-family: "Montserrat", sans-serif;
-          font-weight: 700; }
+          font-weight: 700;
+          margin-top: 6px; }
       * .zoom .seccion_baja .links {
         float: right;
         width: 50%;

@@ -54,7 +54,7 @@
             }
             .box{
                 .container-1{
-                    
+                    border: solid $bg-secundary 1px;
                     input{
                         background-color: $bg-nocturno;
                         color: $bg-secundary; 
@@ -74,8 +74,26 @@
                 
 
         }
+
         .segunda_seccion{
             background-color: $bg-nocturno-dos;
+
+            .imagenes{
+                .flechas{
+                    border: solid $bg-secundary 1px;
+                    svg{
+                        fill: $bg-secundary;
+    
+                    }
+                    &:hover{
+                        background-color: $bg-secundary;
+                        svg{
+                            fill: $color;
+                        }
+                    }                    
+                }               
+            }
+
             h2{
                 color:$bg-secundary;
             }
@@ -92,6 +110,32 @@
                 h2{
                     color: $bg-secundary;
                 }
+            }
+        }
+
+        .busqueda_img{
+
+
+            .ver_mas{
+                border: solid $bg-secundary 1px;
+                h2{
+                    color: $bg-secundary;
+                }
+            }
+
+            .ver_mas:hover{
+                background-color: $bg-secundary;
+                h2{
+                    color: $color;
+                }
+            }
+
+
+        }
+
+        .busqueda{
+            h2{
+                color: $bg-secundary;
             }
         }
     }
@@ -128,5 +172,25 @@
                 fill: $bg-secundary;
             }
         }
+    }
+
+    .zoom{
+        background-color: $bg-nocturno; 
+        color: $bg-secundary;
+        .pasarela{
+            .flechas{
+                border: solid $bg-secundary 1px;
+                svg{
+                    fill: $bg-secundary;
+
+                }
+                &:hover{
+                    background-color: $bg-secundary;
+                    svg{
+                        fill: $color;
+                    }
+                }                    
+            }   
+        }   
     }
 }
