@@ -1,5 +1,5 @@
 const api_key = "ROPHynejg9EN2A3Ck1EJ1zYD0rOs6cCg";
-//http://api.giphy.com/v1/gifs/trending?api_key=ROPHynejg9EN2A3Ck1EJ1zYD0rOs6cCg&limit=20
+
 //variables a declara para el cambio nocturno y diurno.
 let cambio = document.querySelector('.cambio');
 cambio.addEventListener('click', cambiarColor, false);
@@ -36,25 +36,19 @@ function cambiarColor() {
     let img = document.querySelector('.logo');
     let comparacion = img.getAttribute('src');
 
-    let lupa = document.querySelector('#lupas');
-    let comparacion_2 = lupa.getAttribute('src');
-
     document.body.classList.toggle("oscuro");
+
 
     color.innerHTML=color.innerHTML=="Modo Nocturno"?"Modo Diurno":"Modo Nocturno";
     color2.innerHTML=color2.innerHTML=="MODO NOCTURNO"?"MODO DIURNO":"MODO NOCTURNO";
 
-    if ( comparacion == "Sources\\assets\\logo-mobile.svg" && comparacion_2 == "Sources\\assets\\icon-search.svg"){
+    if ( comparacion == "Sources\\assets\\logo-mobile.svg"){
         img.removeAttribute('src');
-        lupa.removeAttribute('src');
         img.setAttribute('src','Sources\\assets\\logo-mobile-modo-noct.svg');
-        lupa.setAttribute('src','Sources\\assets\\icon-search-mod-noc.svg')
     }
     else {
        img.removeAttribute('src');
        img.setAttribute('src', 'Sources\\assets\\logo-mobile.svg');
-       lupa.removeAttribute('src');
-       lupa.setAttribute('src', 'Sources\\assets\\icon-search.svg');
     }
     
     if (document.body.classList.contains("oscuro")) {
@@ -62,8 +56,6 @@ function cambiarColor() {
     }else{
         localStorage.setItem('dark', 'false');
     }   
-
-
 }
 
 //Persistencia y cambios en el localStorage
@@ -147,24 +139,16 @@ function getTendring() {
                 
                 let box_1 = document.createElement('div');
                 box_1.classList.add('box');
+                box_1.classList.add('fav');
                 links.appendChild(box_1);
-
-                // let a_1 = document.createElement('a');
-                // a_1.setAttribute( 'href','#');
-                // box_1.appendChild(a_1);
 
                 let imagen_2 = document.createElement('img');
                 imagen_2.setAttribute('src', 'Sources\\assets\\icon-fav-hover.svg');
                 box_1.appendChild(imagen_2);
-                
-                
+                                
                 let div_4 = document.createElement('div');
                 div_4.classList.add('box');
                 box_1.after(div_4);
-
-                // let a_2 = document.createElement('a');
-                // a_2.setAttribute( 'href','#');
-                // div_4.appendChild(a_2);
 
                 let imagen_3 = document.createElement('img');
                 imagen_3.setAttribute('src', 'Sources\\assets\\icon-download.svg');
@@ -174,10 +158,6 @@ function getTendring() {
                 div_5.classList.add('box');
                 div_5.classList.add('ultimo');
                 div_4.after(div_5);
-                
-                // let a_3 = document.createElement('a');
-                // a_3.setAttribute( 'href','#');
-                // div_5.appendChild(a_3);
 
                 let imagen_4 = document.createElement('img');
                 imagen_4.setAttribute('src', 'Sources\\assets\\icon-max.svg');
@@ -207,6 +187,8 @@ function getTendring() {
                 }
 
                 div_6.appendChild(h2);
+
+
             });
 
             window.slick = document.querySelectorAll('.imagen');
@@ -223,6 +205,13 @@ function getTendring() {
             for (let i = 0; i < lista.length; i++) {
                  ampliar[i].addEventListener( 'click', zoom_2, false);
             };
+
+            let fav = document.querySelectorAll(".links > .fav");
+            
+            for (let i = 0; i < lista.length; i++) {
+                fav[i].addEventListener( 'click', corazon, false);
+            };
+
         })
         .catch((err) => {
             console.log(`${err}`);
@@ -230,8 +219,6 @@ function getTendring() {
 }
 
 // interacion carrousel
-
-
 const slickList = document.querySelector('.imagenes');
 const track = document.querySelector('.contenedor');
 
@@ -256,8 +243,6 @@ function Move(number) {
         track.style.left = `${-1 * (leftPosition - slickWidth)}px`;
     }
 }
-
-
     
 //codigo para el zoom, de las imagenes.
 
@@ -341,7 +326,6 @@ function zoom_2(e){
     window.scroll(0, 0);
         
 };
-
 
 
 //Barra de busqueda funcionamiento. 
@@ -485,3 +469,86 @@ function busquedaGifs(){
 //function nuevaBusqueda()
 
 
+
+// funcion <3 
+function corazon(e) {
+    let fav_empty = e.target.getAttribute('src');
+    let box = e.target.parentElement;
+
+    if ( fav_empty == "Sources\\assets\\icon-fav-hover.svg"){
+        e.target.removeAttribute('src');
+        e.target.setAttribute('src','Sources\\assets\\icon-fav-active.svg');
+        box.style.opacity='1';
+    }
+    else {
+       e.target.removeAttribute('src');
+       e.target.setAttribute('src', 'Sources\\assets\\icon-fav-hover.svg');
+       box.style.opacity='0.5';
+    }   
+}
+
+//Sugerencias en las busquedas
+
+let inputText = document.querySelector('#search');
+let menuInput = document.querySelector('.menu-input');
+let box_search = document.querySelector('.primera_seccion > .box');
+
+//Diseño al ingresar texto en el input
+inputText.addEventListener('input', showSearchMenu);
+
+async function showSearchMenu(event){
+    //Condición para mostrar cuando el menú de sugerencias aparecerá
+    //cuando está vacío el input
+    if(!event.target.value){
+        searchButtonActive = false;
+        menuInput.style.display = "none";
+        box_search.style.height= '50px';
+        //Condición de estilo cuando hay cambio de tema
+        // if(nightTheme){
+        //     imgLupa.setAttribute('src','./assets/Combined_Shape.svg');
+        //     imgLupa.style.opacity = 1;
+        //     searchButton.classList.replace('night-search-button-active','night-search-button-inactive');
+        // }else{
+        //     imgLupa.setAttribute('src','./assets/lupa.svg');
+        //     imgLupa.style.opacity = 0.2;
+        //     searchButton.classList.replace('day-search-button-active','day-search-button-inactive');
+        // };   
+    }else{ //cuando está lleno el input
+        searchButtonActive = true;
+        menuInput.style.display = "inline-block";
+        box_search.style.height= '150px';
+        //Condición de estilo cuando hay cambio de tema
+        // if(nightTheme){
+        //     imgLupa.setAttribute('src','./assets/lupa_light.svg');
+        //     imgLupa.style.opacity = 1;
+        //     searchButton.classList.replace('night-search-button-inactive','night-search-button-active');
+        // }else{
+        //     imgLupa.setAttribute('src','./assets/lupa.svg');
+        //     imgLupa.style.opacity = 1;
+        //     searchButton.classList.replace('day-search-button-inactive','day-search-button-active');
+        // };
+        //Llamado de la API para obtener terminos relacionados (sugerencias).
+        let url = `https://api.giphy.com/v1/tags/related/${inputText.value}?api_key=${api_key}&limit=3`;
+        let resp = await fetch(url);
+        let suggestedSearchData = await resp.json();
+        //Llena los 3 cuadros de sugerencias
+        for(let i = 0; i<3; i++){
+            let suggestTerm = document.getElementById(`suggest-term-${i+1}`);
+            suggestTerm.innerHTML = `${suggestedSearchData.data[i].name}`; 
+        };
+    };
+};
+
+//función para hacer click en las sugerencias y buscarlas
+//convierto el HTMLCollection en un array y uso map para iterarlo
+Array.from(document.getElementsByClassName('suggest-term')).map((el)=>{
+    el.addEventListener('click', function(){
+        inputText.value = el.innerHTML;
+        //window.scroll(0, topLocationTrending);
+        obtenerBusquedaGifs(inputText.value);
+    });
+});
+//permite presionar la tecla escape y ocultar el menú de sugerencias
+inputText.addEventListener('keydown', ()=>{
+    menuInput.style.display = "none";
+});

@@ -45,13 +45,13 @@ main{
 
         .box{
             width: 284px;
-            height: 50px;
+            height: 50px;// valores entre 50 y 150
             margin-bottom: 20px;
+            border: solid $bg-primary 1px;
+            border-radius: 27px;
             .container-1{
-                border: solid $bg-primary 1px;
-                border-radius: 27px;
                 height: 40px;
-                padding-top: 9px;
+                padding-top: 14px;
 
                 input{
                     float: left;
@@ -66,6 +66,28 @@ main{
                         width: 20px;
                         height: 20px;                        
                     }
+                }
+            }
+
+            .menu-input{
+                font-family: $fuente_2;
+                font-size: 16px;
+                color: #000000;
+                text-align: left;
+                opacity: 0.5;
+                padding-left: 24px;
+                display: none;
+                span{
+                    width: 240px;
+                    height: 1.7px;
+                    background: $bg-four;
+                    margin-bottom: 7px;
+                    display: inline-block;
+                        
+                }
+                .suggest-term{
+                    padding-bottom: 7px;
+                    cursor: pointer;
                 }
             }
         }
