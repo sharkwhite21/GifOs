@@ -379,7 +379,8 @@ main .busqueda_img {
     margin: 40px 0px;
     display: flex;
     align-items: center;
-    justify-content: center; }
+    justify-content: center;
+    cursor: pointer; }
     main .busqueda_img .ver_mas h2 {
       font-size: 13px; }
   main .busqueda_img .ver_mas:hover {
@@ -518,6 +519,8 @@ main .segunda_seccion {
       height: 50px; }
       main .primera_seccion .box .container-1 input {
         width: 85%; }
+      main .primera_seccion .box .menu-input span {
+        width: 510px; }
     main .primera_seccion p {
       font-size: 18px;
       margin-top: 50px; }
@@ -732,11 +735,9 @@ footer {
     color: #FFFFFF; }
   .oscuro main .primera_seccion p {
     color: #FFFFFF; }
-  .oscuro main .primera_seccion .box .container-1 {
-    border: solid #FFFFFF 1px; }
-    .oscuro main .primera_seccion .box .container-1 input {
-      background-color: #37383C;
-      color: #FFFFFF; }
+  .oscuro main .primera_seccion .box .container-1 input {
+    background-color: #37383C;
+    color: #FFFFFF; }
   .oscuro main .failsearch h2 {
     color: #FFFFFF; }
   .oscuro main .failsearch h3 {

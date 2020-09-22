@@ -22,10 +22,9 @@ let tituloBusqueda = document.querySelector('.busqueda > h2');
 let tituloFail = document.querySelector ('.failsearch > h2')
 const ver = document.querySelector('.ver_mas');
 
+let listaGifs = [];
+let partialGifs = [];
 
-ver.onclick = () => {
-    obtenerBusquedaGifs(search.value);
-};
 
 
 const failSearch = document.querySelector('.failsearch');
@@ -294,6 +293,7 @@ function close(){
     let primer = document.querySelector('.primera_seccion');
     primer.style.display = "flex";
 
+    busqueda.style.display ='flex';
 
     // let titulo_busqueda = document.querySelector('.primera_seccion > h2');
     // titulo_busqueda.style.display = 'block';
@@ -334,7 +334,7 @@ const lupa = document.querySelector(".lupa");
 lupa.addEventListener('click', busquedaGifs);
 
 function obtenerBusquedaGifs(searching) {
-    const url = `http://api.giphy.com/v1/gifs/search?q=${searching}&api_key=${api_key}&limit=12`;
+    const url = `http://api.giphy.com/v1/gifs/search?q=${searching}&api_key=${api_key}&limit=25`;
     
     fetch(url)
     .then((success) => {
@@ -359,7 +359,15 @@ function obtenerBusquedaGifs(searching) {
             failSearch.style.display ='none'; 
             busqueda.style.display = 'flex';
 
-            data.data.forEach((el) => {
+            listaGifs= data.data;
+            let inicialPos = 0;
+            let finalPos = 12;
+            partialGifs = listaGifs.slice(inicialPos,finalPos);
+
+            impresionGifos(partialGifs);
+
+            function impresionGifos(partialGifs){
+            partialGifs.forEach((el) => {
                 
                 let div = document.createElement('div');
                 div.classList.add('imagens');
@@ -430,6 +438,7 @@ function obtenerBusquedaGifs(searching) {
 
                 div_6.appendChild(h2);                
         });
+
             let lista = document.querySelectorAll(".imagens > img");
             let ampliar = document.querySelectorAll(".links_2 > .ultimo_2 ");
 
@@ -440,7 +449,20 @@ function obtenerBusquedaGifs(searching) {
             for (let i = 0; i < lista.length; i++) {
                 ampliar[i].addEventListener( 'click', zoom_2, false);
             };
+            }
 
+            ver.addEventListener('click', (ev) =>{
+                if (inicialPos + 13 <= listaGifs.length && finalPos + 13 <= listaGifs.length) {
+                    partialGifs = listaGifs.slice(inicialPos + 13,finalPos + 13);
+                    inicialPos += 13;
+                    finalPos += 13;
+
+                    impresionGifos(partialGifs);
+                }
+            })
+            
+
+            //en la version mobile se quita el titulo  y la imagen en la busqueda.
             console.log(screen.width);
             if ( screen.width <= 1000) {
                 let titulo_busqueda = document.querySelector('.primera_seccion > h1');
@@ -465,9 +487,6 @@ function obtenerBusquedaGifs(searching) {
 function busquedaGifs(){
     obtenerBusquedaGifs(search.value);
 }
-
-//function nuevaBusqueda()
-
 
 
 // funcion <3 
@@ -503,6 +522,30 @@ async function showSearchMenu(event){
         searchButtonActive = false;
         menuInput.style.display = "none";
         box_search.style.height= '50px';
+        busqueda.style.display='none';
+        let borrado = document.querySelectorAll('.imagenes_resultado > .imagens');
+        let padre =document.querySelector('.imagenes_resultado');
+        
+        if (borrado.length > 0) {
+            for (let i = 0; i < borrado.length; i++) {
+                padre.removeChild(borrado[i]);
+            }
+        }
+        else{
+            console.log('nada que decir');
+        }
+
+        let titulo_busqueda = document.querySelector('.primera_seccion > h1');
+        titulo_busqueda.style.display = 'block';
+    
+        let imagen_busqueda = document.querySelector('.primera_seccion > img');
+        imagen_busqueda.style.display = 'block';
+        // function Quitar() {
+        //     var ultimo = document.getElementById('div_' + i);
+        //     document.body.removeChild(ultimo);
+        
+        //     i = i - 1;
+        // }
         //Condición de estilo cuando hay cambio de tema
         // if(nightTheme){
         //     imgLupa.setAttribute('src','./assets/Combined_Shape.svg');
@@ -527,6 +570,7 @@ async function showSearchMenu(event){
         //     imgLupa.style.opacity = 1;
         //     searchButton.classList.replace('day-search-button-inactive','day-search-button-active');
         // };
+
         //Llamado de la API para obtener terminos relacionados (sugerencias).
         let url = `https://api.giphy.com/v1/tags/related/${inputText.value}?api_key=${api_key}&limit=3`;
         let resp = await fetch(url);
@@ -544,7 +588,7 @@ async function showSearchMenu(event){
 Array.from(document.getElementsByClassName('suggest-term')).map((el)=>{
     el.addEventListener('click', function(){
         inputText.value = el.innerHTML;
-        //window.scroll(0, topLocationTrending);
+        window.scroll(0, 710);
         obtenerBusquedaGifs(inputText.value);
     });
 });

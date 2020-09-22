@@ -333,6 +333,7 @@ main{
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                cursor:pointer;
 
                 h2{
                     font-size: 13px;
@@ -544,6 +545,11 @@ main{
                 .container-1{
                     input{
                         width: 85%;
+                    }
+                }
+                .menu-input{
+                    span{
+                        width: 510px;                            
                     }
                 }
             }
