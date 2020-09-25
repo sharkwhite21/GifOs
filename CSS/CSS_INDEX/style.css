@@ -892,7 +892,8 @@ footer {
           display: flex;
           justify-content: center;
           align-items: center;
-          padding-top: 3px; }
+          padding-top: 3px;
+          cursor: pointer; }
           * .zoom .seccion_baja .links .box img {
             width: 20px;
             height: 20px; }

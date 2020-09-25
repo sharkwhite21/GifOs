@@ -24,8 +24,12 @@ const ver = document.querySelector('.ver_mas');
 
 let listaGifs = [];
 let partialGifs = [];
+let favoritos =[];
 
-
+//variables para favoritos
+let no_found = document.querySelector('.favoritos > .no_found');
+let busq_fav = document.querySelector('.favoritos > .busqueda_fav');
+let list_fav = document.querySelector('.busqueda_fav > .lista_favoritos');
 
 const failSearch = document.querySelector('.failsearch');
 
@@ -293,7 +297,7 @@ function close(){
     let primer = document.querySelector('.primera_seccion');
     primer.style.display = "flex";
 
-    busqueda.style.display ='flex';
+    //busqueda.style.display ='flex';
 
     // let titulo_busqueda = document.querySelector('.primera_seccion > h2');
     // titulo_busqueda.style.display = 'block';
@@ -327,7 +331,8 @@ function zoom_2(e){
         
 };
 
-
+let favZoom = document.querySelector('.seccion_baja > .links > .box');
+favZoom.addEventListener('click',corazon);
 //Barra de busqueda funcionamiento. 
 
 const lupa = document.querySelector(".lupa");
@@ -494,16 +499,46 @@ function corazon(e) {
     let fav_empty = e.target.getAttribute('src');
     let box = e.target.parentElement;
 
-    if ( fav_empty == "Sources\\assets\\icon-fav-hover.svg"){
+    if (fav_empty == "Sources\\assets\\icon-fav-hover.svg"){
         e.target.removeAttribute('src');
         e.target.setAttribute('src','Sources\\assets\\icon-fav-active.svg');
         box.style.opacity='1';
+        favoritos.push(e.target.parentElement.parentElement.parentElement.parentElement);
+        console.log(favoritos);
+        localSaveFavorite(favoritos);    
     }
-    else {
+
+    else{
        e.target.removeAttribute('src');
        e.target.setAttribute('src', 'Sources\\assets\\icon-fav-hover.svg');
        box.style.opacity='0.5';
-    }   
+       //e.target.parentElement.parentElement.parentElement.parentElement;
+       localSaveFavorite(e.target.parentElement.parentElement.parentElement.parentElement);
+    }
+
+    if (favoritos.length != 0) {
+        no_found.style.display = 'none';
+        busq_fav.style.display = 'flex';
+        mostrarFavoritos()        
+    }
+    else{
+        no_found.style.display = 'flex';
+        busq_fav.style.display = 'none';
+    }
+}
+
+//Guardado de los favoritos al localStorage
+
+function localSaveFavorite(list) {
+    localStorage.setItem('Favoritos', JSON.stringify(list));   
+}
+
+function mostrarFavoritos() {
+
+    console.log(JSON.parse(localStorage.getItem('Favoritos')));
+    // for (let i = 0; i < el.length; i++) {
+    //     list_fav.appendChild(el[i]);    
+    // }
 }
 
 //Sugerencias en las busquedas
