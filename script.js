@@ -125,6 +125,7 @@ function getTendring() {
 
                 const image = document.createElement('img');
                 image.src = el.images.downsized.url;
+                image.id = el.id;
                 div.appendChild(image);
 
 
@@ -333,6 +334,7 @@ function zoom_2(e){
 
 let favZoom = document.querySelector('.seccion_baja > .links > .box');
 favZoom.addEventListener('click',corazon);
+
 //Barra de busqueda funcionamiento. 
 
 const lupa = document.querySelector(".lupa");
@@ -380,6 +382,7 @@ function obtenerBusquedaGifs(searching) {
 
                 const image = document.createElement('img');
                 image.src = el.images.downsized.url;
+                image.id = el.id;
                 div.appendChild(image);
 
                 //creacion del div hover para cada imagen.
@@ -498,33 +501,48 @@ function busquedaGifs(){
 function corazon(e) {
     let fav_empty = e.target.getAttribute('src');
     let box = e.target.parentElement;
+    let id = e.target.parentNode.parentNode.parentNode.parentNode.childNodes[0].getAttribute('id');
+    let src = e.target.parentNode.parentNode.parentNode.parentNode.childNodes[0].getAttribute('src');
+    let title = e.target.parentNode.parentNode.parentNode.children[1].lastChild.innerHTML;
+    let user =e.target.parentNode.parentNode.parentNode.children[1].firstChild.innerHTML;
 
     if (fav_empty == "Sources\\assets\\icon-fav-hover.svg"){
         e.target.removeAttribute('src');
         e.target.setAttribute('src','Sources\\assets\\icon-fav-active.svg');
         box.style.opacity='1';
-        favoritos.push(e.target.parentElement.parentElement.parentElement.parentElement);
+        console.log(title);
+        console.log(user);
+        favoritos.push([id,src,title,user]);
         console.log(favoritos);
         localSaveFavorite(favoritos);    
     }
 
-    else{
-       e.target.removeAttribute('src');
-       e.target.setAttribute('src', 'Sources\\assets\\icon-fav-hover.svg');
-       box.style.opacity='0.5';
-       //e.target.parentElement.parentElement.parentElement.parentElement;
-       localSaveFavorite(e.target.parentElement.parentElement.parentElement.parentElement);
-    }
+    // else{
+    //    e.target.removeAttribute('src');
+    //    e.target.setAttribute('src', 'Sources\\assets\\icon-fav-hover.svg');
+    //    box.style.opacity='0.5';
+    //    //e.target.parentElement.parentElement.parentElement.parentElement;
+    //    localSaveFavorite(e.target.parentElement.parentElement.parentElement.parentElement);
+    // }
 
-    if (favoritos.length != 0) {
-        no_found.style.display = 'none';
-        busq_fav.style.display = 'flex';
-        mostrarFavoritos()        
-    }
-    else{
-        no_found.style.display = 'flex';
-        busq_fav.style.display = 'none';
-    }
+    // if (favoritos.length != 0) {
+    //     no_found.style.display = 'none';
+    //     busq_fav.style.display = 'flex';
+    //     mostrarFavoritos()        
+    // }
+    // else{
+    //     no_found.style.display = 'flex';
+    //     busq_fav.style.display = 'none';
+    // }
+
+    // function agregarGifs(id,src,title,user) {
+    //     favoritos = { id: [
+    //         `${src}`,
+    //         `${title}`,
+    //         `${user}`]
+    //     };
+    // }
+
 }
 
 //Guardado de los favoritos al localStorage
