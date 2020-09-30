@@ -190,10 +190,10 @@ main .primera_seccion {
         font-size: 16px; }
       main .primera_seccion .box .container-1 .lupa {
         float: right;
-        margin-right: 20px; }
-        main .primera_seccion .box .container-1 .lupa img {
-          width: 20px;
-          height: 20px; }
+        margin-right: 20px;
+        width: 20px;
+        height: 20px;
+        cursor: pointer; }
     main .primera_seccion .box .menu-input {
       font-family: "Roboto", sans-serif;
       font-size: 16px;

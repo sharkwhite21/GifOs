@@ -399,6 +399,7 @@ function obtenerBusquedaGifs(searching) {
             
                 let box_1 = document.createElement('div');
                 box_1.classList.add('box_2');
+                box_1.classList.add('fav_2');
                 links.appendChild(box_1);
 
                 let imagen_2 = document.createElement('img');
@@ -449,6 +450,7 @@ function obtenerBusquedaGifs(searching) {
 
             let lista = document.querySelectorAll(".imagens > img");
             let ampliar = document.querySelectorAll(".links_2 > .ultimo_2 ");
+            let fav = document.querySelectorAll(".links_2 > .fav_2");
 
             for (i = 0; i < lista.length; i++) {
                 lista[i].addEventListener('touchstart', zoom, false);
@@ -457,6 +459,11 @@ function obtenerBusquedaGifs(searching) {
             for (let i = 0; i < lista.length; i++) {
                 ampliar[i].addEventListener( 'click', zoom_2, false);
             };
+            
+            for (let i = 0; i < lista.length; i++) {
+                fav[i].addEventListener( 'click', corazon, false);
+            };
+
             }
 
             ver.addEventListener('click', (ev) =>{
@@ -502,28 +509,35 @@ function corazon(e) {
     let fav_empty = e.target.getAttribute('src');
     let box = e.target.parentElement;
     let id = e.target.parentNode.parentNode.parentNode.parentNode.childNodes[0].getAttribute('id');
-    let src = e.target.parentNode.parentNode.parentNode.parentNode.childNodes[0].getAttribute('src');
-    let title = e.target.parentNode.parentNode.parentNode.children[1].lastChild.innerHTML;
-    let user =e.target.parentNode.parentNode.parentNode.children[1].firstChild.innerHTML;
+    // let src = e.target.parentNode.parentNode.parentNode.parentNode.childNodes[0].getAttribute('src');
+    // let title = e.target.parentNode.parentNode.parentNode.children[1].lastChild.innerHTML;
+    // let user =e.target.parentNode.parentNode.parentNode.children[1].firstChild.innerHTML;
 
+    // condicionales para saber si el gif a guardar en local storage existe.
     if (fav_empty == "Sources\\assets\\icon-fav-hover.svg"){
         e.target.removeAttribute('src');
         e.target.setAttribute('src','Sources\\assets\\icon-fav-active.svg');
         box.style.opacity='1';
-        console.log(title);
-        console.log(user);
-        favoritos.push([id,src,title,user]);
-        console.log(favoritos);
+
+        if (favoritos.includes(id) != true) {
+            favoritos.push(id);            
+        }
         localSaveFavorite(favoritos);    
     }
 
-    // else{
-    //    e.target.removeAttribute('src');
-    //    e.target.setAttribute('src', 'Sources\\assets\\icon-fav-hover.svg');
-    //    box.style.opacity='0.5';
-    //    //e.target.parentElement.parentElement.parentElement.parentElement;
-    //    localSaveFavorite(e.target.parentElement.parentElement.parentElement.parentElement);
-    // }
+    else{
+       e.target.removeAttribute('src');
+       e.target.setAttribute('src', 'Sources\\assets\\icon-fav-hover.svg');
+       box.style.opacity='0.5';
+       if (favoritos.includes(id) == true) {
+            let index = favoritos.indexOf(id);
+             //localRemoveFavorite(id);
+            if (index > -1) {
+                favoritos.splice(index, 1);
+            }
+            localSaveFavorite(favoritos); 
+        }
+    }
 
     // if (favoritos.length != 0) {
     //     no_found.style.display = 'none';
@@ -534,15 +548,6 @@ function corazon(e) {
     //     no_found.style.display = 'flex';
     //     busq_fav.style.display = 'none';
     // }
-
-    // function agregarGifs(id,src,title,user) {
-    //     favoritos = { id: [
-    //         `${src}`,
-    //         `${title}`,
-    //         `${user}`]
-    //     };
-    // }
-
 }
 
 //Guardado de los favoritos al localStorage
@@ -551,6 +556,9 @@ function localSaveFavorite(list) {
     localStorage.setItem('Favoritos', JSON.stringify(list));   
 }
 
+function localRemoveFavorite(id){
+    localStorage.removeItem(`${id}`);
+}
 function mostrarFavoritos() {
 
     console.log(JSON.parse(localStorage.getItem('Favoritos')));
