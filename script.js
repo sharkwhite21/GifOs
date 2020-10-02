@@ -13,6 +13,7 @@ let color2 = document.querySelector('#color2');
 let contenedor = document.querySelector('.contenedor');
 const busqueda = document.querySelector('.busqueda')
 
+
 const buttonPrev = document.querySelector('.left');
 const buttonNext = document.querySelector('.right');
 
@@ -118,6 +119,7 @@ function getTendring() {
 
         .then((data) => {
             data.data.forEach((el) => {
+
                 //aqui va  la creacion de cada imagen
                 let div = document.createElement('div');
                 div.classList.add('imagen');
@@ -130,7 +132,6 @@ function getTendring() {
 
 
                 //creacion del div hover para cada imagen.
-
                 let section = document.createElement('section');
                 section.classList.add('sombra');
                 section.classList.add('desktop');
@@ -191,7 +192,6 @@ function getTendring() {
                 }
 
                 div_6.appendChild(h2);
-
 
             });
 
@@ -341,6 +341,7 @@ const lupa = document.querySelector(".lupa");
 lupa.addEventListener('click', busquedaGifs);
 
 function obtenerBusquedaGifs(searching) {
+
     const url = `http://api.giphy.com/v1/gifs/search?q=${searching}&api_key=${api_key}&limit=25`;
     
     fetch(url)
@@ -353,7 +354,6 @@ function obtenerBusquedaGifs(searching) {
         }
     })
     .then((data) => {
-        console.log(data.data.length);
 
         if (data.data.length == '0') {
             tituloFail.innerHTML= searching;
@@ -478,7 +478,6 @@ function obtenerBusquedaGifs(searching) {
             
 
             //en la version mobile se quita el titulo  y la imagen en la busqueda.
-            console.log(screen.width);
             if ( screen.width <= 1000) {
                 let titulo_busqueda = document.querySelector('.primera_seccion > h1');
                 titulo_busqueda.style.display = 'none';
@@ -502,7 +501,6 @@ function obtenerBusquedaGifs(searching) {
 function busquedaGifs(){
     obtenerBusquedaGifs(search.value);
 }
-
 
 // funcion <3 
 function corazon(e) {
@@ -556,16 +554,150 @@ function localSaveFavorite(list) {
     localStorage.setItem('Favoritos', JSON.stringify(list));   
 }
 
-function localRemoveFavorite(id){
-    localStorage.removeItem(`${id}`);
-}
-function mostrarFavoritos() {
+// function localRemoveFavorite(id){
+//     localStorage.removeItem(`${id}`);
+// }
 
-    console.log(JSON.parse(localStorage.getItem('Favoritos')));
-    // for (let i = 0; i < el.length; i++) {
-    //     list_fav.appendChild(el[i]);    
+function mostrarFavoritos(){
+
+    let recuperacion = [];
+    recuperacion = JSON.parse(localStorage.getItem('Favoritos'));
+    
+    recuperacion.forEach(el => {
+        const url = `https://api.giphy.com/v1/gifs/${el}?api_key=${api_key}`;
+
+
+        fetch(url)
+            .then((success) => {
+        if (success.ok) {
+            return success.json();
+        } else {
+            failsearch.style.display = 'flex';
+            throw new Error(('success') + 'no se puede comunicar con la API');
+        }
+        })
+            .then((data) => {
+                
+                let div = document.createElement('div');
+                div.classList.add('imagens');
+                list_fav.appendChild(div);
+
+                const image = document.createElement('img');
+                image.src = data.data.images.downsized.url;
+                image.id = data.data.id;
+                div.appendChild(image);
+
+                //creacion del div hover para cada imagen.
+
+                let section = document.createElement('section');
+                section.classList.add('sombra_2');
+                section.classList.add('desktop');
+                div.appendChild(section);
+                            
+                let links = document.createElement('div');
+                links.classList.add('links_2');
+                section.appendChild(links);
+
+            
+                let box_1 = document.createElement('div');
+                box_1.classList.add('box_2');
+                box_1.classList.add('fav_2');
+                box_1.style.opacity='1';
+                links.appendChild(box_1);
+
+                let imagen_2 = document.createElement('img');
+                imagen_2.setAttribute('src', 'Sources\\assets\\icon-fav-active.svg');
+                box_1.appendChild(imagen_2);
+                
+                        
+                let div_4 = document.createElement('div');
+                div_4.classList.add('box_2');
+                box_1.after(div_4);
+
+                let imagen_3 = document.createElement('img');
+                imagen_3.setAttribute('src', 'Sources\\assets\\icon-download.svg');
+                div_4.appendChild(imagen_3);
+            
+                let div_5 = document.createElement('div');
+                div_5.classList.add('box_2');
+                div_5.classList.add('ultimo_2');
+                div_5.addEventListener( 'click', zoom_2, false);
+                div_4.after(div_5);
+
+                let imagen_4 = document.createElement('img');
+                imagen_4.setAttribute('src', 'Sources\\assets\\icon-max.svg');
+                div_5.appendChild(imagen_4);
+                        
+                let div_6 = document.createElement('div');
+                div_6.classList.add('contenido_2');
+                links.after(div_6);
+            
+                let p = document.createElement('p');
+                let h2 = document.createElement('h2');
+                
+                if (el.username == '') {
+                    p.innerHTML = 'Sin Usuario'
+                }
+                else{
+                    p.innerText = data.data.username;
+                }
+                div_6.appendChild(p)
+
+                if (el.title == '') {
+                    h2.innerText = 'Sin Titulo'
+                }
+                else{
+                    h2.innerText = data.data.title;
+                }
+
+                div_6.appendChild(h2);                
+             });
+            
+            // let lista = document.querySelector(".imagens > img");
+            // let ampliar = document.querySelector(".links_2 > .ultimo_2 ");
+            // //let fav = document.querySelector(".links_2 > .fav_2");
+
+            // lista.addEventListener('touchstart', zoom, false);
+            // ampliar.addEventListener( 'click', zoom_2, false);                
+            // //fav.addEventListener( 'click', corazon, false);
+
+
+
+            // ver.addEventListener('click', (ev) =>{
+            //     if (inicialPos + 13 <= listaGifs.length && finalPos + 13 <= listaGifs.length) {
+            //         partialGifs = listaGifs.slice(inicialPos + 13,finalPos + 13);
+            //         inicialPos += 13;
+            //         finalPos += 13;
+
+            //         impresionGifos(partialGifs);
+            //     }
+            })
+            
+            .catch((err) => {
+                console.log(`${err}`);
+            })
+            
+    }
+
+    // //console.log(localStorage.getItem('Favoritos').length);  
     // }
-}
+    
+
+/**
+ * Bueno la cosa es la sgte en cunato a la implementacion de los gifos en favoritos 
+ * vamos hacer los sgte, creamos unas funciones de delegacion para que sea mas llevadera
+ * una fucncion que nos lea lo que hay en el localstorage, y lo envie en una lista, o directamente enviarlo
+ *  a otra funcion creadora de las cajas para esos gifs:
+ * 
+ * -lectura de ls
+ * -creacion de esos gifs
+ * -colocar esos gifs en la carpeta
+ * -actualizador de estados
+ * 
+ */
+
+
+
 
 //Sugerencias en las busquedas
 
@@ -601,36 +733,11 @@ async function showSearchMenu(event){
     
         let imagen_busqueda = document.querySelector('.primera_seccion > img');
         imagen_busqueda.style.display = 'block';
-        // function Quitar() {
-        //     var ultimo = document.getElementById('div_' + i);
-        //     document.body.removeChild(ultimo);
-        
-        //     i = i - 1;
-        // }
-        //Condición de estilo cuando hay cambio de tema
-        // if(nightTheme){
-        //     imgLupa.setAttribute('src','./assets/Combined_Shape.svg');
-        //     imgLupa.style.opacity = 1;
-        //     searchButton.classList.replace('night-search-button-active','night-search-button-inactive');
-        // }else{
-        //     imgLupa.setAttribute('src','./assets/lupa.svg');
-        //     imgLupa.style.opacity = 0.2;
-        //     searchButton.classList.replace('day-search-button-active','day-search-button-inactive');
-        // };   
+
     }else{ //cuando está lleno el input
         searchButtonActive = true;
         menuInput.style.display = "inline-block";
         box_search.style.height= '150px';
-        //Condición de estilo cuando hay cambio de tema
-        // if(nightTheme){
-        //     imgLupa.setAttribute('src','./assets/lupa_light.svg');
-        //     imgLupa.style.opacity = 1;
-        //     searchButton.classList.replace('night-search-button-inactive','night-search-button-active');
-        // }else{
-        //     imgLupa.setAttribute('src','./assets/lupa.svg');
-        //     imgLupa.style.opacity = 1;
-        //     searchButton.classList.replace('day-search-button-inactive','day-search-button-active');
-        // };
 
         //Llamado de la API para obtener terminos relacionados (sugerencias).
         let url = `https://api.giphy.com/v1/tags/related/${inputText.value}?api_key=${api_key}&limit=3`;
@@ -649,11 +756,11 @@ async function showSearchMenu(event){
 Array.from(document.getElementsByClassName('suggest-term')).map((el)=>{
     el.addEventListener('click', function(){
         inputText.value = el.innerHTML;
-        window.scroll(0, 710);
+        //window.scroll(0, 710);
         obtenerBusquedaGifs(inputText.value);
     });
 });
 //permite presionar la tecla escape y ocultar el menú de sugerencias
-inputText.addEventListener('keydown', ()=>{
-    menuInput.style.display = "none";
-});
+// inputText.addEventListener('keydown', ()=>{
+//     menuInput.style.display = "none";
+// })

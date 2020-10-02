@@ -83,7 +83,8 @@ header{
                 background: rgba(87,46,229,0.90);
                 display: flex;
                 flex-direction: column;
-                align-items: center;   
+                align-items: center;
+                z-index: 2;   
             }
 
             /*checkbox transparente y en primer plano*/

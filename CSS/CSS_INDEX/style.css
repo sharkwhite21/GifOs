@@ -64,7 +64,8 @@ header {
         background: rgba(87, 46, 229, 0.9);
         display: flex;
         flex-direction: column;
-        align-items: center; }
+        align-items: center;
+        z-index: 2; }
       header nav .menu input {
         display: block;
         width: 40px;
@@ -257,43 +258,56 @@ main .favoritos {
     text-align: center;
     color: #572EE5;
     margin: 10px 0px; }
-  main .favoritos .no_found {
-    display: flex;
+  main .favoritos .no_found_fav {
+    display: none;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     margin: 70px 0px; }
-    main .favoritos .no_found img {
+    main .favoritos .no_found_fav img {
       width: 70px;
       height: 70px; }
-    main .favoritos .no_found h2 {
+    main .favoritos .no_found_fav h2 {
       color: #50E3C2;
       font-size: 18px;
       width: 230px;
       margin-top: 20px; }
-  main .favoritos .busqueda_fav {
-    display: none;
+main .busqueda_fav {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center; }
+  main .busqueda_fav .lista_favoritos {
+    display: flex;
     flex-flow: row wrap;
     justify-content: center; }
-    main .favoritos .busqueda_fav .lista_favoritos img {
-      padding: 8px;
-      width: 150px;
-      height: 120px; }
-    main .favoritos .busqueda_fav .ver_mas {
-      border: solid #572EE5 1px;
-      border-radius: 35px;
-      width: 127px;
-      height: 50px;
-      margin: 40px 0px;
+    main .busqueda_fav .lista_favoritos .imagens {
+      position: relative;
       display: flex;
-      align-items: center;
-      justify-content: center; }
-      main .favoritos .busqueda_fav .ver_mas h2 {
-        font-size: 13px; }
-    main .favoritos .busqueda_fav .ver_mas:hover {
-      background-color: #572EE5; }
-      main .favoritos .busqueda_fav .ver_mas:hover h2 {
-        color: #FFFFFF; }
+      justify-content: center;
+      margin: 1px;
+      width: 156px;
+      height: 120px; }
+      main .busqueda_fav .lista_favoritos .imagens img {
+        padding: 8px;
+        width: 156px;
+        height: 120px; }
+      main .busqueda_fav .lista_favoritos .imagens .sombra_2 {
+        display: none; }
+  main .busqueda_fav .ver_mas {
+    border: solid #572EE5 1px;
+    border-radius: 35px;
+    width: 127px;
+    height: 50px;
+    margin: 40px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    main .busqueda_fav .ver_mas h2 {
+      font-size: 13px; }
+  main .busqueda_fav .ver_mas:hover {
+    background-color: #572EE5; }
+    main .busqueda_fav .ver_mas:hover h2 {
+      color: #FFFFFF; }
 main .mis_gifos {
   display: flex;
   align-items: center;
@@ -589,6 +603,111 @@ main .segunda_seccion {
         line-height: 33px;
         font-size: 22px;
         width: 430px; }
+    main .favoritos .lista_favoritos .imagens .sombra_2 {
+      display: flex; }
+    main .favoritos .ver_mas {
+      border: solid #572EE5 1px;
+      border-radius: 35px;
+      width: 127px;
+      height: 50px;
+      margin: 40px 0px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer; }
+      main .favoritos .ver_mas h2 {
+        font-size: 13px; }
+    main .favoritos .ver_mas:hover {
+      background-color: #572EE5; }
+      main .favoritos .ver_mas:hover h2 {
+        color: #FFFFFF; }
+    main .busqueda_fav {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center; }
+      main .busqueda_fav .lista_favoritos {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center; }
+        main .busqueda_fav .lista_favoritos .imagens {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          margin: 10px;
+          width: 260px;
+          height: 200px; }
+          main .busqueda_fav .lista_favoritos .imagens img {
+            padding: 0px;
+            width: 260px;
+            height: 200px; }
+          main .busqueda_fav .lista_favoritos .imagens .sombra_2 {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            z-index: 3;
+            opacity: 0;
+            background: #572EE5;
+            width: 260px;
+            height: 200px; }
+          main .busqueda_fav .lista_favoritos .imagens .contenido_2 {
+            place-items: baseline;
+            height: 60px;
+            display: flex;
+            flex-direction: column;
+            margin-top: 80px;
+            margin-left: 10px; }
+            main .busqueda_fav .lista_favoritos .imagens .contenido_2 p {
+              font-size: 15px;
+              font-family: "Roboto", sans-serif;
+              color: white;
+              margin: 0px; }
+            main .busqueda_fav .lista_favoritos .imagens .contenido_2 h2 {
+              font-size: 16px;
+              font-family: "Montserrat", sans-serif;
+              font-weight: 700;
+              color: white;
+              margin-top: 10px; }
+          main .busqueda_fav .lista_favoritos .imagens .links_2 {
+            align-self: flex-end;
+            display: flex;
+            padding-top: 6px;
+            padding-right: 8px; }
+            main .busqueda_fav .lista_favoritos .imagens .links_2 .box_2 {
+              opacity: 0.5;
+              margin-left: 15px;
+              width: 32px;
+              height: 32px;
+              background: #FFFFFF;
+              border: solid #572EE5 1px;
+              border-radius: 10px;
+              display: flex;
+              justify-content: center;
+              align-items: center; }
+              main .busqueda_fav .lista_favoritos .imagens .links_2 .box_2 img {
+                width: 20px;
+                height: 20px;
+                cursor: pointer; }
+            main .busqueda_fav .lista_favoritos .imagens .links_2 .ultimo_2 {
+              opacity: 1; }
+          main .busqueda_fav .lista_favoritos .imagens .sombra_2:hover {
+            opacity: 0.7; }
+      main .busqueda_fav .ver_mas {
+        border: solid #572EE5 1px;
+        border-radius: 35px;
+        width: 127px;
+        height: 50px;
+        margin: 40px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer; }
+        main .busqueda_fav .ver_mas h2 {
+          font-size: 13px; }
+      main .busqueda_fav .ver_mas:hover {
+        background-color: #572EE5; }
+        main .busqueda_fav .ver_mas:hover h2 {
+          color: #FFFFFF; }
     main .busqueda_img {
       display: flex;
       justify-content: center;
@@ -658,6 +777,46 @@ main .segunda_seccion {
                   cursor: pointer; }
               main .busqueda_img .imagenes_resultado .imagens .sombra_2 .links_2 .ultimo_2 {
                 opacity: 1; }
+          main .busqueda_img .imagenes_resultado .imagens .contenido_2 {
+            place-items: baseline;
+            height: 60px;
+            display: flex;
+            flex-direction: column;
+            margin-top: 80px;
+            margin-left: 10px; }
+            main .busqueda_img .imagenes_resultado .imagens .contenido_2 p {
+              font-size: 15px;
+              font-family: "Roboto", sans-serif;
+              color: white;
+              margin: 0px; }
+            main .busqueda_img .imagenes_resultado .imagens .contenido_2 h2 {
+              font-size: 16px;
+              font-family: "Montserrat", sans-serif;
+              font-weight: 700;
+              color: white;
+              margin-top: 10px; }
+          main .busqueda_img .imagenes_resultado .imagens .links_2 {
+            align-self: flex-end;
+            display: flex;
+            padding-top: 6px;
+            padding-right: 8px; }
+            main .busqueda_img .imagenes_resultado .imagens .links_2 .box_2 {
+              opacity: 0.5;
+              margin-left: 15px;
+              width: 32px;
+              height: 32px;
+              background: #FFFFFF;
+              border: solid #572EE5 1px;
+              border-radius: 10px;
+              display: flex;
+              justify-content: center;
+              align-items: center; }
+              main .busqueda_img .imagenes_resultado .imagens .links_2 .box_2 img {
+                width: 20px;
+                height: 20px;
+                cursor: pointer; }
+            main .busqueda_img .imagenes_resultado .imagens .links_2 .ultimo_2 {
+              opacity: 1; }
           main .busqueda_img .imagenes_resultado .imagens .sombra_2:hover {
             opacity: 0.7; } }
 
