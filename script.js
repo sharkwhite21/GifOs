@@ -25,15 +25,27 @@ const ver = document.querySelector('.ver_mas');
 
 let listaGifs = [];
 let partialGifs = [];
-let favoritos =[];
 
 //variables para favoritos
+let link_favorito = document.querySelector('nav-items > link_fav_2');
 let no_found = document.querySelector('.favoritos > .no_found');
 let busq_fav = document.querySelector('.favoritos > .busqueda_fav');
 let list_fav = document.querySelector('.busqueda_fav > .lista_favoritos');
+let favoritos =[];
+
+if (localStorage.getItem('Favoritos').length > 0) {
+    favoritos = JSON.parse(localStorage.getItem('Favoritos'));
+    
+} else {
+    console.log('llename de gifs plox');
+}
+
+let dire_fav = window.location.pathname;
+
+comprobacion_fav(dire_fav);
+
 
 const failSearch = document.querySelector('.failsearch');
-
 
 function cambiarColor() {
 
@@ -507,6 +519,8 @@ function corazon(e) {
     let fav_empty = e.target.getAttribute('src');
     let box = e.target.parentElement;
     let id = e.target.parentNode.parentNode.parentNode.parentNode.childNodes[0].getAttribute('id');
+    let sombra = e.target.parentElement.parentElement.parentElement;
+
     // let src = e.target.parentNode.parentNode.parentNode.parentNode.childNodes[0].getAttribute('src');
     // let title = e.target.parentNode.parentNode.parentNode.children[1].lastChild.innerHTML;
     // let user =e.target.parentNode.parentNode.parentNode.children[1].firstChild.innerHTML;
@@ -516,17 +530,26 @@ function corazon(e) {
         e.target.removeAttribute('src');
         e.target.setAttribute('src','Sources\\assets\\icon-fav-active.svg');
         box.style.opacity='1';
+        sombra.classList.add('activa');
 
-        if (favoritos.includes(id) != true) {
+        if (favoritos.includes(id) != true || favoritos.length == 0) {
             favoritos.push(id);            
         }
-        localSaveFavorite(favoritos);    
-    }
+
+        localSaveFavorite(favoritos);
+        
+        if ( dire_fav == '/favoritos.html') {
+                borradoFav();
+                mostrarFavoritos();
+            }
+            
+    }   
 
     else{
        e.target.removeAttribute('src');
        e.target.setAttribute('src', 'Sources\\assets\\icon-fav-hover.svg');
        box.style.opacity='0.5';
+       sombra.classList.remove('activa');
        if (favoritos.includes(id) == true) {
             let index = favoritos.indexOf(id);
              //localRemoveFavorite(id);
@@ -534,6 +557,11 @@ function corazon(e) {
                 favoritos.splice(index, 1);
             }
             localSaveFavorite(favoritos); 
+        }
+
+        if ( dire_fav == '/favoritos.html') {
+            borradoFav();
+            mostrarFavoritos();
         }
     }
 
@@ -548,6 +576,13 @@ function corazon(e) {
     // }
 }
 
+function borradoFav() {
+    let borrado = document.querySelectorAll('.lista_favoritos > .imagens');
+    let padre =document.querySelector('.lista_favoritos');
+    for (let i = 0; i < borrado.length; i++) {
+        padre.removeChild(borrado[i]);
+    }
+}
 //Guardado de los favoritos al localStorage
 
 function localSaveFavorite(list) {
@@ -558,6 +593,7 @@ function localSaveFavorite(list) {
 //     localStorage.removeItem(`${id}`);
 // }
 
+//Mostrar los Gifs que tenemos en localStorage
 function mostrarFavoritos(){
 
     let recuperacion = [];
@@ -569,13 +605,14 @@ function mostrarFavoritos(){
 
         fetch(url)
             .then((success) => {
-        if (success.ok) {
-            return success.json();
-        } else {
-            failsearch.style.display = 'flex';
-            throw new Error(('success') + 'no se puede comunicar con la API');
-        }
-        })
+                if (success.ok) {
+                    return success.json();
+                } else {
+                    failsearch.style.display = 'flex';
+                    throw new Error(('success') + 'no se puede comunicar con la API');
+                }
+             })
+
             .then((data) => {
                 
                 let div = document.createElement('div');
@@ -607,6 +644,7 @@ function mostrarFavoritos(){
 
                 let imagen_2 = document.createElement('img');
                 imagen_2.setAttribute('src', 'Sources\\assets\\icon-fav-active.svg');
+                imagen_2.addEventListener( 'click', corazon, false);
                 box_1.appendChild(imagen_2);
                 
                         
@@ -651,33 +689,15 @@ function mostrarFavoritos(){
                 }
 
                 div_6.appendChild(h2);                
-             });
-            
-            // let lista = document.querySelector(".imagens > img");
-            // let ampliar = document.querySelector(".links_2 > .ultimo_2 ");
-            // //let fav = document.querySelector(".links_2 > .fav_2");
-
-            // lista.addEventListener('touchstart', zoom, false);
-            // ampliar.addEventListener( 'click', zoom_2, false);                
-            // //fav.addEventListener( 'click', corazon, false);
-
-
-
-            // ver.addEventListener('click', (ev) =>{
-            //     if (inicialPos + 13 <= listaGifs.length && finalPos + 13 <= listaGifs.length) {
-            //         partialGifs = listaGifs.slice(inicialPos + 13,finalPos + 13);
-            //         inicialPos += 13;
-            //         finalPos += 13;
-
-            //         impresionGifos(partialGifs);
-            //     }
-            })
+             })
             
             .catch((err) => {
                 console.log(`${err}`);
             })
+        })
             
     }
+
 
     // //console.log(localStorage.getItem('Favoritos').length);  
     // }
@@ -688,15 +708,18 @@ function mostrarFavoritos(){
  * vamos hacer los sgte, creamos unas funciones de delegacion para que sea mas llevadera
  * una fucncion que nos lea lo que hay en el localstorage, y lo envie en una lista, o directamente enviarlo
  *  a otra funcion creadora de las cajas para esos gifs:
- * 
- * -lectura de ls
- * -creacion de esos gifs
- * -colocar esos gifs en la carpeta
  * -actualizador de estados
  * 
  */
 
-
+function comprobacion_fav(direccion) {
+    if (direccion == '/favoritos.html') {
+        document.addEventListener('DOMContentLoaded', mostrarFavoritos);
+    }
+    else{
+        console.log('no estamos en fav >:c');
+    }
+}
 
 
 //Sugerencias en las busquedas
@@ -764,3 +787,23 @@ Array.from(document.getElementsByClassName('suggest-term')).map((el)=>{
 // inputText.addEventListener('keydown', ()=>{
 //     menuInput.style.display = "none";
 // })
+
+
+          // let lista = document.querySelector(".imagens > img");
+            // let ampliar = document.querySelector(".links_2 > .ultimo_2 ");
+            // //let fav = document.querySelector(".links_2 > .fav_2");
+
+            // lista.addEventListener('touchstart', zoom, false);
+            // ampliar.addEventListener( 'click', zoom_2, false);                
+            // //fav.addEventListener( 'click', corazon, false);
+
+
+
+            // ver.addEventListener('click', (ev) =>{
+            //     if (inicialPos + 13 <= listaGifs.length && finalPos + 13 <= listaGifs.length) {
+            //         partialGifs = listaGifs.slice(inicialPos + 13,finalPos + 13);
+            //         inicialPos += 13;
+            //         finalPos += 13;
+
+            //         impresionGifos(partialGifs);
+            //     }

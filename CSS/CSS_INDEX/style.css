@@ -3,6 +3,8 @@ header {
   height: 95px;
   padding: 20px 5%;
   border-top: solid #572EE5 5px; }
+  header #activelink a {
+    color: #9CAFC3; }
   header .desktop {
     display: none; }
   header .logo {
@@ -505,6 +507,9 @@ main .segunda_seccion {
           opacity: 1; }
     main .segunda_seccion .imagenes .sombra:hover {
       opacity: 0.7; }
+    main .segunda_seccion .imagenes .activa {
+      opacity: 0.7;
+      background: #572EE5; }
     main .segunda_seccion .imagenes .flechas:hover {
       background-color: #572EE5; }
       main .segunda_seccion .imagenes .flechas:hover svg {
@@ -1063,7 +1068,8 @@ footer {
 
   .zoom {
     display: none;
-    background-color: white; }
+    background-color: white;
+    z-index: 5; }
     .zoom .close {
       height: 8%; }
       .zoom .close a {

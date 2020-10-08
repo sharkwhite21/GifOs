@@ -3,6 +3,11 @@ header{
     height: 95px;
     padding: 20px 5%;
     border-top: solid $bg-primary 5px;
+    #activelink{
+        a{
+            color: $bg-four;
+        }
+    }
     
     .desktop{
         display: none;
