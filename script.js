@@ -33,7 +33,7 @@ let busq_fav = document.querySelector('.favoritos > .busqueda_fav');
 let list_fav = document.querySelector('.busqueda_fav > .lista_favoritos');
 let favoritos =[];
 
-if (localStorage.getItem('Favoritos').length > 0) {
+if (localStorage.getItem('Favoritos')  != null ) {
     favoritos = JSON.parse(localStorage.getItem('Favoritos'));
     
 } else {
@@ -169,6 +169,7 @@ function getTendring() {
 
                 let imagen_3 = document.createElement('img');
                 imagen_3.setAttribute('src', 'Sources\\assets\\icon-download.svg');
+                imagen_3.addEventListener('click',descargar,false);
                 div_4.appendChild(imagen_3);
                 
                 let div_5 = document.createElement('div');
@@ -359,6 +360,9 @@ function zoom_2(e){
 
 let favZoom = document.querySelector('.seccion_baja > .links > .box');
 favZoom.addEventListener('click',corazon_2);
+
+let desFav =document.querySelector('.seccion_baja > .links > .descarga');
+desFav.addEventListener('click',descargar_2)
 
 //Barra de busqueda funcionamiento. 
 
@@ -654,6 +658,34 @@ function borradoFav() {
 }
 
 
+//Funcion de descargar la imagen
+
+function descargar(e) {
+    let url = e.target.parentNode.parentNode.parentNode.parentNode.childNodes[0].getAttribute('src');
+    let tit = e.target.parentElement.parentElement.parentElement.childNodes[1].childNodes[1].innerHTML;
+    gifDescargar(url,tit);
+}
+function descargar_2(e) {
+    let url = e.target.parentNode.parentNode.parentNode.parentNode.childNodes[3].childNodes[2].getAttribute('src'); 
+    let tit = e.target.parentElement.parentElement.parentElement.childNodes[1].childNodes[3].innerHTML;
+    gifDescargar(url,tit);
+}
+
+
+const gifDescargar = function(data,tit){
+    (async () => {
+      let a = document.createElement('a');
+      let d = data;
+      let response = await fetch(d);
+      let file = await response.blob();
+      a.download = tit;
+      a.href = window.URL.createObjectURL(file);
+      a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
+      a.click();
+    })();
+    }
+
+    
 //Guardado de los favoritos al localStorage
 
 function localSaveFavorite(list) {
