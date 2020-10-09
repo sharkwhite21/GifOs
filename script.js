@@ -268,9 +268,11 @@ cierre.addEventListener('touchstart', close, false);
 function zoom(e){
         
     let imagen = e.target.getAttribute('src');
+    let id = e.target.getAttribute('id');
     let flecha = document.querySelector('.flechas');
     const image = document.createElement('img');
     image.src = imagen;
+    image.id = id;
     flecha.after(image);
     
     let vista = document.querySelector('.zoom');
@@ -303,32 +305,43 @@ cierre2.addEventListener('click', close, false);
 function close(){
     let vista = document.querySelector('.zoom');
     vista.style.display= "none";
-    
+
     let menu = document.querySelector('.menu');
     menu.style.display="block";
 
-    let primer = document.querySelector('.primera_seccion');
-    primer.style.display = "flex";
+    // let primer = document.querySelector('.primera_seccion');
+    // primer.style.display = "flex";
 
-    //busqueda.style.display ='flex';
+    let imagen = document.querySelector('.pasarela > img');
+    imagen.remove();
 
+
+    if (inputText.value != "") {
+        busqueda.style.display ='flex';   
+    }
+
+    if (  window.location.pathname == "/index.html") {
+        let primer = document.querySelector('.primera_seccion');
+        primer.style.display = "flex";
+    }
+}
     // let titulo_busqueda = document.querySelector('.primera_seccion > h2');
     // titulo_busqueda.style.display = 'block';
 
     // let imagen_busqueda = document.querySelector('.primera_seccion > img');
     // imagen_busqueda.style.display = 'block';
 
-    let imagen = document.querySelector('.pasarela > img');
-    imagen.remove();
-}
+
 
 function zoom_2(e){
 
     let imagen = e.target.parentElement.parentElement.parentElement.parentElement.children[0].getAttribute('src');
+    let id = e.target.parentElement.parentElement.parentElement.parentElement.children[0].getAttribute('id');
     
     let flecha = document.querySelector('.flechas');
     const image = document.createElement('img');
     image.src = imagen;
+    image.id = id;
     flecha.after(image);
 
     let vista = document.querySelector('.zoom');
@@ -345,13 +358,12 @@ function zoom_2(e){
 };
 
 let favZoom = document.querySelector('.seccion_baja > .links > .box');
-favZoom.addEventListener('click',corazon);
+favZoom.addEventListener('click',corazon_2);
 
 //Barra de busqueda funcionamiento. 
 
 const lupa = document.querySelector(".lupa");
 lupa.addEventListener('click', busquedaGifs);
-
 function obtenerBusquedaGifs(searching) {
 
     const url = `http://api.giphy.com/v1/gifs/search?q=${searching}&api_key=${api_key}&limit=25`;
@@ -514,7 +526,7 @@ function busquedaGifs(){
     obtenerBusquedaGifs(search.value);
 }
 
-// funcion <3 
+// funcion <3 para trending y busquedas. 
 function corazon(e) {
     let fav_empty = e.target.getAttribute('src');
     let box = e.target.parentElement;
@@ -576,6 +588,63 @@ function corazon(e) {
     // }
 }
 
+//funcion <3 para las tarjetas que estan en el zoom.
+function corazon_2(e) {
+    let fav_empty = e.target.getAttribute('src');
+    let id = e.target.parentNode.parentNode.parentNode.parentNode.childNodes[3].childNodes[2].getAttribute('id'); 
+    console.log(id);
+    // let src = e.target.parentNode.parentNode.parentNode.parentNode.childNodes[0].getAttribute('src');
+    // let title = e.target.parentNode.parentNode.parentNode.children[1].lastChild.innerHTML;
+    // let user =e.target.parentNode.parentNode.parentNode.children[1].firstChild.innerHTML;
+
+    // condicionales para saber si el gif a guardar en local storage existe.
+    if (fav_empty == "Sources\\assets\\icon-fav-hover.svg"){
+        e.target.removeAttribute('src');
+        e.target.setAttribute('src','Sources\\assets\\icon-fav-active.svg');
+
+        if (favoritos.includes(id) != true || favoritos.length == 0) {
+            favoritos.push(id);            
+        }
+
+        localSaveFavorite(favoritos);
+        
+        if ( dire_fav == '/favoritos.html') {
+                borradoFav();
+                mostrarFavoritos();
+            }
+            
+    }   
+
+    else{
+       e.target.removeAttribute('src');
+       e.target.setAttribute('src', 'Sources\\assets\\icon-fav-hover.svg');
+
+       if (favoritos.includes(id) == true) {
+            let index = favoritos.indexOf(id);
+             //localRemoveFavorite(id);
+            if (index > -1) {
+                favoritos.splice(index, 1);
+            }
+            localSaveFavorite(favoritos); 
+        }
+
+        if ( dire_fav == '/favoritos.html') {
+            borradoFav();
+            mostrarFavoritos();
+        }
+    }
+
+    // if (favoritos.length != 0) {
+    //     no_found.style.display = 'none';
+    //     busq_fav.style.display = 'flex';
+    //     mostrarFavoritos()        
+    // }
+    // else{
+    //     no_found.style.display = 'flex';
+    //     busq_fav.style.display = 'none';
+    // }
+}
+
 function borradoFav() {
     let borrado = document.querySelectorAll('.lista_favoritos > .imagens');
     let padre =document.querySelector('.lista_favoritos');
@@ -583,6 +652,8 @@ function borradoFav() {
         padre.removeChild(borrado[i]);
     }
 }
+
+
 //Guardado de los favoritos al localStorage
 
 function localSaveFavorite(list) {

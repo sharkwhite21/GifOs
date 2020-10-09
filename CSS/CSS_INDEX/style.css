@@ -989,14 +989,10 @@ footer {
       margin: 40px;
       padding-right: 5px;
       padding-top: 5px; }
-      * .zoom .close a {
-        width: 50px;
-        height: 40px;
-        margin-right: 7px; }
       * .zoom .close img {
         width: 15px;
         height: 15px;
-        margin-left: 22px; }
+        margin-right: 22px; }
       * .zoom .close input {
         display: block;
         width: 40px;
@@ -1071,9 +1067,9 @@ footer {
     background-color: white;
     z-index: 5; }
     .zoom .close {
-      height: 8%; }
-      .zoom .close a {
-        margin-right: 140px; }
+      height: 8%;
+      margin-right: 140px;
+      cursor: pointer; }
     .zoom .pasarela {
       display: flex;
       align-items: center; }
