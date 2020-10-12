@@ -360,9 +360,11 @@ function zoom_2(e){
 
 let favZoom = document.querySelector('.seccion_baja > .links > .box');
 favZoom.addEventListener('click',corazon_2);
+//favZoom.addEventListener('touch',corazon_2);
 
 let desFav =document.querySelector('.seccion_baja > .links > .descarga');
-desFav.addEventListener('click',descargar_2)
+desFav.addEventListener('click',descargar_2);
+//desFav.addEventListener('touch',descargar_2);
 
 //Barra de busqueda funcionamiento. 
 
@@ -685,7 +687,7 @@ const gifDescargar = function(data,tit){
     })();
     }
 
-    
+
 //Guardado de los favoritos al localStorage
 
 function localSaveFavorite(list) {
