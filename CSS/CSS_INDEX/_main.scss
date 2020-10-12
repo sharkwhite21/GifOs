@@ -580,28 +580,36 @@ main{
             }
         }
 
-        .numeros_creacion{
-
-            display: flex; 
-            justify-content: space-between;
-            width: 150px;
-
-            .circle{
-                border: solid $bg-primary 1px;
-                border-radius: 50%;
-                height: 32px;
-                width: 32px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 25px 0;    
-                p{
-                    font-size: 18px;
-                    color: $bg-primary;
-                    font-family: $fuente_2;
-                    font-weight: bold;
-                }
-            }       
+        .pre_parte{
+            display: flex;
+            margin-left: 487px;
+            .numeros_creacion{
+    
+                display: flex; 
+                justify-content: space-between;
+                width: 150px;
+                //margin-left: 185px;
+    
+                .circle{
+                    border: solid $bg-primary 1px;
+                    border-radius: 50%;
+                    height: 32px;
+                    width: 32px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 25px 0;    
+                    p{
+                        font-size: 18px;
+                        color: $bg-primary;
+                        font-family: $fuente_2;
+                        font-weight: bold;
+                    }
+                }       
+            }
+            img{
+                padding-left: 350px;
+            }
         }
 
         span{
@@ -640,12 +648,6 @@ main{
                 h2{
                     color: $bg-secundary;
                 }
-            }
-
-            img{ 
-                position: absolute;
-                right: 214px;
-                bottom: 10px;
             }
 
         }

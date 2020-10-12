@@ -555,24 +555,29 @@ main .seccion_creacion {
         color: #000000;
         text-align: center;
         line-height: 29px; }
-  main .seccion_creacion .numeros_creacion {
+  main .seccion_creacion .pre_parte {
     display: flex;
-    justify-content: space-between;
-    width: 150px; }
-    main .seccion_creacion .numeros_creacion .circle {
-      border: solid #572EE5 1px;
-      border-radius: 50%;
-      height: 32px;
-      width: 32px;
+    margin-left: 487px; }
+    main .seccion_creacion .pre_parte .numeros_creacion {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 25px 0; }
-      main .seccion_creacion .numeros_creacion .circle p {
-        font-size: 18px;
-        color: #572EE5;
-        font-family: "Roboto", sans-serif;
-        font-weight: bold; }
+      justify-content: space-between;
+      width: 150px; }
+      main .seccion_creacion .pre_parte .numeros_creacion .circle {
+        border: solid #572EE5 1px;
+        border-radius: 50%;
+        height: 32px;
+        width: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 25px 0; }
+        main .seccion_creacion .pre_parte .numeros_creacion .circle p {
+          font-size: 18px;
+          color: #572EE5;
+          font-family: "Roboto", sans-serif;
+          font-weight: bold; }
+    main .seccion_creacion .pre_parte img {
+      padding-left: 350px; }
   main .seccion_creacion span {
     width: 750px;
     height: 5px;
@@ -601,10 +606,6 @@ main .seccion_creacion {
       background-color: #572EE5; }
       main .seccion_creacion .parte_baja .ver_mas:hover h2 {
         color: #FFFFFF; }
-    main .seccion_creacion .parte_baja img {
-      position: absolute;
-      right: 214px;
-      bottom: 10px; }
 @media screen and (min-width: 1000px) {
   main {
     overflow: hidden; }
