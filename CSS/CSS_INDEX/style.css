@@ -266,7 +266,7 @@ main .favoritos {
     color: #572EE5;
     margin: 10px 0px; }
   main .favoritos .no_found_fav {
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -540,17 +540,37 @@ main .seccion_creacion {
     main .seccion_creacion .primera_parte .window_creation {
       display: flex;
       flex-direction: column;
-      justify-content: center;
       border: solid #572EE5 1px;
       width: 688px;
       height: 390px; }
+      main .seccion_creacion .primera_parte .window_creation .cajas_superiores {
+        display: flex;
+        width: 626px;
+        justify-content: space-between;
+        margin-left: 32px;
+        margin-top: 25px; }
+        main .seccion_creacion .primera_parte .window_creation .cajas_superiores .sup_izq {
+          border-top: 1px solid #50E3C2;
+          width: 27px;
+          height: 25px;
+          background: white;
+          border-radius: 0px;
+          border-left: 1px solid #50E3C2; }
+        main .seccion_creacion .primera_parte .window_creation .cajas_superiores .sup_der {
+          border-top: 1px solid #50E3C2;
+          width: 27px;
+          height: 25px;
+          background: white;
+          border-radius: 0px;
+          border-right: 1px solid #50E3C2; }
       main .seccion_creacion .primera_parte .window_creation h2 {
         font-family: "Montserrat", sans-serif;
         font-size: 25px;
         color: #572EE5;
         text-align: center;
         line-height: 35px;
-        margin-bottom: 20px; }
+        margin: 0px auto;
+        margin-top: 65px; }
         main .seccion_creacion .primera_parte .window_creation h2 span {
           color: #50E3C2;
           background-color: white; }
@@ -560,6 +580,26 @@ main .seccion_creacion {
         color: #000000;
         text-align: center;
         line-height: 29px; }
+      main .seccion_creacion .primera_parte .window_creation .cajas_inferiores {
+        display: flex;
+        width: 626px;
+        justify-content: space-between;
+        margin-left: 32px;
+        margin-top: 85px; }
+        main .seccion_creacion .primera_parte .window_creation .cajas_inferiores .inf_izq {
+          border-bottom: 1px solid #50E3C2;
+          width: 27px;
+          height: 25px;
+          background: white;
+          border-radius: 0px;
+          border-left: 1px solid #50E3C2; }
+        main .seccion_creacion .primera_parte .window_creation .cajas_inferiores .inf_der {
+          border-bottom: 1px solid #50E3C2;
+          width: 27px;
+          height: 25px;
+          background: white;
+          border-radius: 0px;
+          border-right: 1px solid #50E3C2; }
   main .seccion_creacion .pre_parte {
     display: flex;
     margin-left: 487px; }

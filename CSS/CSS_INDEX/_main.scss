@@ -553,21 +553,50 @@ main{
             .window_creation{
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
+                //justify-content: center;
                 border: solid $bg-primary 1px;
                 width: 688px;
                 height: 390px;
+
+                .cajas_superiores{
+                    display: flex;
+                    width: 626px;
+                    justify-content: space-between;
+                    margin-left: 32px;
+                    margin-top: 25px;
+                    .sup_izq{
+                      border-top: 1px solid $bg-third;
+                      width: 27px;
+                      height: 25px;
+                      background: white;
+                      border-radius: 0px;
+                      border-left: 1px solid $bg-third;  
+                    }
+                    .sup_der{
+                        border-top: 1px solid $bg-third;
+                        width: 27px;
+                        height: 25px;
+                        background: white;
+                        border-radius: 0px;
+                        border-right: 1px solid $bg-third;
+                        //align-self: flex-end;  
+                      }
+
+                }
+
                 h2{
                     font-family: $fuente_1;
                     font-size: 25px;
                     color: #572EE5;
                     text-align: center;
                     line-height: 35px;
+                    margin: 0px auto;
+                    margin-top: 65px;
                     span{
                         color:$bg-third;
                         background-color: white;
                     }
-                    margin-bottom: 20px;
+                    
                 }
 
                 p{
@@ -576,6 +605,32 @@ main{
                     color: #000000;
                     text-align: center;
                     line-height: 29px;
+                }
+
+                .cajas_inferiores{
+                    display: flex;
+                    width: 626px;
+                    justify-content: space-between;
+                    margin-left: 32px;
+                    margin-top: 85px;
+                    .inf_izq{
+                      border-bottom: 1px solid $bg-third;
+                      width: 27px;
+                      height: 25px;
+                      background: white;
+                      border-radius: 0px;
+                      border-left: 1px solid $bg-third;  
+                    }
+                    .inf_der{
+                        border-bottom: 1px solid $bg-third;
+                        width: 27px;
+                        height: 25px;
+                        background: white;
+                        border-radius: 0px;
+                        border-right: 1px solid $bg-third;
+                        //align-self: flex-end;  
+                      }
+
                 }
             }
         }
