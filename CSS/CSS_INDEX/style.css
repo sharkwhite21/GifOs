@@ -128,6 +128,11 @@ header {
               color: #F3F5F8; }
           header nav .menu ul li:nth-child(5) {
             padding-left: 25px; }
+          header nav .menu ul li:last-child .active_pag {
+            border: solid #9CAFC3 1px;
+            background-color: #9CAFC3; }
+            header nav .menu ul li:last-child .active_pag svg {
+              color: #f2f2f2; }
           header nav .menu ul li:last-child div {
             border: solid #572EE5 1px;
             border-radius: 50px;
@@ -531,7 +536,7 @@ main .seccion_creacion {
   margin-top: 25px; }
   main .seccion_creacion .primera_parte {
     display: flex;
-    margin-left: -185px; }
+    margin-left: -205px; }
     main .seccion_creacion .primera_parte .window_creation {
       display: flex;
       flex-direction: column;
@@ -562,6 +567,21 @@ main .seccion_creacion {
       display: flex;
       justify-content: space-between;
       width: 150px; }
+      main .seccion_creacion .pre_parte .numeros_creacion .circle_fun {
+        border: solid #572EE5 1px;
+        border-radius: 50%;
+        height: 32px;
+        width: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 25px 0;
+        background-color: #572EE5; }
+        main .seccion_creacion .pre_parte .numeros_creacion .circle_fun p {
+          font-size: 18px;
+          color: white;
+          font-family: "Roboto", sans-serif;
+          font-weight: bold; }
       main .seccion_creacion .pre_parte .numeros_creacion .circle {
         border: solid #572EE5 1px;
         border-radius: 50%;

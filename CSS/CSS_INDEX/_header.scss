@@ -194,6 +194,14 @@ header{
                             padding-left: 25px;
                         }
                         &:last-child{
+
+                            .active_pag{
+                                border: solid $bg-four 1px;
+                                background-color:#9CAFC3;
+                                svg{
+                                    color: #f2f2f2;
+                                }
+                            }
                             div{
                                 border: solid $bg-primary 1px;
                                 border-radius: 50px;

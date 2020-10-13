@@ -1,3 +1,4 @@
+
 const api_key = "ROPHynejg9EN2A3Ck1EJ1zYD0rOs6cCg";
 
 //variables a declara para el cambio nocturno y diurno.
@@ -32,6 +33,8 @@ let no_found = document.querySelector('.favoritos > .no_found');
 let busq_fav = document.querySelector('.favoritos > .busqueda_fav');
 let list_fav = document.querySelector('.busqueda_fav > .lista_favoritos');
 let favoritos =[];
+let dire_fav = window.location.pathname;
+
 
 if (localStorage.getItem('Favoritos')  != null ) {
     favoritos = JSON.parse(localStorage.getItem('Favoritos'));
@@ -40,10 +43,7 @@ if (localStorage.getItem('Favoritos')  != null ) {
     console.log('llename de gifs plox');
 }
 
-let dire_fav = window.location.pathname;
-
 comprobacion_fav(dire_fav);
-
 
 const failSearch = document.querySelector('.failsearch');
 
@@ -73,6 +73,7 @@ function cambiarColor() {
         localStorage.setItem('dark', 'false');
     }   
 }
+
 
 //Persistencia y cambios en el localStorage
 if (localStorage.getItem('dark')=== 'true') {
@@ -114,11 +115,11 @@ if (localStorage.getItem('dark')=== 'true') {
         img.setAttribute('src','Sources\\assets\\logo-mobile.svg');
     }
 }
- //traida de las imagenes.
+ //traida de las imagenes del trending
 document.addEventListener('DOMContentLoaded', getTendring);
 
 function getTendring() {
-    const url = `http://api.giphy.com/v1/gifs/trending?api_key=${api_key}&limit=20`;
+    const url = `https://api.giphy.com/v1/gifs/trending?api_key=${api_key}&limit=20`;
     
     fetch(url)
         .then((success) => {
@@ -235,7 +236,7 @@ function getTendring() {
         })
 }
 
-// interacion carrousel
+// interacion del carrusel para poder pasar las imagenes. 
 const slickList = document.querySelector('.imagenes');
 const track = document.querySelector('.contenedor');
 
@@ -261,7 +262,7 @@ function Move(number) {
     }
 }
     
-//codigo para el zoom, de las imagenes.
+//codigo para el zoom, de las imagenes, y la implemenatcion de sus acciones en el zoom.
 
 let cierre =document.querySelector(".zoom > .close");
 cierre.addEventListener('touchstart', close, false);
@@ -326,13 +327,6 @@ function close(){
         primer.style.display = "flex";
     }
 }
-    // let titulo_busqueda = document.querySelector('.primera_seccion > h2');
-    // titulo_busqueda.style.display = 'block';
-
-    // let imagen_busqueda = document.querySelector('.primera_seccion > img');
-    // imagen_busqueda.style.display = 'block';
-
-
 
 function zoom_2(e){
 
@@ -360,19 +354,20 @@ function zoom_2(e){
 
 let favZoom = document.querySelector('.seccion_baja > .links > .box');
 favZoom.addEventListener('click',corazon_2);
-//favZoom.addEventListener('touch',corazon_2);
+
 
 let desFav =document.querySelector('.seccion_baja > .links > .descarga');
 desFav.addEventListener('click',descargar_2);
-//desFav.addEventListener('touch',descargar_2);
 
-//Barra de busqueda funcionamiento. 
+
+//Codigo para la seccion de busqueda en el main.
 
 const lupa = document.querySelector(".lupa");
 lupa.addEventListener('click', busquedaGifs);
+
 function obtenerBusquedaGifs(searching) {
 
-    const url = `http://api.giphy.com/v1/gifs/search?q=${searching}&api_key=${api_key}&limit=25`;
+    const url = `https://api.giphy.com/v1/gifs/search?q=${searching}&api_key=${api_key}`;
     
     fetch(url)
     .then((success) => {
@@ -526,12 +521,75 @@ function obtenerBusquedaGifs(searching) {
     })
 }
 
-//ver.addEventListener('click', obtenerBusquedaGifs(search.value));
-
 function busquedaGifs(){
     obtenerBusquedaGifs(search.value);
 }
 
+//Sugerencias en las busquedas
+
+let inputText = document.querySelector('#search');
+let menuInput = document.querySelector('.menu-input');
+let box_search = document.querySelector('.primera_seccion > .box');
+
+//Diseño al ingresar texto en el input
+inputText.addEventListener('input', showSearchMenu);
+
+async function showSearchMenu(event){
+    //Condición para mostrar cuando el menú de sugerencias aparecerá
+    //cuando está vacío el input
+    if(!event.target.value){
+        searchButtonActive = false;
+        menuInput.style.display = "none";
+        box_search.style.height= '50px';
+        busqueda.style.display='none';
+        let borrado = document.querySelectorAll('.imagenes_resultado > .imagens');
+        let padre =document.querySelector('.imagenes_resultado');
+        
+        if (borrado.length > 0) {
+            for (let i = 0; i < borrado.length; i++) {
+                padre.removeChild(borrado[i]);
+            }
+        }
+        else{
+            console.log('nada que decir');
+        }
+
+        let titulo_busqueda = document.querySelector('.primera_seccion > h1');
+        titulo_busqueda.style.display = 'block';
+    
+        let imagen_busqueda = document.querySelector('.primera_seccion > img');
+        imagen_busqueda.style.display = 'block';
+
+    }else{ //cuando está lleno el input
+        searchButtonActive = true;
+        menuInput.style.display = "inline-block";
+        box_search.style.height= '150px';
+
+        //Llamado de la API para obtener terminos relacionados (sugerencias).
+        let url = `https://api.giphy.com/v1/tags/related/${inputText.value}?api_key=${api_key}&limit=3`;
+        let resp = await fetch(url);
+        let suggestedSearchData = await resp.json();
+        //Llena los 3 cuadros de sugerencias
+        for(let i = 0; i<3; i++){
+            let suggestTerm = document.getElementById(`suggest-term-${i+1}`);
+            suggestTerm.innerHTML = `${suggestedSearchData.data[i].name}`; 
+        };
+    };
+};
+
+//función para hacer click en las sugerencias y buscarlas
+//convierto el HTMLCollection en un array y uso map para iterarlo
+Array.from(document.getElementsByClassName('suggest-term')).map((el)=>{
+    el.addEventListener('click', function(){
+        inputText.value = el.innerHTML;
+        //window.scroll(0, 710);
+        obtenerBusquedaGifs(inputText.value);
+    });
+});
+
+
+//Codigo para las inteacciones tanto des descargar y favoritear de las imagenes
+//tanto del trending, como de las busquedas, como de favoritos.
 // funcion <3 para trending y busquedas. 
 function corazon(e) {
     let fav_empty = e.target.getAttribute('src');
@@ -659,9 +717,7 @@ function borradoFav() {
     }
 }
 
-
 //Funcion de descargar la imagen
-
 function descargar(e) {
     let url = e.target.parentNode.parentNode.parentNode.parentNode.childNodes[0].getAttribute('src');
     let tit = e.target.parentElement.parentElement.parentElement.childNodes[1].childNodes[1].innerHTML;
@@ -672,7 +728,6 @@ function descargar_2(e) {
     let tit = e.target.parentElement.parentElement.parentElement.childNodes[1].childNodes[3].innerHTML;
     gifDescargar(url,tit);
 }
-
 
 const gifDescargar = function(data,tit){
     (async () => {
@@ -688,15 +743,12 @@ const gifDescargar = function(data,tit){
     }
 
 
+//
 //Guardado de los favoritos al localStorage
 
 function localSaveFavorite(list) {
     localStorage.setItem('Favoritos', JSON.stringify(list));   
 }
-
-// function localRemoveFavorite(id){
-//     localStorage.removeItem(`${id}`);
-// }
 
 //Mostrar los Gifs que tenemos en localStorage
 function mostrarFavoritos(){
@@ -827,67 +879,7 @@ function comprobacion_fav(direccion) {
 }
 
 
-//Sugerencias en las busquedas
 
-let inputText = document.querySelector('#search');
-let menuInput = document.querySelector('.menu-input');
-let box_search = document.querySelector('.primera_seccion > .box');
-
-//Diseño al ingresar texto en el input
-inputText.addEventListener('input', showSearchMenu);
-
-async function showSearchMenu(event){
-    //Condición para mostrar cuando el menú de sugerencias aparecerá
-    //cuando está vacío el input
-    if(!event.target.value){
-        searchButtonActive = false;
-        menuInput.style.display = "none";
-        box_search.style.height= '50px';
-        busqueda.style.display='none';
-        let borrado = document.querySelectorAll('.imagenes_resultado > .imagens');
-        let padre =document.querySelector('.imagenes_resultado');
-        
-        if (borrado.length > 0) {
-            for (let i = 0; i < borrado.length; i++) {
-                padre.removeChild(borrado[i]);
-            }
-        }
-        else{
-            console.log('nada que decir');
-        }
-
-        let titulo_busqueda = document.querySelector('.primera_seccion > h1');
-        titulo_busqueda.style.display = 'block';
-    
-        let imagen_busqueda = document.querySelector('.primera_seccion > img');
-        imagen_busqueda.style.display = 'block';
-
-    }else{ //cuando está lleno el input
-        searchButtonActive = true;
-        menuInput.style.display = "inline-block";
-        box_search.style.height= '150px';
-
-        //Llamado de la API para obtener terminos relacionados (sugerencias).
-        let url = `https://api.giphy.com/v1/tags/related/${inputText.value}?api_key=${api_key}&limit=3`;
-        let resp = await fetch(url);
-        let suggestedSearchData = await resp.json();
-        //Llena los 3 cuadros de sugerencias
-        for(let i = 0; i<3; i++){
-            let suggestTerm = document.getElementById(`suggest-term-${i+1}`);
-            suggestTerm.innerHTML = `${suggestedSearchData.data[i].name}`; 
-        };
-    };
-};
-
-//función para hacer click en las sugerencias y buscarlas
-//convierto el HTMLCollection en un array y uso map para iterarlo
-Array.from(document.getElementsByClassName('suggest-term')).map((el)=>{
-    el.addEventListener('click', function(){
-        inputText.value = el.innerHTML;
-        //window.scroll(0, 710);
-        obtenerBusquedaGifs(inputText.value);
-    });
-});
 //permite presionar la tecla escape y ocultar el menú de sugerencias
 // inputText.addEventListener('keydown', ()=>{
 //     menuInput.style.display = "none";

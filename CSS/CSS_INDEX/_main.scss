@@ -549,7 +549,7 @@ main{
         margin-top: 25px;
         .primera_parte{
             display: flex;
-            margin-left: -185px;
+            margin-left: -205px;
             .window_creation{
                 display: flex;
                 flex-direction: column;
@@ -589,7 +589,25 @@ main{
                 justify-content: space-between;
                 width: 150px;
                 //margin-left: 185px;
-    
+                
+                .circle_fun{
+                    border: solid $bg-primary 1px;
+                    border-radius: 50%;
+                    height: 32px;
+                    width: 32px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 25px 0;
+                    background-color: $bg-primary;   
+                    p{
+                        font-size: 18px;
+                        color: $color_two;
+                        font-family: $fuente_2;
+                        font-weight: bold;
+                    }
+                }    
+                
                 .circle{
                     border: solid $bg-primary 1px;
                     border-radius: 50%;
