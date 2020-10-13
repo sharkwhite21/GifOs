@@ -29,7 +29,7 @@ let partialGifs = [];
 
 //variables para favoritos
 let link_favorito = document.querySelector('nav-items > link_fav_2');
-let no_found = document.querySelector('.favoritos > .no_found');
+let no_found = document.querySelector('.favoritos > .no_found_fav');
 let busq_fav = document.querySelector('.favoritos > .busqueda_fav');
 let list_fav = document.querySelector('.busqueda_fav > .lista_favoritos');
 let favoritos =[];
@@ -752,10 +752,10 @@ function localSaveFavorite(list) {
 
 //Mostrar los Gifs que tenemos en localStorage
 function mostrarFavoritos(){
-
+    
     let recuperacion = [];
     recuperacion = JSON.parse(localStorage.getItem('Favoritos'));
-    
+    muestra(recuperacion);
     recuperacion.forEach(el => {
         const url = `https://api.giphy.com/v1/gifs/${el}?api_key=${api_key}`;
 
@@ -872,13 +872,23 @@ function mostrarFavoritos(){
 function comprobacion_fav(direccion) {
     if (direccion == '/favoritos.html') {
         document.addEventListener('DOMContentLoaded', mostrarFavoritos);
+        muestra(favoritos);
     }
     else{
         console.log('no estamos en fav >:c');
     }
 }
 
-
+function muestra(list) {
+    if (list.length == 0) {
+        no_found.style.display = "flex";
+        busq_fav.style.display = "none";
+    }
+    else{
+        no_found.style.display = "none";
+        busq_fav.style.display = "flex";
+    }
+}
 
 //permite presionar la tecla escape y ocultar el menú de sugerencias
 // inputText.addEventListener('keydown', ()=>{

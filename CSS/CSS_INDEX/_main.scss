@@ -156,7 +156,7 @@ main{
         }
 
         .no_found_fav{
-            display: none; //none-flex
+            display: flex; //none-flex
             align-items: center;
             justify-content: center;
             flex-direction: column;
