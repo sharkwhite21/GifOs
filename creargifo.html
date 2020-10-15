@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="CSS\CSS_INDEX\style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet"> 
-    <title>GIFOS</title>
+    <title>Crear Gifos</title>
 </head>
 <body>
     <header>
@@ -64,10 +64,18 @@
                         <span class="sup_izq"></span>
                         <span class="sup_der"></span>
                     </div>
-                    <h2> Aquí podrás <br>
-                        crear tus propios <span> GIFOS </span></h2>
-                    <p>¡Crea tu GIFO en sólo 3 pasos!</p>
-                    <p>(sólo necesitas una cámara para grabar un video)</p>
+
+                    <section class="informacion">
+                        <h2 id="titulo" >Aquí podrás <br>
+                            crear tus propios <span> GIFOS </span></h2>
+                        <p id="consejos">¡Crea tu GIFO en sólo 3 pasos!</p>
+                        <p id="consejos">(sólo necesitas una cámara para grabar un video)</p>
+                    </section>
+
+                    <div class="video-container">
+                        <video src="#" class="recorder" id="recorder"></video>
+                    </div>
+
                     <div class="cajas_inferiores">
                         <span class="inf_izq"></span>
                         <span class="inf_der"></span>
@@ -78,13 +86,13 @@
             <div class="pre_parte">
 
                 <div class="numeros_creacion">
-                    <div class="circle">
+                    <div class="circle one">
                         <p>1</p>
                     </div>
-                    <div class="circle">
+                    <div class="circle two">
                         <p>2</p>
                     </div>
-                    <div class="circle">
+                    <div class="circle three">
                         <p>3</p>
                     </div>
                 </div>
@@ -96,11 +104,17 @@
             <span></span>
             
             <div class="parte_baja">
-                <section class="ver_mas">
+                <section class="ver_mas comenzar">
                     <h2>COMENZAR</h2>   
                 </section>
-                
 
+                <section class="grabar">
+                    <h2>GRABAR</h2>   
+                </section>
+                
+                <section class="detener">
+                    <h2>DETENER</h2>   
+                </section>
             </div>
         </section>
 
@@ -159,6 +173,6 @@
 
         <p> &#169; GIFOS 2020 All Rights Reserved.</p>
     </footer>
-    <script src="script.js"></script>
+    <script src="video.js"></script>
 </body>
 </html>

@@ -542,13 +542,14 @@ main .seccion_creacion {
       flex-direction: column;
       border: solid #572EE5 1px;
       width: 688px;
-      height: 390px; }
+      height: 400px; }
       main .seccion_creacion .primera_parte .window_creation .cajas_superiores {
         display: flex;
         width: 626px;
         justify-content: space-between;
         margin-left: 32px;
-        margin-top: 25px; }
+        margin-top: 25px;
+        height: 25px; }
         main .seccion_creacion .primera_parte .window_creation .cajas_superiores .sup_izq {
           border-top: 1px solid #50E3C2;
           width: 27px;
@@ -563,39 +564,51 @@ main .seccion_creacion {
           background: white;
           border-radius: 0px;
           border-right: 1px solid #50E3C2; }
-      main .seccion_creacion .primera_parte .window_creation h2 {
-        font-family: "Montserrat", sans-serif;
-        font-size: 25px;
-        color: #572EE5;
-        text-align: center;
-        line-height: 35px;
-        margin: 0px auto;
-        margin-top: 65px; }
-        main .seccion_creacion .primera_parte .window_creation h2 span {
-          color: #50E3C2;
-          background-color: white; }
-      main .seccion_creacion .primera_parte .window_creation p {
-        font-family: "Roboto", sans-serif;
-        font-size: 16px;
-        color: #000000;
-        text-align: center;
-        line-height: 29px; }
+      main .seccion_creacion .primera_parte .window_creation .informacion {
+        display: block; }
+        main .seccion_creacion .primera_parte .window_creation .informacion h2 {
+          font-family: "Montserrat", sans-serif;
+          font-size: 25px;
+          color: #572EE5;
+          text-align: center;
+          line-height: 35px;
+          margin: 0px auto;
+          margin-top: 65px; }
+          main .seccion_creacion .primera_parte .window_creation .informacion h2 span {
+            color: #50E3C2;
+            background-color: white; }
+        main .seccion_creacion .primera_parte .window_creation .informacion p {
+          font-family: "Roboto", sans-serif;
+          font-size: 16px;
+          color: #000000;
+          text-align: center;
+          line-height: 29px; }
+      main .seccion_creacion .primera_parte .window_creation .video-container {
+        display: none;
+        width: 480px;
+        height: 320px;
+        margin: auto; }
+        main .seccion_creacion .primera_parte .window_creation .video-container .recorder {
+          object-fit: cover;
+          width: 100%;
+          height: 100%; }
       main .seccion_creacion .primera_parte .window_creation .cajas_inferiores {
         display: flex;
         width: 626px;
+        height: 25px;
         justify-content: space-between;
         margin-left: 32px;
         margin-top: 85px; }
         main .seccion_creacion .primera_parte .window_creation .cajas_inferiores .inf_izq {
           border-bottom: 1px solid #50E3C2;
-          width: 27px;
+          width: 25px;
           height: 25px;
           background: white;
           border-radius: 0px;
           border-left: 1px solid #50E3C2; }
         main .seccion_creacion .primera_parte .window_creation .cajas_inferiores .inf_der {
           border-bottom: 1px solid #50E3C2;
-          width: 27px;
+          width: 25px;
           height: 25px;
           background: white;
           border-radius: 0px;
@@ -665,6 +678,42 @@ main .seccion_creacion {
     main .seccion_creacion .parte_baja .ver_mas:hover {
       background-color: #572EE5; }
       main .seccion_creacion .parte_baja .ver_mas:hover h2 {
+        color: #FFFFFF; }
+    main .seccion_creacion .parte_baja .grabar {
+      border: solid #572EE5 1px;
+      border-radius: 35px;
+      width: 127px;
+      height: 50px;
+      margin: 20px 0px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      color: #572EE5;
+      font-family: "Montserrat", sans-serif;
+      cursor: pointer; }
+      main .seccion_creacion .parte_baja .grabar h2 {
+        font-size: 13px; }
+    main .seccion_creacion .parte_baja .grabar:hover {
+      background-color: #572EE5; }
+      main .seccion_creacion .parte_baja .grabar:hover h2 {
+        color: #FFFFFF; }
+    main .seccion_creacion .parte_baja .detener {
+      border: solid #572EE5 1px;
+      border-radius: 35px;
+      width: 127px;
+      height: 50px;
+      margin: 20px 0px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      color: #572EE5;
+      font-family: "Montserrat", sans-serif;
+      cursor: pointer; }
+      main .seccion_creacion .parte_baja .detener h2 {
+        font-size: 13px; }
+    main .seccion_creacion .parte_baja .detener:hover {
+      background-color: #572EE5; }
+      main .seccion_creacion .parte_baja .detener:hover h2 {
         color: #FFFFFF; }
 @media screen and (min-width: 1000px) {
   main {

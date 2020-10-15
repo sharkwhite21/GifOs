@@ -419,7 +419,7 @@ function obtenerBusquedaGifs(searching) {
                             
                 let links = document.createElement('div');
                 links.classList.add('links_2');
-                section.appendChild(links);
+                section.appendChild(links);     
 
             
                 let box_1 = document.createElement('div');
@@ -581,8 +581,7 @@ async function showSearchMenu(event){
 //convierto el HTMLCollection en un array y uso map para iterarlo
 Array.from(document.getElementsByClassName('suggest-term')).map((el)=>{
     el.addEventListener('click', function(){
-        inputText.value = el.innerHTML;
-        //window.scroll(0, 710);
+        inputText.value = el.innerHTML;  
         obtenerBusquedaGifs(inputText.value);
     });
 });
@@ -596,10 +595,6 @@ function corazon(e) {
     let box = e.target.parentElement;
     let id = e.target.parentNode.parentNode.parentNode.parentNode.childNodes[0].getAttribute('id');
     let sombra = e.target.parentElement.parentElement.parentElement;
-
-    // let src = e.target.parentNode.parentNode.parentNode.parentNode.childNodes[0].getAttribute('src');
-    // let title = e.target.parentNode.parentNode.parentNode.children[1].lastChild.innerHTML;
-    // let user =e.target.parentNode.parentNode.parentNode.children[1].firstChild.innerHTML;
 
     // condicionales para saber si el gif a guardar en local storage existe.
     if (fav_empty == "Sources\\assets\\icon-fav-hover.svg"){
@@ -656,10 +651,6 @@ function corazon(e) {
 function corazon_2(e) {
     let fav_empty = e.target.getAttribute('src');
     let id = e.target.parentNode.parentNode.parentNode.parentNode.childNodes[3].childNodes[2].getAttribute('id'); 
-    console.log(id);
-    // let src = e.target.parentNode.parentNode.parentNode.parentNode.childNodes[0].getAttribute('src');
-    // let title = e.target.parentNode.parentNode.parentNode.children[1].lastChild.innerHTML;
-    // let user =e.target.parentNode.parentNode.parentNode.children[1].firstChild.innerHTML;
 
     // condicionales para saber si el gif a guardar en local storage existe.
     if (fav_empty == "Sources\\assets\\icon-fav-hover.svg"){
@@ -697,16 +688,6 @@ function corazon_2(e) {
             mostrarFavoritos();
         }
     }
-
-    // if (favoritos.length != 0) {
-    //     no_found.style.display = 'none';
-    //     busq_fav.style.display = 'flex';
-    //     mostrarFavoritos()        
-    // }
-    // else{
-    //     no_found.style.display = 'flex';
-    //     busq_fav.style.display = 'none';
-    // }
 }
 
 function borradoFav() {
@@ -854,10 +835,6 @@ function mostrarFavoritos(){
         })
             
     }
-
-
-    // //console.log(localStorage.getItem('Favoritos').length);  
-    // }
     
 
 /**
@@ -890,27 +867,5 @@ function muestra(list) {
     }
 }
 
-//permite presionar la tecla escape y ocultar el menú de sugerencias
-// inputText.addEventListener('keydown', ()=>{
-//     menuInput.style.display = "none";
-// })
 
 
-          // let lista = document.querySelector(".imagens > img");
-            // let ampliar = document.querySelector(".links_2 > .ultimo_2 ");
-            // //let fav = document.querySelector(".links_2 > .fav_2");
-
-            // lista.addEventListener('touchstart', zoom, false);
-            // ampliar.addEventListener( 'click', zoom_2, false);                
-            // //fav.addEventListener( 'click', corazon, false);
-
-
-
-            // ver.addEventListener('click', (ev) =>{
-            //     if (inicialPos + 13 <= listaGifs.length && finalPos + 13 <= listaGifs.length) {
-            //         partialGifs = listaGifs.slice(inicialPos + 13,finalPos + 13);
-            //         inicialPos += 13;
-            //         finalPos += 13;
-
-            //         impresionGifos(partialGifs);
-            //     }
