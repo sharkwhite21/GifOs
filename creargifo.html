@@ -56,7 +56,7 @@
 
             <div class="primera_parte">
 
-                <img src="Sources\assets\camara.svg" alt="camara">
+                <img class="videoCam" src="Sources\assets\camara.svg" alt="camara">
                 <img src="Sources\assets\element-luz-camara.svg" alt="luz de la camara">
     
                 <div class="window_creation">
@@ -76,15 +76,32 @@
                         <video src="#" class="recorder" id="recorder" autoplay playsinline></video>
                     </div>
 
-                    <div class="gif_preview_container">
-                        <video src="#" class="gif_preview" ></video>
+                    <div class="uploading">
+                        <div class="links">
+                            <div class="box download">
+                                <img src="Sources\assets\icon-download.svg">
+                            </div>
+                            <div class="box compartir">
+                                <img src="Sources\assets\icon-link.svg">
+                            </div>
+                        </div>
+                        <img src="Sources\assets\loader.svg" alt="Sol">
+                        <h2>ESTAMOS SUBIENDO TU GIFO</h2>
                     </div>
+
+                    <div class="gif_preview_container">
+                        <img src="#" class="gif_preview"  ></img>
+                    </div>
+
+
 
                     <div class="cajas_inferiores">
                         <span class="inf_izq"></span>
                         <span class="inf_der"></span>
                     </div>
                 </div>
+
+
             </div>
 
             <div class="pre_parte">
@@ -105,7 +122,11 @@
                     
                 </div>
 
-                <img src="Sources\assets\pelicula.svg" alt="cinta">
+                <div class="repetircaptura">
+                    <p>REPETIR CAPTURA</p>
+                </div>
+
+                <img class="rollo"  src="Sources\assets\pelicula.svg" alt="cinta">
             </div>
 
             
@@ -186,6 +207,7 @@
         <p> &#169; GIFOS 2020 All Rights Reserved.</p>
     </footer>
     <script src="video.js"></script>
-    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+    <script src="https://cdn.webrtc-experiment.com/gif-recorder.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.5.6/RecordRTC.js"></script>
 </body>
 </html>

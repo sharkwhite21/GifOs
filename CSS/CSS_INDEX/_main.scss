@@ -275,7 +275,7 @@ main{
             display: none; //block-none
             flex-flow: row wrap;
             justify-content: center;
-
+            flex-direction: column;
             .lista_misgifos{
                 img{
                     padding: 8px;
@@ -308,7 +308,6 @@ main{
         }
 
     }
-
 
     .busqueda_img{
 
@@ -634,6 +633,70 @@ main{
                         height: 100%;
                     }
                 }
+                .uploading{
+                    display: none;
+                    width: 480px;
+                    height: 320px;
+                    margin: auto;
+                    background-color: $bg-primary;
+                    opacity: 0.7;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    position: absolute;
+                    top: 160px;
+                    left: 433px;
+
+                    
+                    .links{
+                        align-self: flex-end;
+                        display: none;
+                        padding-top: 6px;
+                        padding-right: 8px;
+                        position: absolute;
+                        top: 10px;
+                        right: 15px;
+
+                        .compartir{
+                            opacity: 1;
+                        }
+
+                        .download{
+                            opacity: 0.5;
+                        }
+
+                        .box{
+                            margin-left: 15px;
+                            margin-bottom: 7px;
+                            width: 30px;
+                            height: 30px;
+                            background: #FFFFFF;
+                            border: solid $bg-primary 1px;
+                            border-radius: 10px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+
+                            img{
+                                width: 20px;
+                                height: 20px;
+                                cursor: pointer;
+                                //padding-top: 4px;
+                            }   
+                        }
+                    }
+                    
+                    h2{
+                        font-family: $fuente_1;
+                        font-size: 15px;
+                        color: #FFFFFF;
+                        text-align: center;
+                        font-weight: bold;
+                        margin-top: 15px;
+                    }
+                }
+
 
                 .cajas_inferiores{
                     display: flex;
@@ -719,6 +782,36 @@ main{
                 font-weight: bold;
                 margin-left: 198px;
                 margin-top: 30px;
+
+                p{
+                    color: $bg-primary;
+                    font-family: $fuente_1;
+                    font-size: 15px;
+                }
+
+                p:hover{
+                    text-decoration: underline solid #5ED7C6;
+                }
+            }
+
+            .repetircaptura{
+                height: 22px;
+                width: 131px;
+                font-weight: bold;
+                margin-left: 132px;
+                margin-top: 30px;
+                display: none;
+
+                p{
+                    color: $bg-primary;
+                    font-family: $fuente_1;
+                    font-size: 13px;
+                    cursor: pointer;
+                }
+
+                p:hover{
+                    text-decoration: underline solid #5ED7C6;
+                }
             }
 
             img{
@@ -1302,5 +1395,176 @@ main{
                 }
             }
         }
+
+        .busqueda_mis{
+            display: flex; 
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        
+                .lista_misgifos{
+                    flex-direction: column;
+                    display: flex;
+                    flex-flow: row wrap;
+                    justify-content: center;
+        
+                    .imagens{
+                        position: relative;
+                        display: flex;
+                        justify-content: center;
+                        margin: 10px;
+                        width: 260px;
+                        height: 200px;
+        
+                        img{
+                            padding: 0px;
+                            width: 260px;
+                            height: 200px;
+                        }
+        
+                        .sombra_2{
+                            position: absolute;
+                            display: flex;
+                            flex-direction: column;
+                            z-index: 3;
+                            opacity: 0;
+                            background: #572EE5 ;
+                            width: 260px;
+                            height: 200px;
+                        }
+        
+                        .contenido_2{
+                        place-items: baseline;
+                        height: 60px;
+                        display: flex;
+                        flex-direction: column;
+                        margin-top: 80px;
+                        margin-left: 10px;
+        
+                        p{
+                            font-size: 15px;
+                            font-family: $fuente_2;
+                            color: $color_two;
+                            margin: 0px;
+                        }
+                        h2{
+                            font-size: 16px;
+                            font-family: $fuente_1;
+                            font-weight: 700;
+                            color: $color_two;
+                            margin-top: 10px;
+                        }
+                        }
+        
+                        .links_2{
+                
+                        align-self: flex-end;
+                        display: flex;
+                        padding-top: 6px;
+                        padding-right: 8px;       
+        
+                        .box_2{
+                            opacity: 0.5;
+                            margin-left: 15px;
+                            //margin-bottom: 7px;
+                            width: 32px;
+                            height: 32px;
+                            background: #FFFFFF;
+                            border: solid $bg-primary 1px;
+                            border-radius: 10px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            img{
+                                width: 20px;
+                                height: 20px;
+                                //padding-top: 4px;
+                                cursor: pointer;
+                            }   
+        
+                        }
+        
+                        .ultimo_2{
+                            opacity: 1;
+                        }
+                        }
+        
+                        .sombra_2:hover{
+                            opacity: 0.7;
+                        }           
+                    }
+                }
+        
+                .ver_mas{
+                    border: solid $bg-primary 1px;
+                    border-radius: 35px;
+                    width: 127px;
+                    height: 50px;
+                    margin: 40px 0px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor:pointer;
+        
+                    h2{
+                        font-size: 13px;
+                    }
+                }
+        
+                .ver_mas:hover{
+                    background-color: $bg-primary;
+                    h2{
+                        color: $bg-secundary;
+                    }
+                }
+        }
+
+        .mis_gifos{
+            flex-direction: column;
+            .no_found{
+                display: flex;
+                img{
+                    width: 150px;
+                    height: 150px;
+                }
+                h2{
+                    line-height: 33px;
+                    font-size: 22px;
+                    width: 430px;
+                    //margin-top: 20px;
+                }
+            }
+            .lista_favoritos{
+                .imagens{
+                    .sombra_2{
+                        display: flex;
+                    }
+                }
+            }
+
+            .ver_mas{
+            border: solid $bg-primary 1px;
+            border-radius: 35px;
+            width: 127px;
+            height: 50px;
+            margin: 40px 0px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor:pointer;
+
+            h2{
+                font-size: 13px;
+            }
+            }
+
+            .ver_mas:hover{
+            background-color: $bg-primary;
+            h2{
+                color: $bg-secundary;
+            }
+            }
+        }
+
     }
 }

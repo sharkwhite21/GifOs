@@ -1,4 +1,3 @@
-
 const api_key = "ROPHynejg9EN2A3Ck1EJ1zYD0rOs6cCg";
 
 //variables a declara para el cambio nocturno y diurno.
@@ -24,16 +23,24 @@ let tituloBusqueda = document.querySelector('.busqueda > h2');
 let tituloFail = document.querySelector ('.failsearch > h2')
 const ver = document.querySelector('.ver_mas');
 
+let indexHtml = window.location.pathname;
+
 let listaGifs = [];
 let partialGifs = [];
 
 //variables para favoritos
 let link_favorito = document.querySelector('nav-items > link_fav_2');
-let no_found = document.querySelector('.favoritos > .no_found_fav');
 let busq_fav = document.querySelector('.favoritos > .busqueda_fav');
+let no_found = document.querySelector('.favoritos > .no_found_fav');
 let list_fav = document.querySelector('.busqueda_fav > .lista_favoritos');
 let favoritos =[];
 let dire_fav = window.location.pathname;
+
+
+let no_found_mi = document.querySelector('.mis_gifos > .no_found');
+let busqueda_mis = document.querySelector('.busqueda_mis');
+let lista_misgifos = document.querySelector('.busqueda_mis > .lista_misgifos');
+let mis_gi = window.location.pathname;
 
 
 if (localStorage.getItem('Favoritos')  != null ) {
@@ -44,6 +51,25 @@ if (localStorage.getItem('Favoritos')  != null ) {
 }
 
 comprobacion_fav(dire_fav);
+comprobacion_mis(mis_gi);
+//comprobacion_index(indexHtml);
+
+//Sugerencias en las busquedas
+let inputText = document.querySelector('#search');
+let menuInput = document.querySelector('.menu-input');
+let box_search = document.querySelector('.primera_seccion > .box');
+
+//Comprobacion de que se esta en index para activar la lupa.
+if (indexHtml == '/index.html') {
+    const lupa = document.querySelector(".lupa");
+    lupa.addEventListener('click', busquedaGifs);
+    //Diseño al ingresar texto en el input
+    inputText.addEventListener('input', showSearchMenu);
+}
+else{
+    console.log('no estamos en mis Gifos >:c');
+}
+
 
 const failSearch = document.querySelector('.failsearch');
 
@@ -115,6 +141,9 @@ if (localStorage.getItem('dark')=== 'true') {
         img.setAttribute('src','Sources\\assets\\logo-mobile.svg');
     }
 }
+
+
+
  //traida de las imagenes del trending
 document.addEventListener('DOMContentLoaded', getTendring);
 
@@ -362,8 +391,6 @@ desFav.addEventListener('click',descargar_2);
 
 //Codigo para la seccion de busqueda en el main.
 
-const lupa = document.querySelector(".lupa");
-lupa.addEventListener('click', busquedaGifs);
 
 function obtenerBusquedaGifs(searching) {
 
@@ -525,14 +552,8 @@ function busquedaGifs(){
     obtenerBusquedaGifs(search.value);
 }
 
-//Sugerencias en las busquedas
 
-let inputText = document.querySelector('#search');
-let menuInput = document.querySelector('.menu-input');
-let box_search = document.querySelector('.primera_seccion > .box');
 
-//Diseño al ingresar texto en el input
-inputText.addEventListener('input', showSearchMenu);
 
 async function showSearchMenu(event){
     //Condición para mostrar cuando el menú de sugerencias aparecerá
@@ -725,13 +746,13 @@ const gifDescargar = function(data,tit){
 
 
 //
-//Guardado de los favoritos al localStorage
 
+//Guardado de los favoritos al localStorage
 function localSaveFavorite(list) {
     localStorage.setItem('Favoritos', JSON.stringify(list));   
 }
 
-//Mostrar los Gifs que tenemos en localStorage
+//Mostrar los Gifs que tenemos en localStorage mostrar en Favoritos
 function mostrarFavoritos(){
     
     let recuperacion = [];
@@ -792,6 +813,7 @@ function mostrarFavoritos(){
 
                 let imagen_3 = document.createElement('img');
                 imagen_3.setAttribute('src', 'Sources\\assets\\icon-download.svg');
+                imagen_3.addEventListener('click',descargar,false);
                 div_4.appendChild(imagen_3);
             
                 let div_5 = document.createElement('div');
@@ -856,6 +878,17 @@ function comprobacion_fav(direccion) {
     }
 }
 
+function comprobacion_mis(direccion) {
+    if (direccion == '/misgifos.html') {
+        document.addEventListener('DOMContentLoaded', mostrarMisGifos);
+    }
+    else{
+        console.log('no estamos en mis Gifos >:c');
+    }
+}
+
+
+// muestra si esta o no vacio la seccion. 
 function muestra(list) {
     if (list.length == 0) {
         no_found.style.display = "flex";
@@ -868,4 +901,119 @@ function muestra(list) {
 }
 
 
+//Mostrar los Gifs que tenemos en localStorage mostrar en MisGifos
+function mostrarMisGifos(){
+    
+    let recuperacion = [];
+    recuperacion = JSON.parse(localStorage.getItem('MisGifos'));
+    muestra2(recuperacion);
+    recuperacion.forEach(el => {
+        const url = `https://api.giphy.com/v1/gifs/${el}?api_key=${api_key}`;
+
+        fetch(url)
+            .then((success) => {
+                if (success.ok) {
+                    return success.json();
+                } else {
+                    failsearch.style.display = 'flex';
+                    throw new Error(('success') + 'no se puede comunicar con la API');
+                }
+             })
+
+            .then((data) => {
+                
+                let div = document.createElement('div');
+                div.classList.add('imagens');
+                lista_misgifos.appendChild(div);
+
+                const image = document.createElement('img');
+                image.src = data.data.images.downsized.url;
+                image.id = data.data.id;
+                div.appendChild(image);
+
+                //creacion del div hover para cada imagen.
+
+                let section = document.createElement('section');
+                section.classList.add('sombra_2');
+                section.classList.add('desktop');
+                div.appendChild(section);
+                            
+                let links = document.createElement('div');
+                links.classList.add('links_2');
+                section.appendChild(links);
+
+            
+                let box_1 = document.createElement('div');
+                box_1.classList.add('box_2');
+                box_1.classList.add('fav_2');
+                box_1.style.opacity='1';
+                links.appendChild(box_1);
+
+                let imagen_2 = document.createElement('img');
+                imagen_2.setAttribute('src', 'Sources\\assets\\icon_trash.svg');
+                //imagen_2.addEventListener( 'click', corazon, false);
+                box_1.appendChild(imagen_2);
+                
+                        
+                let div_4 = document.createElement('div');
+                div_4.classList.add('box_2');
+                box_1.after(div_4);
+
+                let imagen_3 = document.createElement('img');
+                imagen_3.setAttribute('src', 'Sources\\assets\\icon-download.svg');
+                imagen_3.addEventListener('click',descargar, false);
+                div_4.appendChild(imagen_3);
+            
+                let div_5 = document.createElement('div');
+                div_5.classList.add('box_2');
+                div_5.classList.add('ultimo_2');
+                div_5.addEventListener( 'click', zoom_2, false);
+                div_4.after(div_5);
+
+                let imagen_4 = document.createElement('img');
+                imagen_4.setAttribute('src', 'Sources\\assets\\icon-max.svg');
+                div_5.appendChild(imagen_4);
+                        
+                let div_6 = document.createElement('div');
+                div_6.classList.add('contenido_2');
+                links.after(div_6);
+            
+                let p = document.createElement('p');
+                let h2 = document.createElement('h2');
+                
+                if (el.username == '') {
+                    p.innerHTML = 'Sin Usuario'
+                }
+                else{
+                    p.innerText = data.data.username;
+                }
+                div_6.appendChild(p)
+
+                if (el.title == '') {
+                    h2.innerText = 'Sin Titulo'
+                }
+                else{
+                    h2.innerText = data.data.title;
+                }
+
+                div_6.appendChild(h2);                
+             })
+            
+            .catch((err) => {
+                console.log(`${err}`);
+            })
+        })
+            
+    }
+
+function muestra2(list) {
+    if (list.length == 0) {
+        no_found_mi.style.display = "flex";
+        busqueda_mis.style.display = "none";
+    }
+    else{
+        no_found_mi.style.display = "none";
+        busqueda_mis.style.display = "flex";
+    }
+}
 

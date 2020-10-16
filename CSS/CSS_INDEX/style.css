@@ -351,7 +351,8 @@ main .mis_gifos {
   main .mis_gifos .busqueda_mis {
     display: none;
     flex-flow: row wrap;
-    justify-content: center; }
+    justify-content: center;
+    flex-direction: column; }
     main .mis_gifos .busqueda_mis .lista_misgifos img {
       padding: 8px;
       width: 150px;
@@ -601,6 +602,53 @@ main .seccion_creacion {
           object-fit: cover;
           width: 100%;
           height: 100%; }
+      main .seccion_creacion .primera_parte .window_creation .uploading {
+        display: none;
+        width: 480px;
+        height: 320px;
+        margin: auto;
+        background-color: #572EE5;
+        opacity: 0.7;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 160px;
+        left: 433px; }
+        main .seccion_creacion .primera_parte .window_creation .uploading .links {
+          align-self: flex-end;
+          display: none;
+          padding-top: 6px;
+          padding-right: 8px;
+          position: absolute;
+          top: 10px;
+          right: 15px; }
+          main .seccion_creacion .primera_parte .window_creation .uploading .links .compartir {
+            opacity: 1; }
+          main .seccion_creacion .primera_parte .window_creation .uploading .links .download {
+            opacity: 0.5; }
+          main .seccion_creacion .primera_parte .window_creation .uploading .links .box {
+            margin-left: 15px;
+            margin-bottom: 7px;
+            width: 30px;
+            height: 30px;
+            background: #FFFFFF;
+            border: solid #572EE5 1px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center; }
+            main .seccion_creacion .primera_parte .window_creation .uploading .links .box img {
+              width: 20px;
+              height: 20px;
+              cursor: pointer; }
+        main .seccion_creacion .primera_parte .window_creation .uploading h2 {
+          font-family: "Montserrat", sans-serif;
+          font-size: 15px;
+          color: #FFFFFF;
+          text-align: center;
+          font-weight: bold;
+          margin-top: 15px; }
       main .seccion_creacion .primera_parte .window_creation .cajas_inferiores {
         display: flex;
         width: 626px;
@@ -667,6 +715,26 @@ main .seccion_creacion {
       font-weight: bold;
       margin-left: 198px;
       margin-top: 30px; }
+      main .seccion_creacion .pre_parte .time p {
+        color: #572EE5;
+        font-family: "Montserrat", sans-serif;
+        font-size: 15px; }
+      main .seccion_creacion .pre_parte .time p:hover {
+        text-decoration: underline solid #5ED7C6; }
+    main .seccion_creacion .pre_parte .repetircaptura {
+      height: 22px;
+      width: 131px;
+      font-weight: bold;
+      margin-left: 132px;
+      margin-top: 30px;
+      display: none; }
+      main .seccion_creacion .pre_parte .repetircaptura p {
+        color: #572EE5;
+        font-family: "Montserrat", sans-serif;
+        font-size: 13px;
+        cursor: pointer; }
+      main .seccion_creacion .pre_parte .repetircaptura p:hover {
+        text-decoration: underline solid #5ED7C6; }
     main .seccion_creacion .pre_parte img {
       padding-left: 75px; }
   main .seccion_creacion span {
@@ -1052,7 +1120,124 @@ main .seccion_creacion {
             main .busqueda_img .imagenes_resultado .imagens .links_2 .ultimo_2 {
               opacity: 1; }
           main .busqueda_img .imagenes_resultado .imagens .sombra_2:hover {
-            opacity: 0.7; } }
+            opacity: 0.7; }
+    main .busqueda_mis {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center; }
+      main .busqueda_mis .lista_misgifos {
+        flex-direction: column;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center; }
+        main .busqueda_mis .lista_misgifos .imagens {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          margin: 10px;
+          width: 260px;
+          height: 200px; }
+          main .busqueda_mis .lista_misgifos .imagens img {
+            padding: 0px;
+            width: 260px;
+            height: 200px; }
+          main .busqueda_mis .lista_misgifos .imagens .sombra_2 {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            z-index: 3;
+            opacity: 0;
+            background: #572EE5;
+            width: 260px;
+            height: 200px; }
+          main .busqueda_mis .lista_misgifos .imagens .contenido_2 {
+            place-items: baseline;
+            height: 60px;
+            display: flex;
+            flex-direction: column;
+            margin-top: 80px;
+            margin-left: 10px; }
+            main .busqueda_mis .lista_misgifos .imagens .contenido_2 p {
+              font-size: 15px;
+              font-family: "Roboto", sans-serif;
+              color: white;
+              margin: 0px; }
+            main .busqueda_mis .lista_misgifos .imagens .contenido_2 h2 {
+              font-size: 16px;
+              font-family: "Montserrat", sans-serif;
+              font-weight: 700;
+              color: white;
+              margin-top: 10px; }
+          main .busqueda_mis .lista_misgifos .imagens .links_2 {
+            align-self: flex-end;
+            display: flex;
+            padding-top: 6px;
+            padding-right: 8px; }
+            main .busqueda_mis .lista_misgifos .imagens .links_2 .box_2 {
+              opacity: 0.5;
+              margin-left: 15px;
+              width: 32px;
+              height: 32px;
+              background: #FFFFFF;
+              border: solid #572EE5 1px;
+              border-radius: 10px;
+              display: flex;
+              justify-content: center;
+              align-items: center; }
+              main .busqueda_mis .lista_misgifos .imagens .links_2 .box_2 img {
+                width: 20px;
+                height: 20px;
+                cursor: pointer; }
+            main .busqueda_mis .lista_misgifos .imagens .links_2 .ultimo_2 {
+              opacity: 1; }
+          main .busqueda_mis .lista_misgifos .imagens .sombra_2:hover {
+            opacity: 0.7; }
+      main .busqueda_mis .ver_mas {
+        border: solid #572EE5 1px;
+        border-radius: 35px;
+        width: 127px;
+        height: 50px;
+        margin: 40px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer; }
+        main .busqueda_mis .ver_mas h2 {
+          font-size: 13px; }
+      main .busqueda_mis .ver_mas:hover {
+        background-color: #572EE5; }
+        main .busqueda_mis .ver_mas:hover h2 {
+          color: #FFFFFF; }
+    main .mis_gifos {
+      flex-direction: column; }
+      main .mis_gifos .no_found {
+        display: flex; }
+        main .mis_gifos .no_found img {
+          width: 150px;
+          height: 150px; }
+        main .mis_gifos .no_found h2 {
+          line-height: 33px;
+          font-size: 22px;
+          width: 430px; }
+      main .mis_gifos .lista_favoritos .imagens .sombra_2 {
+        display: flex; }
+      main .mis_gifos .ver_mas {
+        border: solid #572EE5 1px;
+        border-radius: 35px;
+        width: 127px;
+        height: 50px;
+        margin: 40px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer; }
+        main .mis_gifos .ver_mas h2 {
+          font-size: 13px; }
+      main .mis_gifos .ver_mas:hover {
+        background-color: #572EE5; }
+        main .mis_gifos .ver_mas:hover h2 {
+          color: #FFFFFF; } }
 
 footer {
   width: 100vw;
