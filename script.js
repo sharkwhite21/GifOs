@@ -170,6 +170,7 @@ function getTendring() {
                 const image = document.createElement('img');
                 image.src = el.images.downsized.url;
                 image.id = el.id;
+
                 div.appendChild(image);
 
 
@@ -236,6 +237,12 @@ function getTendring() {
 
                 div_6.appendChild(h2);
 
+                if (favoritos.includes(el.id) == true ) {
+                    imagen_2.removeAttribute('src');
+                    imagen_2.setAttribute('src', 'Sources\\assets\\icon-fav-active.svg');
+                    box_1.style.opacity = "0.99";
+                    section.classList.add('activa');
+                }
             });
 
             window.slick = document.querySelectorAll('.imagen');
