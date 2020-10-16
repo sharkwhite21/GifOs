@@ -73,7 +73,11 @@
                     </section>
 
                     <div class="video-container">
-                        <video src="#" class="recorder" id="recorder"></video>
+                        <video src="#" class="recorder" id="recorder" autoplay playsinline></video>
+                    </div>
+
+                    <div class="gif_preview_container">
+                        <video src="#" class="gif_preview" ></video>
                     </div>
 
                     <div class="cajas_inferiores">
@@ -97,6 +101,10 @@
                     </div>
                 </div>
                 
+                <div class="time">
+                    
+                </div>
+
                 <img src="Sources\assets\pelicula.svg" alt="cinta">
             </div>
 
@@ -111,9 +119,13 @@
                 <section class="grabar">
                     <h2>GRABAR</h2>   
                 </section>
-                
+
                 <section class="detener">
-                    <h2>DETENER</h2>   
+                    <h2>FINALIZAR</h2>   
+                </section>
+
+                <section class="subirGif">
+                    <h2>SUBIR GIFO</h2>   
                 </section>
             </div>
         </section>
@@ -174,5 +186,6 @@
         <p> &#169; GIFOS 2020 All Rights Reserved.</p>
     </footer>
     <script src="video.js"></script>
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
 </body>
 </html>
