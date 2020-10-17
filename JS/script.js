@@ -67,6 +67,7 @@ let primer = document.querySelector('#seccionPrime');
 if (indexHtml == '/index.html' || indexHtml2 == 'GifOs/index.html' || indexHtml == '/GifOs/') {
     const lupa = document.querySelector(".lupa");
     lupa.addEventListener('click', busquedaGifs);
+    lupa.addEventListener('touchstart', busquedaGifs);
     //Diseño al ingresar texto en el input
     inputText.addEventListener('input', showSearchMenu);
 }
@@ -300,6 +301,8 @@ function Move(number) {
 //codigo para el zoom, de las imagenes, y la implemenatcion de sus acciones en el zoom.
 let cierre =document.querySelector(".zoom > .close");
 cierre.addEventListener('touchstart', close, false);
+let cierre2 =document.querySelector(".zoom > .close");
+cierre2.addEventListener('click', close, false);
 
 function zoom(e){
         
@@ -334,8 +337,7 @@ function zoom(e){
     
 }
 
-let cierre2 =document.querySelector(".zoom > .close");
-cierre2.addEventListener('click', close, false);
+
 
 function close(){
     let vista = document.querySelector('.zoom');
