@@ -933,10 +933,12 @@ function muestra(list) {
     if (list.length == 0) {
         no_found.style.display = "flex";
         busq_fav.style.display = "none";
+        mas_fav.style.display = 'none';
     }
     else{
         no_found.style.display = "none";
         busq_fav.style.display = "flex";
+        mas_fav.style.display = 'flex';
     }
 }
 
