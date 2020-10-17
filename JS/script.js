@@ -669,7 +669,7 @@ function corazon(e) {
             localSaveFavorite(favoritos); 
         }
 
-        if ( dire_fav == '/favoritos.html') {
+        if ( dire_fav == '/favoritos.html' ) {
             borradoFav();
             mostrarFavoritos();
         }
@@ -702,7 +702,7 @@ function corazon_2(e) {
 
         localSaveFavorite(favoritos);
         
-        if ( dire_fav == '/favoritos.html') {
+        if ( dire_fav == '/favoritos.html' || dire_fav == '/GifOs/favoritos.html') {
                 borradoFav();
                 mostrarFavoritos();
             }
@@ -722,7 +722,7 @@ function corazon_2(e) {
             localSaveFavorite(favoritos); 
         }
 
-        if ( dire_fav == '/favoritos.html') {
+        if ( dire_fav == '/favoritos.html' || dire_fav == '/GifOs/favoritos.html') {
             borradoFav();
             mostrarFavoritos();
         }
