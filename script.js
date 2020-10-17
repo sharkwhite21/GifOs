@@ -45,6 +45,7 @@ let lista_misgifos = document.querySelector('.busqueda_mis > .lista_misgifos');
 
 let mis_gi = window.location.pathname;
 
+let contador_busq = 0;
 
 if (localStorage.getItem('Favoritos')  != null ) {
     favoritos = JSON.parse(localStorage.getItem('Favoritos'));
@@ -421,8 +422,10 @@ function obtenerBusquedaGifs(searching) {
             tituloBusqueda.innerHTML= searching;
             failSearch.style.display ='none'; 
             busqueda.style.display = 'flex';
-
+            ver.style.display = 'flex';
             listaGifs= data.data;
+            let contador_lis = listaGifs / 12;
+            
             let inicialPos = 0;
             let finalPos = 12;
             partialGifs = listaGifs.slice(inicialPos,finalPos);
@@ -523,12 +526,21 @@ function obtenerBusquedaGifs(searching) {
             }
 
             ver.addEventListener('click', (ev) =>{
-                if (inicialPos + 13 <= listaGifs.length && finalPos + 13 <= listaGifs.length) {
+                if (inicialPos + 13 <= listaGifs.length && finalPos + 13 <= listaGifs.length && contador_busq < contador_lis) {
                     partialGifs = listaGifs.slice(inicialPos + 13,finalPos + 13);
                     inicialPos += 13;
                     finalPos += 13;
-
+                    contador_busq +=1;
                     impresionGifos(partialGifs);
+                }
+
+                else{
+                    partialGifs = listaGifs.slice(inicialPos + 13,finalPos + 13);
+                    inicialPos += 13;
+                    finalPos += 13;
+                    contador_busq =0;
+                    impresionGifos(partialGifs);
+                    ver.style.display = 'none';
                 }
             })
             
@@ -555,6 +567,7 @@ function obtenerBusquedaGifs(searching) {
 
 function busquedaGifs(){
     obtenerBusquedaGifs(search.value);
+    ver.style.display = 'flex';
 }
 
 //Menu de sugerencias
@@ -747,6 +760,7 @@ const gifDescargar = function(data,tit){
       a.click();
     })();
     }
+
 
 //Guardado de los favoritos al localStorage
 function localSaveFavorite(list) {
