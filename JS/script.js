@@ -21,6 +21,7 @@ const ver_fav = document.getElementById('mas_fav');
 
 
 let indexHtml = window.location.pathname;
+indexHtml2 = indexHtml + '/index.html';
 let listaGifs = [];
 let partialGifs = [];
 
@@ -63,14 +64,14 @@ let box_search = document.querySelector('.primera_seccion > .box');
 let primer = document.querySelector('#seccionPrime');
 
 //Comprobacion de que se esta en index para activar la lupa.
-if (indexHtml == '/index.html') {
+if (indexHtml == '/index.html' || indexHtml2 == 'GifOs/index.html' || indexHtml == '/GifOs/') {
     const lupa = document.querySelector(".lupa");
     lupa.addEventListener('click', busquedaGifs);
     //Diseño al ingresar texto en el input
     inputText.addEventListener('input', showSearchMenu);
 }
 else{
-    console.log('no estamos en mis Gifos >:c');
+    console.log('no, estamos en mis Gifos  o entra pagina, tal vez Fav?>:c');
 }
 
 // variable de la falla de la busqueda.
