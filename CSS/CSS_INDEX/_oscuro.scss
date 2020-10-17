@@ -103,6 +103,23 @@
         }
 
         .favoritos{
+
+            
+                #mas_fav{
+                    border: solid $bg-secundary 1px;
+                    h2{
+                        color: $bg-secundary;
+                    }
+                }
+    
+                #mas_fav:hover{
+                    background-color: $bg-secundary;
+                    h2{
+                        color: $color;
+                    }
+                }
+            
+
             h2{
                 color: $bg-secundary;
             }
@@ -136,6 +153,95 @@
         .busqueda{
             h2{
                 color: $bg-secundary;
+            }
+        }
+
+        .seccion_creacion{
+            .window_creation{
+                .cajas_superiores{
+                    .sup_izq{
+                        background: $bg-nocturno;
+                    }
+                    .sup_der{
+                        background: $bg-nocturno;
+                    }
+                }
+
+                .informacion{
+                    h2{
+                        color: white;
+                        span{
+                            background: $bg-nocturno ;
+                        }
+                    }
+
+                    p{
+                        color: white;
+                    }
+                }
+
+                .cajas_inferiores{
+                    .inf_izq{
+                        background: $bg-nocturno;
+                    }
+                    .inf_der{
+                        background: $bg-nocturno;
+                    }
+                }
+            }
+
+            .ver_mas{
+                border: solid $bg-secundary 1px;
+                h2{
+                    color: $bg-secundary;
+                }
+            }
+
+            .ver_mas:hover{
+                background-color: $bg-secundary;
+                h2{
+                    color: $color;
+                }
+            }
+
+            .pre_parte{
+                .numeros_creacion{
+                    .circle{
+                        border: solid $bg-secundary 1px;
+                        p{
+                            color: $bg-secundary;
+                        }
+                    }
+
+                    .circle_fun{
+                        border: solid $bg-secundary 1px;
+                        background: $bg-secundary;
+                        p{
+                            color: $color;
+                        }
+                    }
+                }
+            }
+        }
+
+        .mis_gifos{
+
+            h2{
+                color: $color_two;
+            }
+
+            .ver_mas{
+                border: solid $bg-secundary 1px;
+                h2{
+                    color: $bg-secundary;
+                }
+            }
+
+            .ver_mas:hover{
+                background-color: $bg-secundary;
+                h2{
+                    color: $color;
+                }
             }
         }
     }

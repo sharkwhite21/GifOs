@@ -315,6 +315,42 @@ main .busqueda_fav {
     background-color: #572EE5; }
     main .busqueda_fav .ver_mas:hover h2 {
       color: #FFFFFF; }
+main .busqueda_mis {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center; }
+  main .busqueda_mis .lista_misgifos {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center; }
+    main .busqueda_mis .lista_misgifos .imagens {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      margin: 1px;
+      width: 156px;
+      height: 120px; }
+      main .busqueda_mis .lista_misgifos .imagens img {
+        padding: 8px;
+        width: 156px;
+        height: 120px; }
+      main .busqueda_mis .lista_misgifos .imagens .sombra_2 {
+        display: none; }
+  main .busqueda_mis .ver_mas {
+    border: solid #572EE5 1px;
+    border-radius: 35px;
+    width: 127px;
+    height: 50px;
+    margin: 40px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    main .busqueda_mis .ver_mas h2 {
+      font-size: 13px; }
+  main .busqueda_mis .ver_mas:hover {
+    background-color: #572EE5; }
+    main .busqueda_mis .ver_mas:hover h2 {
+      color: #FFFFFF; }
 main .mis_gifos {
   display: flex;
   align-items: center;
@@ -1334,6 +1370,14 @@ footer {
       color: #FFFFFF; }
     .oscuro main .segunda_seccion p {
       color: #FFFFFF; }
+  .oscuro main .favoritos #mas_fav {
+    border: solid #FFFFFF 1px; }
+    .oscuro main .favoritos #mas_fav h2 {
+      color: #FFFFFF; }
+  .oscuro main .favoritos #mas_fav:hover {
+    background-color: #FFFFFF; }
+    .oscuro main .favoritos #mas_fav:hover h2 {
+      color: #000000; }
   .oscuro main .favoritos h2 {
     color: #FFFFFF; }
   .oscuro main .favoritos .no_found h2 {
@@ -1348,6 +1392,47 @@ footer {
       color: #000000; }
   .oscuro main .busqueda h2 {
     color: #FFFFFF; }
+  .oscuro main .seccion_creacion .window_creation .cajas_superiores .sup_izq {
+    background: #37383C; }
+  .oscuro main .seccion_creacion .window_creation .cajas_superiores .sup_der {
+    background: #37383C; }
+  .oscuro main .seccion_creacion .window_creation .informacion h2 {
+    color: white; }
+    .oscuro main .seccion_creacion .window_creation .informacion h2 span {
+      background: #37383C; }
+  .oscuro main .seccion_creacion .window_creation .informacion p {
+    color: white; }
+  .oscuro main .seccion_creacion .window_creation .cajas_inferiores .inf_izq {
+    background: #37383C; }
+  .oscuro main .seccion_creacion .window_creation .cajas_inferiores .inf_der {
+    background: #37383C; }
+  .oscuro main .seccion_creacion .ver_mas {
+    border: solid #FFFFFF 1px; }
+    .oscuro main .seccion_creacion .ver_mas h2 {
+      color: #FFFFFF; }
+  .oscuro main .seccion_creacion .ver_mas:hover {
+    background-color: #FFFFFF; }
+    .oscuro main .seccion_creacion .ver_mas:hover h2 {
+      color: #000000; }
+  .oscuro main .seccion_creacion .pre_parte .numeros_creacion .circle {
+    border: solid #FFFFFF 1px; }
+    .oscuro main .seccion_creacion .pre_parte .numeros_creacion .circle p {
+      color: #FFFFFF; }
+  .oscuro main .seccion_creacion .pre_parte .numeros_creacion .circle_fun {
+    border: solid #FFFFFF 1px;
+    background: #FFFFFF; }
+    .oscuro main .seccion_creacion .pre_parte .numeros_creacion .circle_fun p {
+      color: #000000; }
+  .oscuro main .mis_gifos h2 {
+    color: white; }
+  .oscuro main .mis_gifos .ver_mas {
+    border: solid #FFFFFF 1px; }
+    .oscuro main .mis_gifos .ver_mas h2 {
+      color: #FFFFFF; }
+  .oscuro main .mis_gifos .ver_mas:hover {
+    background-color: #FFFFFF; }
+    .oscuro main .mis_gifos .ver_mas:hover h2 {
+      color: #000000; }
   .oscuro footer {
     border-bottom: solid #000000 5px; }
     .oscuro footer .logos {

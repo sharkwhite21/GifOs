@@ -71,10 +71,7 @@ comenzarGrabar.addEventListener('click', () => {
 
 //pide los permisos para empezar a grabar
 function getStream() {
-    number1.classList.add('circle');
-    number1.classList.remove('circle_fun');
-    number2.classList.remove('circle');
-    number2.classList.add('circle_fun');
+
     
     const videoContain = {
               video: true,
@@ -83,6 +80,10 @@ function getStream() {
           navigator.mediaDevices.getUserMedia(videoContain)
 
           .then(stream => {
+                number1.classList.add('circle');
+                number1.classList.remove('circle_fun');
+                number2.classList.remove('circle');
+                number2.classList.add('circle_fun');
                 grabar.style.display = 'flex';
                 recorderVideo.srcObject = stream;
                 //recorderVideo.play();
@@ -292,6 +293,7 @@ function cambiarColor() {
      videoCam.setAttribute('src','Sources\\assets\\camara.svg');
      rollo.removeAttribute('src');
      rollo.setAttribute('src','Sources\\assets\\pelicula.svg');
+    
   }
   
   if (document.body.classList.contains("oscuro")) {
@@ -316,6 +318,8 @@ if (localStorage.getItem('dark')=== 'true') {
 
   let img = document.querySelector('.logo');
   let comparacion = img.getAttribute('src');
+  let videoCam = document.querySelector('.videoCam');
+  let rollo =document.querySelector('.rollo');
   
   if ( comparacion == "Sources\\assets\\logo-mobile.svg" ){
       img.removeAttribute('src');
@@ -324,6 +328,7 @@ if (localStorage.getItem('dark')=== 'true') {
       videoCam.setAttribute('src','Sources\\assets\\camara-modo-noc.svg');
       rollo.removeAttribute('src');
       rollo.setAttribute('src','Sources\\assets\\pelicula-modo-noc.svg');
+
   }
 
 
@@ -348,5 +353,6 @@ if (localStorage.getItem('dark')=== 'true') {
       videoCam.setAttribute('src','Sources\\assets\\camara.svg');
       rollo.removeAttribute('src');
       rollo.setAttribute('src','Sources\\assets\\pelicula.svg');
+ 
   }
 }

@@ -227,6 +227,58 @@ main{
             }
     }
 
+    .busqueda_mis{
+        display: flex; //block-none
+        flex-flow: row wrap;
+        justify-content: center;
+
+        .lista_misgifos{
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+
+            .imagens{
+                position: relative;
+                display: flex;
+                justify-content: center;
+                margin: 1px;
+                width: 156px;
+                height: 120px;
+
+                img{
+                    padding: 8px;
+                    width: 156px;
+                    height: 120px;
+                }
+
+                .sombra_2{
+                    display: none;       
+                } 
+            }
+        }
+
+        .ver_mas{
+            border: solid $bg-primary 1px;
+            border-radius: 35px;
+            width: 127px;
+            height: 50px;
+            margin: 40px 0px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            h2{
+                font-size: 13px;
+            }
+        }
+
+        .ver_mas:hover{
+            background-color: $bg-primary;
+            h2{
+                color: $bg-secundary;
+            }
+        }
+    }
     .mis_gifos{
         display: flex;
         align-items: center;

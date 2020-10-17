@@ -22,6 +22,7 @@ const search = document.querySelector('#search');
 let tituloBusqueda = document.querySelector('.busqueda > h2');
 let tituloFail = document.querySelector ('.failsearch > h2')
 const ver = document.querySelector('.ver_mas');
+const ver_fav = document.getElementById('mas_fav');
 
 let indexHtml = window.location.pathname;
 
@@ -39,7 +40,9 @@ let dire_fav = window.location.pathname;
 
 let no_found_mi = document.querySelector('.mis_gifos > .no_found');
 let busqueda_mis = document.querySelector('.busqueda_mis');
+let vermas_mis = document.getElementById('vermas_mis');
 let lista_misgifos = document.querySelector('.busqueda_mis > .lista_misgifos');
+
 let mis_gi = window.location.pathname;
 
 
@@ -58,6 +61,7 @@ comprobacion_mis(mis_gi);
 let inputText = document.querySelector('#search');
 let menuInput = document.querySelector('.menu-input');
 let box_search = document.querySelector('.primera_seccion > .box');
+let primer = document.querySelector('#seccionPrime');
 
 //Comprobacion de que se esta en index para activar la lupa.
 if (indexHtml == '/index.html') {
@@ -142,8 +146,6 @@ if (localStorage.getItem('dark')=== 'true') {
     }
 }
 
-
-
  //traida de las imagenes del trending
 document.addEventListener('DOMContentLoaded', getTendring);
 
@@ -192,6 +194,7 @@ function getTendring() {
 
                 let imagen_2 = document.createElement('img');
                 imagen_2.setAttribute('src', 'Sources\\assets\\icon-fav-hover.svg');
+                imagen_2.addEventListener( 'click', corazon, false);
                 box_1.appendChild(imagen_2);
                                 
                 let div_4 = document.createElement('div');
@@ -260,12 +263,6 @@ function getTendring() {
                  ampliar[i].addEventListener( 'click', zoom_2, false);
             };
 
-            let fav = document.querySelectorAll(".links > .fav");
-            
-            for (let i = 0; i < lista.length; i++) {
-                fav[i].addEventListener( 'click', corazon, false);
-            };
-
         })
         .catch((err) => {
             console.log(`${err}`);
@@ -301,6 +298,7 @@ function Move(number) {
 //codigo para el zoom, de las imagenes, y la implemenatcion de sus acciones en el zoom.
 
 let cierre =document.querySelector(".zoom > .close");
+
 cierre.addEventListener('touchstart', close, false);
 
 function zoom(e){
@@ -321,7 +319,6 @@ function zoom(e){
 
     let user = document.querySelector('.seccion_baja > .contenido > p');
     user.innerHTML = e.target.parentElement.childNodes[1].childNodes[1].childNodes[0].innerHTML;
-    
 
     
     let menu = document.querySelector('.menu');
@@ -330,7 +327,7 @@ function zoom(e){
     let busqueda = document.querySelector('.busqueda');
     busqueda.style.display = "none"
     
-    let primer = document.querySelector('.primera_seccion');
+    
     primer.style.display = "none";
 
     window.scroll(0, 0);
@@ -347,19 +344,21 @@ function close(){
     let menu = document.querySelector('.menu');
     menu.style.display="block";
 
-    // let primer = document.querySelector('.primera_seccion');
-    // primer.style.display = "flex";
-
     let imagen = document.querySelector('.pasarela > img');
     imagen.remove();
+    
+    
 
+    let box = document.querySelector('#fav').childNodes[1];
+    box.removeAttribute('src');
+    box.setAttribute('src','Sources\\assets\\icon-fav-hover.svg');
 
     if (inputText.value != "") {
         busqueda.style.display ='flex';   
     }
 
+
     if (  window.location.pathname == "/index.html") {
-        let primer = document.querySelector('.primera_seccion');
         primer.style.display = "flex";
     }
 }
@@ -397,8 +396,6 @@ desFav.addEventListener('click',descargar_2);
 
 
 //Codigo para la seccion de busqueda en el main.
-
-
 function obtenerBusquedaGifs(searching) {
 
     const url = `https://api.giphy.com/v1/gifs/search?q=${searching}&api_key=${api_key}`;
@@ -555,13 +552,12 @@ function obtenerBusquedaGifs(searching) {
     })
 }
 
+
 function busquedaGifs(){
     obtenerBusquedaGifs(search.value);
 }
 
-
-
-
+//Menu de sugerencias
 async function showSearchMenu(event){
     //Condición para mostrar cuando el menú de sugerencias aparecerá
     //cuando está vacío el input
@@ -622,6 +618,7 @@ function corazon(e) {
     let fav_empty = e.target.getAttribute('src');
     let box = e.target.parentElement;
     let id = e.target.parentNode.parentNode.parentNode.parentNode.childNodes[0].getAttribute('id');
+    console.log(id);
     let sombra = e.target.parentElement.parentElement.parentElement;
 
     // condicionales para saber si el gif a guardar en local storage existe.
@@ -751,24 +748,38 @@ const gifDescargar = function(data,tit){
     })();
     }
 
-
-//
-
 //Guardado de los favoritos al localStorage
 function localSaveFavorite(list) {
     localStorage.setItem('Favoritos', JSON.stringify(list));   
 }
 
 //Mostrar los Gifs que tenemos en localStorage mostrar en Favoritos
-function mostrarFavoritos(){
-    
+function mostrarFavoritos(){    
     let recuperacion = [];
     recuperacion = JSON.parse(localStorage.getItem('Favoritos'));
     muestra(recuperacion);
-    recuperacion.forEach(el => {
+    console.log(recuperacion.length);
+
+
+    if (recuperacion.length < 12 ) {
+        ver_fav.style.display = 'none';
+    }
+
+    else{
+        ver_fav.style.display = 'flex';
+    }
+
+    let inicialPos = 0;
+    let finalPos = 12;
+    partialGifs = recuperacion.slice(inicialPos,finalPos);
+
+
+
+    impresionGifos(partialGifs);
+
+    function impresionGifos(partialGifs){
+    partialGifs.forEach(el => {
         const url = `https://api.giphy.com/v1/gifs/${el}?api_key=${api_key}`;
-
-
         fetch(url)
             .then((success) => {
                 if (success.ok) {
@@ -856,29 +867,37 @@ function mostrarFavoritos(){
                 }
 
                 div_6.appendChild(h2);                
+                
+
              })
-            
+
             .catch((err) => {
                 console.log(`${err}`);
             })
         })
             
     }
+
+    if (recuperacion.length > 12) {
+        ver_fav.addEventListener('click', (ev)=>{
+            if (inicialPos + 13 <= recuperacion.length || finalPos + 13 <= recuperacion.length) {
+                partialGifs = recuperacion.slice(inicialPos + 13,finalPos + 13);
+                inicialPos += 13;
+                finalPos += 13;
+                impresionGifos(partialGifs);
+            }
+            else{
+                console.log('no esta funcionando esta kga');
+            }
+        })    
+    }
+}
     
 
-/**
- * Bueno la cosa es la sgte en cunato a la implementacion de los gifos en favoritos 
- * vamos hacer los sgte, creamos unas funciones de delegacion para que sea mas llevadera
- * una fucncion que nos lea lo que hay en el localstorage, y lo envie en una lista, o directamente enviarlo
- *  a otra funcion creadora de las cajas para esos gifs:
- * -actualizador de estados
- * 
- */
-
+//comprobar en que pagina se esta
 function comprobacion_fav(direccion) {
     if (direccion == '/favoritos.html') {
         document.addEventListener('DOMContentLoaded', mostrarFavoritos);
-        muestra(favoritos);
     }
     else{
         console.log('no estamos en fav >:c');
@@ -911,10 +930,19 @@ function muestra(list) {
 //Mostrar los Gifs que tenemos en localStorage mostrar en MisGifos
 function mostrarMisGifos(){
     
-    let recuperacion = [];
-    recuperacion = JSON.parse(localStorage.getItem('MisGifos'));
-    muestra2(recuperacion);
-    recuperacion.forEach(el => {
+    let recuperacion2 = [];
+    recuperacion2 = JSON.parse(localStorage.getItem('MisGifos'));
+    muestra2(recuperacion2);
+
+    if (recuperacion2.length < 12 ) {
+        vermas_mis.style.display = 'none';
+    }
+
+    else{
+        vermas_mis.style.display = 'flex';
+    }
+
+    recuperacion2.forEach(el => {
         const url = `https://api.giphy.com/v1/gifs/${el}?api_key=${api_key}`;
 
         fetch(url)
