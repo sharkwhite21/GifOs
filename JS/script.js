@@ -347,7 +347,6 @@ function close(){
     let imagen = document.querySelector('.pasarela > img');
     imagen.remove();
     
-    
 
     let box = document.querySelector('#fav').childNodes[1];
     box.removeAttribute('src');
@@ -355,6 +354,9 @@ function close(){
 
     if (inputText.value != "") {
         busqueda.style.display ='flex';   
+    }
+    else{
+        busqueda.style.display ='none';
     }
 
 
