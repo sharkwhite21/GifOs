@@ -1,22 +1,16 @@
 const api_key = "ROPHynejg9EN2A3Ck1EJ1zYD0rOs6cCg";
 
-//variables a declara para el cambio nocturno y diurno.
+//Se declara las variables a usar.
 let cambio = document.querySelector('.cambio');
 cambio.addEventListener('click', cambiarColor, false);
-
 let cambio2 = document.querySelector('.cambio2');
 cambio2.addEventListener('click', cambiarColor, false);
-
 let color = document.querySelector('#color');
 let color2 = document.querySelector('#color2'); 
-
 let contenedor = document.querySelector('.contenedor');
 const busqueda = document.querySelector('.busqueda')
-
-
 const buttonPrev = document.querySelector('.left');
 const buttonNext = document.querySelector('.right');
-
 let imagenes_resultado = document.querySelector('.imagenes_resultado');
 const search = document.querySelector('#search');
 let tituloBusqueda = document.querySelector('.busqueda > h2');
@@ -24,8 +18,8 @@ let tituloFail = document.querySelector ('.failsearch > h2')
 const ver = document.querySelector('.ver_mas');
 const ver_fav = document.getElementById('mas_fav');
 
-let indexHtml = window.location.pathname;
 
+let indexHtml = window.location.pathname;
 let listaGifs = [];
 let partialGifs = [];
 
@@ -47,6 +41,8 @@ let mis_gi = window.location.pathname;
 
 let contador_busq = 0;
 
+// mirando si aqui hay o no favoritos en el local storage
+// para tener control de si agregar uno que ya esta o eliminarlo. 
 if (localStorage.getItem('Favoritos')  != null ) {
     favoritos = JSON.parse(localStorage.getItem('Favoritos'));
     
@@ -54,11 +50,12 @@ if (localStorage.getItem('Favoritos')  != null ) {
     console.log('llename de gifs UwU');
 }
 
+// para saber si estoy en Fav o mis Gifos, y activar los script destinados a ellos. 
 comprobacion_fav(dire_fav);
 comprobacion_mis(mis_gi);
 //comprobacion_index(indexHtml);
 
-//Sugerencias en las busquedas
+//Variables para la Sugerencias en las busquedas
 let inputText = document.querySelector('#search');
 let menuInput = document.querySelector('.menu-input');
 let box_search = document.querySelector('.primera_seccion > .box');
@@ -75,9 +72,11 @@ else{
     console.log('no estamos en mis Gifos >:c');
 }
 
-
+// variable de la falla de la busqueda.
 const failSearch = document.querySelector('.failsearch');
 
+
+//funcion para cambiar el color Dark y Light mode.
 function cambiarColor() {
 
     let img = document.querySelector('.logo');
@@ -297,9 +296,7 @@ function Move(number) {
 }
     
 //codigo para el zoom, de las imagenes, y la implemenatcion de sus acciones en el zoom.
-
 let cierre =document.querySelector(".zoom > .close");
-
 cierre.addEventListener('touchstart', close, false);
 
 function zoom(e){
@@ -388,13 +385,12 @@ function zoom_2(e){
         
 };
 
+// acciones de corazon y descargar en el zoom
 let favZoom = document.querySelector('.seccion_baja > .links > .box');
 favZoom.addEventListener('click',corazon_2);
 
-
 let desFav =document.querySelector('.seccion_baja > .links > .descarga');
 desFav.addEventListener('click',descargar_2);
-
 
 //Codigo para la seccion de busqueda en el main.
 function obtenerBusquedaGifs(searching) {
@@ -563,7 +559,6 @@ function obtenerBusquedaGifs(searching) {
         console.log(`${err}`);
     })
 }
-
 
 function busquedaGifs(){
     obtenerBusquedaGifs(search.value);
@@ -907,8 +902,7 @@ function mostrarFavoritos(){
     }
 }
     
-
-//comprobar en que pagina se esta
+//comprobar en que pagina se esta para activar los script.
 function comprobacion_fav(direccion) {
     if (direccion == '/favoritos.html') {
         document.addEventListener('DOMContentLoaded', mostrarFavoritos);
@@ -927,7 +921,6 @@ function comprobacion_mis(direccion) {
     }
 }
 
-
 // muestra si esta o no vacio la seccion. 
 function muestra(list) {
     if (list.length == 0) {
@@ -941,7 +934,6 @@ function muestra(list) {
         mas_fav.style.display = 'flex';
     }
 }
-
 
 //Mostrar los Gifs que tenemos en localStorage mostrar en MisGifos
 function mostrarMisGifos(){
@@ -1067,4 +1059,3 @@ function muestra2(list) {
         busqueda_mis.style.display = "flex";
     }
 }
-
