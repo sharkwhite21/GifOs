@@ -19,6 +19,7 @@ const ver = document.querySelector('.ver_mas');
 const ver_fav = document.getElementById('mas_fav');
 
 
+
 let indexHtml = window.location.pathname;
 let listaGifs = [];
 let partialGifs = [];
@@ -766,11 +767,18 @@ function localSaveFavorite(list) {
 function mostrarFavoritos(){    
     let recuperacion = [];
     recuperacion = JSON.parse(localStorage.getItem('Favoritos'));
-    muestra(recuperacion);
-    console.log(recuperacion.length);
+    console.log(recuperacion);
+    
+
+    if (recuperacion == null) {
+        recuperacion =[]
+        muestra(recuperacion);
+    } else {
+        muestra(recuperacion);
+    }
 
 
-    if (recuperacion.length < 12 ) {
+    if (recuperacion.length < 12  || recuperacion.length == 0) {
         ver_fav.style.display = 'none';
     }
 
@@ -923,15 +931,15 @@ function comprobacion_mis(direccion) {
 
 // muestra si esta o no vacio la seccion. 
 function muestra(list) {
-    if (list.length == 0) {
+    if (list.length == 0 || list.length == null ) {
         no_found.style.display = "flex";
         busq_fav.style.display = "none";
-        mas_fav.style.display = 'none';
+        ver.style.display = 'none';
     }
     else{
         no_found.style.display = "none";
         busq_fav.style.display = "flex";
-        mas_fav.style.display = 'flex';
+        ver.style.display = 'flex';
     }
 }
 

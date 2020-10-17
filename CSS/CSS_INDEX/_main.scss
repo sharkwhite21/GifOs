@@ -1144,6 +1144,19 @@ main{
                 }
             }
 
+            .no_found_fav{
+                img{
+                    width: 150px;
+                    height: 150px;
+                }
+                h2{
+                    color:$bg-third;
+                    font-size: 22px;
+                    width: 431px;
+                    margin-top: 20px;
+                }
+            }
+
             .ver_mas{
             border: solid $bg-primary 1px;
             border-radius: 35px;

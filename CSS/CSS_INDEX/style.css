@@ -943,6 +943,14 @@ main .seccion_creacion {
         width: 430px; }
     main .favoritos .lista_favoritos .imagens .sombra_2 {
       display: flex; }
+    main .favoritos .no_found_fav img {
+      width: 150px;
+      height: 150px; }
+    main .favoritos .no_found_fav h2 {
+      color: #50E3C2;
+      font-size: 22px;
+      width: 431px;
+      margin-top: 20px; }
     main .favoritos .ver_mas {
       border: solid #572EE5 1px;
       border-radius: 35px;
