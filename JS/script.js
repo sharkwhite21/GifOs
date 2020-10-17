@@ -926,7 +926,7 @@ function comprobacion_fav(direccion) {
 }
 
 function comprobacion_mis(direccion) {
-    if (direccion == '/misgifos.html') {
+    if (direccion == '/misgifos.html' || direccion == '/GifOs/misgifos.html') {
         document.addEventListener('DOMContentLoaded', mostrarMisGifos);
     }
     else{
