@@ -917,7 +917,7 @@ function mostrarFavoritos(){
     
 //comprobar en que pagina se esta para activar los script.
 function comprobacion_fav(direccion) {
-    if (direccion == '/favoritos.html') {
+    if (direccion == '/favoritos.html' || direccion == '/GifOs/favoritos.html') {
         document.addEventListener('DOMContentLoaded', mostrarFavoritos);
     }
     else{
