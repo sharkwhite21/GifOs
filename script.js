@@ -51,7 +51,7 @@ if (localStorage.getItem('Favoritos')  != null ) {
     favoritos = JSON.parse(localStorage.getItem('Favoritos'));
     
 } else {
-    console.log('llename de gifs plox');
+    console.log('llename de gifs UwU');
 }
 
 comprobacion_fav(dire_fav);
@@ -901,7 +901,7 @@ function mostrarFavoritos(){
                 impresionGifos(partialGifs);
             }
             else{
-                console.log('no esta funcionando esta kga');
+                console.log('no esta funcionando revisa bien please');
             }
         })    
     }
