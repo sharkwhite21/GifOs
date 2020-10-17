@@ -62,10 +62,10 @@ let inputText = document.querySelector('#search');
 let menuInput = document.querySelector('.menu-input');
 let box_search = document.querySelector('.primera_seccion > .box');
 let primer = document.querySelector('#seccionPrime');
+let lupa = document.querySelector("#lupas");
 
 //Comprobacion de que se esta en index para activar la lupa.
 if (indexHtml == '/index.html' || indexHtml2 == 'GifOs/index.html' || indexHtml == '/GifOs/') {
-    const lupa = document.querySelector(".lupa");
     lupa.addEventListener('click', busquedaGifs);
     lupa.addEventListener('touchstart', busquedaGifs);
     //Diseño al ingresar texto en el input
