@@ -26,6 +26,7 @@ let indexHtml = window.location.pathname;
 indexHtml2 = indexHtml + '/index.html';
 let listaGifs = [];
 let partialGifs = [];
+let listSuge = document.querySelectorAll('.trendingSear > p');
 
 //variables para favoritos
 let link_favorito = document.querySelector('nav-items > link_fav_2');
@@ -161,6 +162,7 @@ if (localStorage.getItem('dark')=== 'true') {
 
  //traida de las imagenes del trending
 document.addEventListener('DOMContentLoaded', getTendring);
+document.addEventListener('DOMContentLoaded', trendingSearch);
 
 function getTendring() {
     const url = `https://api.giphy.com/v1/gifs/trending?api_key=${api_key}&limit=20`;
@@ -346,8 +348,6 @@ function zoom(e){
     window.scroll(0, 0);
     
 }
-
-
 
 function close(){
     let vista = document.querySelector('.zoom');
@@ -582,6 +582,12 @@ function busquedaGifs(){
     ver.style.display = 'flex';
 }
 
+function busquedaGifsTren(Suge){
+    borradorBusq();
+    obtenerBusquedaGifs(Suge);
+    ver.style.display = 'flex';
+}
+
 //Menu de sugerencias
 async function showSearchMenu(event){
     //Condición para mostrar cuando el menú de sugerencias aparecerá
@@ -634,7 +640,7 @@ function borradorBusq() {
         }
     }
     else{
-        console.log('nada que decir');
+        console.log('Funcionamiento Optimo');
     } 
 }
 
@@ -681,6 +687,34 @@ Array.from(document.querySelectorAll('.suggest-term > p')).map((el)=>{
     });
 });
 
+//funcion para traer las sugerencias de trending
+function trendingSearch() {
+    const url = `https:api.giphy.com/v1/trending/searches?api_key=${api_key}`;
+
+    fetch(url)
+    .then((success) => {
+        if (success.ok) {
+            return success.json();
+        } else {
+            failsearch.style.display = 'flex';
+            throw new Error(('success') + 'no se puede comunicar con la API');
+        }
+    })
+    .then((data) => {
+        console.log(data.data);
+        for (let k = 0; k < 5; k++) {
+            listSuge[k].innerHTML = `${data.data[k]} &nbsp;`;
+            listSuge[k].addEventListener('click',(event) =>{
+                busquedaGifsTren(event.target.innerText);
+                
+            })
+        }
+
+    })
+    .catch((err) => {
+        console.log(`${err}`);
+    })
+}
 
 //Codigo para las inteacciones tanto des descargar y favoritear de las imagenes
 //tanto del trending, como de las busquedas, como de favoritos.
