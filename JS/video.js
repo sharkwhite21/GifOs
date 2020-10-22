@@ -5,6 +5,8 @@ let subirGif = document.querySelector('.parte_baja > .subirGif');
 let palabraBotton = document.querySelector('.comenzar > h2');
 let titulo = document.querySelector('#titulo');
 let consejos = document.querySelectorAll('#consejos');
+let loader = document.getElementById('loader')
+let text = document.getElementById('text')
 let recorderVideo = document.getElementById('recorder');
 let cajaVideo = document.querySelector('.video-container');
 let cajaInformacion= document.querySelector('.informacion');
@@ -219,11 +221,15 @@ subirGif.addEventListener('click', async ()=>{
       //previewMiniGif.setAttribute('src',urlBlobPreview);
 
       //desaparezco uploading y aparezco success
-      uploading.childNodes[3].removeAttribute('innerHTML');
-      uploading.childNodes[3].setAttribute('innerHTML', 'GIFO subido con éxito');
-      uploading.childNodes[1].removeAttribute('src');
-      uploading.childNodes[1].setAttribute('src', 'Sources\\assets\\check.svg');
+      text.innerHTML = 'GIFO subido con éxito';
+      loader.removeAttribute('src');
+      loader.setAttribute('src', 'Sources\\assets\\check.svg');
+      subirGif.style.display = 'none';
       links.style.display='flex';
+      time.innerHTML = '';
+      time.style.display ='flex';
+      repetirCaptura.style.display = 'none';
+      
 
   }catch(fail){
       streaming = false;
