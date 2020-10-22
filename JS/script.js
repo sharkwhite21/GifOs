@@ -80,7 +80,7 @@ if (indexHtml == '/index.html' || indexHtml2 == 'GifOs/index.html' || indexHtml 
     lupaIn.addEventListener('touchstart', busquedaGifs);
 }
 else{
-    console.log('no, estamos en mis Gifos  o entra pagina, tal vez Fav?>:c');
+    console.log('no, estamos en mis Gifos  o entra pagina, tal vez Fav? ');
 }
 
 // variable de la falla de la busqueda.
@@ -644,14 +644,27 @@ async function showSearchMenu(event){
         closeIn.style.display ='block';
 
         //Llamado de la API para obtener terminos relacionados (sugerencias).
-        let url = `https://api.giphy.com/v1/tags/related/${inputText.value}?api_key=${api_key}&limit=3`;
-        let resp = await fetch(url);
-        let suggestedSearchData = await resp.json();
-        //Llena los 3 cuadros de sugerencias
-        for(let i = 0; i<3; i++){
-            let suggestTerm = document.querySelector(`#suggest-term-${i+1} > p`);
-            suggestTerm.innerHTML = `${suggestedSearchData.data[i].name}`; 
-        };
+        let url = `https://api.giphy.com/v1/gifs/search/tags?api_key=${api_key}&q=${inputText.value}&limit=3`;
+        // `https://api.giphy.com/v1/tags/related/${inputText.value}?api_key=${api_key}&limit=3`;
+        fetch(url)
+        .then((success) => {
+            if (success.ok) {
+                return success.json();
+            } else {
+                failsearch.style.display = 'flex';
+                throw new Error(('success') + 'no se puede comunicar con la API');
+            }
+        })
+        .then((data) =>{
+            for(let i = 0; i<3; i++){
+                let suggestTerm = document.querySelector(`#suggest-term-${i+1} > p`);
+                suggestTerm.innerHTML = `${data.data[i].name}`; 
+            };
+            
+        })
+        .catch((err) => {
+            console.log(`${err}`);
+        })
     };
 };
 
@@ -707,6 +720,19 @@ inputText.addEventListener('keydown', event=>{
 Array.from(document.querySelectorAll('.suggest-term > p')).map((el)=>{
     el.addEventListener('click', function(){
         inputText.value = el.innerHTML;
+        inputSearch.style.marginLeft = '45px';
+        menuInput.style.display = "none";
+        box_search.style.height= '50px';
+        lupaTrending.style.display = 'none';
+        borradorBusq();  
+        obtenerBusquedaGifs(inputText.value);
+    });
+    el.addEventListener('touchstart', function(){
+        inputText.value = el.innerHTML;
+        inputSearch.style.marginLeft = '45px';
+        menuInput.style.display = "none";
+        box_search.style.height= '50px';
+        lupaTrending.style.display = 'none';
         borradorBusq();  
         obtenerBusquedaGifs(inputText.value);
     });
