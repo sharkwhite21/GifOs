@@ -53,6 +53,15 @@ main{
                 height: 40px;
                 padding-top: 14px;
 
+                .lupa_trending{
+                    width: 20px;
+                    height: 20px;
+                    float: left;
+                    margin-left: 25px;
+                    cursor: pointer;
+                    display: none;
+                }
+
                 input{
                     float: left;
                     margin-left: 25px;
@@ -65,6 +74,15 @@ main{
                     width: 20px;
                     height: 20px;
                     cursor: pointer;                        
+                }
+
+                .closeIn{
+                    float: right;                    
+                    margin-right: 20px;
+                    width: 14px;
+                    height: 14px;
+                    cursor: pointer;
+                    display: none;
                 }
             }
 
@@ -87,6 +105,25 @@ main{
                 .suggest-term{
                     padding-bottom: 7px;
                     cursor: pointer;
+                    height: 25px;
+                    width: 350px;
+                    display: flex;
+                    align-items: center;
+                    p{
+                        font-size: 16px;
+                        color: $bg-four;
+                        font-family: $fuente_2;
+                        margin: 0px;
+                        margin-bottom: 10px;
+                        height: 16px;
+                        width: 350px;
+                        padding-right: 145px;
+                    }
+
+                    .lupa_trending{
+                        height:15.8px;
+                        width:15.8px;
+                    }
                 }
             }
         }
@@ -279,6 +316,7 @@ main{
             }
         }
     }
+
     .mis_gifos{
         display: flex;
         align-items: center;
@@ -1014,7 +1052,8 @@ main{
                 
                 .container-1{
                     input{
-                        width: 85%;
+                        width: 60%;
+                        margin-left: 45px; //11px cuando esta activado la busqueda
                     }
                 }
                 .menu-input{

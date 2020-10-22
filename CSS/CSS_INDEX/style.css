@@ -192,6 +192,13 @@ main .primera_seccion {
     main .primera_seccion .box .container-1 {
       height: 40px;
       padding-top: 14px; }
+      main .primera_seccion .box .container-1 .lupa_trending {
+        width: 20px;
+        height: 20px;
+        float: left;
+        margin-left: 25px;
+        cursor: pointer;
+        display: none; }
       main .primera_seccion .box .container-1 input {
         float: left;
         margin-left: 25px;
@@ -202,6 +209,13 @@ main .primera_seccion {
         width: 20px;
         height: 20px;
         cursor: pointer; }
+      main .primera_seccion .box .container-1 .closeIn {
+        float: right;
+        margin-right: 20px;
+        width: 14px;
+        height: 14px;
+        cursor: pointer;
+        display: none; }
     main .primera_seccion .box .menu-input {
       font-family: "Roboto", sans-serif;
       font-size: 16px;
@@ -218,7 +232,23 @@ main .primera_seccion {
         display: inline-block; }
       main .primera_seccion .box .menu-input .suggest-term {
         padding-bottom: 7px;
-        cursor: pointer; }
+        cursor: pointer;
+        height: 25px;
+        width: 350px;
+        display: flex;
+        align-items: center; }
+        main .primera_seccion .box .menu-input .suggest-term p {
+          font-size: 16px;
+          color: #9CAFC3;
+          font-family: "Roboto", sans-serif;
+          margin: 0px;
+          margin-bottom: 10px;
+          height: 16px;
+          width: 350px;
+          padding-right: 145px; }
+        main .primera_seccion .box .menu-input .suggest-term .lupa_trending {
+          height: 15.8px;
+          width: 15.8px; }
 main .failsearch {
   display: none;
   align-items: center;
@@ -870,7 +900,8 @@ main .seccion_creacion {
       width: 551px;
       height: 50px; }
       main .primera_seccion .box .container-1 input {
-        width: 85%; }
+        width: 60%;
+        margin-left: 45px; }
       main .primera_seccion .box .menu-input span {
         width: 510px; }
     main .primera_seccion p {

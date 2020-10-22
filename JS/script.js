@@ -17,6 +17,8 @@ let tituloBusqueda = document.querySelector('.busqueda > h2');
 let tituloFail = document.querySelector ('.failsearch > h2')
 const ver = document.querySelector('.ver_mas');
 const ver_fav = document.getElementById('mas_fav');
+let lupaTrending = document.querySelector('.container-1 > .lupa_trending');
+let inputSearch = document.querySelector('.container-1 > #search');
 
 
 
@@ -62,7 +64,10 @@ let inputText = document.querySelector('#search');
 let menuInput = document.querySelector('.menu-input');
 let box_search = document.querySelector('.primera_seccion > .box');
 let primer = document.querySelector('#seccionPrime');
-let lupa = document.querySelector("#lupas");
+let lupa = document.querySelector("#lupaTe");
+let lupaIn = document.querySelector("#lupas");
+let closeIn = document.querySelector("#closeIn");
+
 
 //Comprobacion de que se esta en index para activar la lupa.
 if (indexHtml == '/index.html' || indexHtml2 == 'GifOs/index.html' || indexHtml == '/GifOs/' || indexHtml == '/GifOs/index.html') {
@@ -70,6 +75,11 @@ if (indexHtml == '/index.html' || indexHtml2 == 'GifOs/index.html' || indexHtml 
     lupa.addEventListener('touchstart', busquedaGifs);
     //Diseño al ingresar texto en el input
     inputText.addEventListener('input', showSearchMenu);
+    lupaIn.addEventListener('click', busquedaGifs);
+    lupaIn.addEventListener('touchstart', busquedaGifs);
+
+
+
 }
 else{
     console.log('no, estamos en mis Gifos  o entra pagina, tal vez Fav?>:c');
@@ -567,6 +577,7 @@ function obtenerBusquedaGifs(searching) {
 }
 
 function busquedaGifs(){
+    borradorBusq();
     obtenerBusquedaGifs(search.value);
     ver.style.display = 'flex';
 }
@@ -580,17 +591,11 @@ async function showSearchMenu(event){
         menuInput.style.display = "none";
         box_search.style.height= '50px';
         busqueda.style.display='none';
-        let borrado = document.querySelectorAll('.imagenes_resultado > .imagens');
-        let padre =document.querySelector('.imagenes_resultado');
-        
-        if (borrado.length > 0) {
-            for (let i = 0; i < borrado.length; i++) {
-                padre.removeChild(borrado[i]);
-            }
-        }
-        else{
-            console.log('nada que decir');
-        }
+        lupaTrending.style.display = 'none';
+        inputSearch.style.marginLeft = '45px';
+        lupaIn.style.display ='block';
+        closeIn.style.display ='none';
+        borradorBusq();
 
         let titulo_busqueda = document.querySelector('.primera_seccion > h1');
         titulo_busqueda.style.display = 'block';
@@ -602,6 +607,10 @@ async function showSearchMenu(event){
         searchButtonActive = true;
         menuInput.style.display = "inline-block";
         box_search.style.height= '150px';
+        lupaTrending.style.display = 'block';
+        inputSearch.style.marginLeft = '11px';
+        lupaIn.style.display ='none';
+        closeIn.style.display ='block';
 
         //Llamado de la API para obtener terminos relacionados (sugerencias).
         let url = `https://api.giphy.com/v1/tags/related/${inputText.value}?api_key=${api_key}&limit=3`;
@@ -609,17 +618,65 @@ async function showSearchMenu(event){
         let suggestedSearchData = await resp.json();
         //Llena los 3 cuadros de sugerencias
         for(let i = 0; i<3; i++){
-            let suggestTerm = document.getElementById(`suggest-term-${i+1}`);
+            let suggestTerm = document.querySelector(`#suggest-term-${i+1} > p`);
             suggestTerm.innerHTML = `${suggestedSearchData.data[i].name}`; 
         };
     };
 };
 
+function borradorBusq() {
+    let borrado = document.querySelectorAll('.imagenes_resultado > .imagens');
+    let padre =document.querySelector('.imagenes_resultado');
+    
+    if (borrado.length > 0) {
+        for (let i = 0; i < borrado.length; i++) {
+            padre.removeChild(borrado[i]);
+        }
+    }
+    else{
+        console.log('nada que decir');
+    } 
+}
+
+//click en la x para eliminar la busqueda.
+closeIn.addEventListener( 'click' ,() =>{
+    inputSearch.value= '';
+    menuInput.style.display = "none";
+    box_search.style.height= '50px';
+    lupaTrending.style.display = 'none';
+    inputSearch.style.marginLeft = '45px';
+    borradorBusq();
+    lupaIn.style.display = 'block'
+    closeIn.style.display ='none';
+
+})
+
+closeIn.addEventListener( 'touchstart' ,() =>{
+    inputSearch.value= '';
+    menuInput.style.display = "none";
+    box_search.style.height= '50px';
+    lupaTrending.style.display = 'none';
+    inputSearch.style.marginLeft = '45px';
+    borradorBusq();
+    lupaIn.style.display = 'block'
+    closeIn.style.display ='none';
+
+})
+
+// funcion al ingresar enter activar la busqueda
+inputText.addEventListener('keydown', event=>{
+    if (event.keyCode == 13) {
+        //Al presionar enter
+        busquedaGifs();
+    } 
+});
+
 //función para hacer click en las sugerencias y buscarlas
 //convierto el HTMLCollection en un array y uso map para iterarlo
-Array.from(document.getElementsByClassName('suggest-term')).map((el)=>{
+Array.from(document.querySelectorAll('.suggest-term > p')).map((el)=>{
     el.addEventListener('click', function(){
-        inputText.value = el.innerHTML;  
+        inputText.value = el.innerHTML;
+        borradorBusq();  
         obtenerBusquedaGifs(inputText.value);
     });
 });
