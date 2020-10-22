@@ -78,9 +78,6 @@ if (indexHtml == '/index.html' || indexHtml2 == 'GifOs/index.html' || indexHtml 
     inputText.addEventListener('input', showSearchMenu);
     lupaIn.addEventListener('click', busquedaGifs);
     lupaIn.addEventListener('touchstart', busquedaGifs);
-
-
-
 }
 else{
     console.log('no, estamos en mis Gifos  o entra pagina, tal vez Fav?>:c');
@@ -105,10 +102,24 @@ function cambiarColor() {
     if ( comparacion == "Sources\\assets\\logo-mobile.svg"){
         img.removeAttribute('src');
         img.setAttribute('src','Sources\\assets\\logo-mobile-modo-noct.svg');
+
+        if (indexHtml == '/index.html' || indexHtml2 == 'GifOs/index.html' || indexHtml == '/GifOs/' || indexHtml == '/GifOs/index.html') {
+            lupaIn.removeAttribute('src');
+            lupaIn.setAttribute('src','Sources\\assets\\icon-search-mod-noc.svg');
+            closeIn.removeAttribute('src');
+            closeIn.setAttribute('src','Sources\\assets\\close-noc.svg');
+        }
     }
     else {
        img.removeAttribute('src');
        img.setAttribute('src', 'Sources\\assets\\logo-mobile.svg');
+
+       if (indexHtml == '/index.html' || indexHtml2 == 'GifOs/index.html' || indexHtml == '/GifOs/' || indexHtml == '/GifOs/index.html') {
+        lupaIn.removeAttribute('src');
+        lupaIn.setAttribute('src','Sources\\assets\\icon-search.svg');
+        closeIn.removeAttribute('src');
+        closeIn.setAttribute('src','Sources\\assets\\close.svg');
+    }
     }
     
     if (document.body.classList.contains("oscuro")) {
@@ -137,6 +148,13 @@ if (localStorage.getItem('dark')=== 'true') {
     if ( comparacion == "Sources\\assets\\logo-mobile.svg" ){
         img.removeAttribute('src');
         img.setAttribute('src','Sources\\assets\\logo-mobile-modo-noct.svg');
+
+        if (indexHtml == '/index.html' || indexHtml2 == 'GifOs/index.html' || indexHtml == '/GifOs/' || indexHtml == '/GifOs/index.html') {
+            lupaIn.removeAttribute('src');
+            lupaIn.setAttribute('src','Sources\\assets\\icon-search-mod-noc.svg');
+            closeIn.removeAttribute('src');
+            closeIn.setAttribute('src','Sources\\assets\\close-noc.svg');
+        }
     }
 
 
@@ -157,6 +175,13 @@ if (localStorage.getItem('dark')=== 'true') {
     if ( comparacion == "Sources\\assets\\logo-mobile-modo-noct.svg" ){
         img.removeAttribute('src');
         img.setAttribute('src','Sources\\assets\\logo-mobile.svg');
+
+        if (indexHtml == '/index.html' || indexHtml2 == 'GifOs/index.html' || indexHtml == '/GifOs/' || indexHtml == '/GifOs/index.html') {
+            lupaIn.removeAttribute('src');
+            lupaIn.setAttribute('src','Sources\\assets\\icon-search.svg');
+            closeIn.removeAttribute('src');
+            closeIn.setAttribute('src','Sources\\assets\\close.svg');
+        }
     }
 }
 

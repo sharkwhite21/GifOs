@@ -1414,9 +1414,11 @@ footer {
     color: #FFFFFF; }
   .oscuro main .primera_seccion p {
     color: #FFFFFF; }
-  .oscuro main .primera_seccion .box .container-1 input {
-    background-color: #37383C;
-    color: #FFFFFF; }
+  .oscuro main .primera_seccion .box {
+    border: solid white 1px; }
+    .oscuro main .primera_seccion .box .container-1 input {
+      background-color: #37383C;
+      color: #FFFFFF; }
   .oscuro main .failsearch h2 {
     color: #FFFFFF; }
   .oscuro main .failsearch h3 {
