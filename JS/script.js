@@ -651,10 +651,10 @@ closeIn.addEventListener( 'click' ,() =>{
     box_search.style.height= '50px';
     lupaTrending.style.display = 'none';
     inputSearch.style.marginLeft = '45px';
-    borradorBusq();
-    lupaIn.style.display = 'block'
+    lupaIn.style.display = 'block';
     closeIn.style.display ='none';
-
+    busqueda.style.display ='none';
+    borradorBusq();
 })
 
 closeIn.addEventListener( 'touchstart' ,() =>{
@@ -663,10 +663,10 @@ closeIn.addEventListener( 'touchstart' ,() =>{
     box_search.style.height= '50px';
     lupaTrending.style.display = 'none';
     inputSearch.style.marginLeft = '45px';
-    borradorBusq();
     lupaIn.style.display = 'block'
     closeIn.style.display ='none';
-
+    busqueda.style.display ='none';
+    borradorBusq();
 })
 
 // funcion al ingresar enter activar la busqueda
@@ -689,7 +689,7 @@ Array.from(document.querySelectorAll('.suggest-term > p')).map((el)=>{
 
 //funcion para traer las sugerencias de trending
 function trendingSearch() {
-    const url = `https:api.giphy.com/v1/trending/searches?api_key=${api_key}`;
+    const url = `https://api.giphy.com/v1/trending/searches?api_key=${api_key}`;
 
     fetch(url)
     .then((success) => {
