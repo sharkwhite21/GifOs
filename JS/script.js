@@ -701,7 +701,6 @@ function trendingSearch() {
         }
     })
     .then((data) => {
-        console.log(data.data);
         for (let k = 0; k < 5; k++) {
             listSuge[k].innerHTML = `${data.data[k]} &nbsp;`;
             listSuge[k].addEventListener('click',(event) =>{
@@ -712,7 +711,7 @@ function trendingSearch() {
 
     })
     .catch((err) => {
-        console.log(`${err}`);
+        console.log('No esta trayendo los trending sugeridos, revisar');
     })
 }
 
