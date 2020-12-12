@@ -7,24 +7,43 @@
     <!--<script src="https://kit.fontawesome.com/dfa8884d75.js" crossorigin="anonymous"></script>--> 
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet"> 
-    <title>Document</title>
+    <title>FAVORITOS</title>
 </head>
 <body>
 
-    <div class="zoom" style="display: none;">
+    <div class="zoom">
+
         <div class="close">
-            <a href=""><img src="Sources\assets\close.svg" alt=""></a>
+            <img src="Sources\assets\close.svg" alt="equis">
         </div>
-        <img src="https://via.placeholder.com/243x187" alt="" >
+
+        <section class="pasarela">
+            <section class="flechas desktop primero">
+                <svg width="8" height="14" viewBox="0 0 8 14">
+                    <path d="M2.41421356,7 L7.70710678,1.70710678 C8.09763107,1.31658249 8.09763107,0.683417511 7.70710678,0.292893219 C7.31658249,-0.0976310729 6.68341751,-0.0976310729 6.29289322,0.292893219 L0.292893219,6.29289322 C-0.0976310729,6.68341751 -0.0976310729,7.31658249 0.292893219,7.70710678 L6.29289322,13.7071068 C6.68341751,14.0976311 7.31658249,14.0976311 7.70710678,13.7071068 C8.09763107,13.3165825 8.09763107,12.6834175 7.70710678,12.2928932 L2.41421356,7 Z"></path>
+                </svg>
+            </section>
+    
+            
+    
+            <section class="flechas desktop">
+                <svg width="8" height="14" viewBox="0 0 8 14">
+                    <path d="M5.58578644,7 L0.292893219,12.2928932 C-0.0976310729,12.6834175 -0.0976310729,13.3165825 0.292893219,13.7071068 C0.683417511,14.0976311 1.31658249,14.0976311 1.70710678,13.7071068 L7.70710678,7.70710678 C8.09763107,7.31658249 8.09763107,6.68341751 7.70710678,6.29289322 L1.70710678,0.292893219 C1.31658249,-0.0976310729 0.683417511,-0.0976310729 0.292893219,0.292893219 C-0.0976310729,0.683417511 -0.0976310729,1.31658249 0.292893219,1.70710678 L5.58578644,7 Z"></path>
+                </svg>
+            </section>
+        </section>
+
         <div class="seccion_baja">
             <div class="contenido">
                 <p>User</p>
                 <h2>Titulo GIFO</h2>
             </div>
             <div class="links">
-                <a  href=""><img src="Sources\assets\icon-fav-hover.svg" alt=""></a>
-                <div class="box">
-                    <a href=""> <img src="Sources\assets\icon-download.svg" alt=""></a>
+                <div class="box fav" id="fav">
+                    <img src="Sources\assets\icon-fav-hover.svg" alt="Corazon">
+                </div>
+                <div class="box descarga">
+                    <img src="Sources\assets\icon-download.svg" alt="flecha hacia abajo">
                 </div>
             </div>
         </div>
@@ -43,16 +62,14 @@
                     <li class="desktop cambio2"><a href="#" id="color2">MODO NOCTURNO</a></li>
                     <span></span>
                     <li class="mobile"><a href="favoritos.html">Favoritos</a></li>
-                    <li class="desktop"><a href="favoritos.html">FAVORITOS</a></li>
+                    <li class="desktop " id="activelink" ><a href="favoritos.html">FAVORITOS</a></li>
                     <span></span>
                     <li class="mobile"><a href="misgifos.html">Mis GIFOS</a></li>
                     <li class="desktop"><a href="misgifos.html">MIS GIFOS</a></li>
                     <span></span>
                     <li class="desktop">
                         <div>
-                            <a href=""><svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <title>button-crear-gifo</title>
-                                <desc>Created with Sketch.</desc>
+                            <a href="creargifo.html"><svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <defs>
                                     <path d="M8,0 C8.55228475,0 9,0.44771525 9,1 L9,1 L9,7 L15,7 C15.5128358,7 15.9355072,7.38604019 15.9932723,7.88337887 L16,8 C16,8.55228475 15.5522847,9 15,9 L15,9 L9,9 L9,15 C9,15.5128358 8.61395981,15.9355072 8.11662113,15.9932723 L8,16 C7.44771525,16 7,15.5522847 7,15 L7,15 L7,9 L1,9 C0.487164161,9 0.0644928393,8.61395981 0.00672773133,8.11662113 L0,8 C0,7.44771525 0.44771525,7 1,7 L1,7 L7,7 L7,1 C7,0.487164161 7.38604019,0.0644928393 7.88337887,0.00672773133 Z" id="path-1"></path>
                                 </defs>
@@ -62,11 +79,12 @@
                                             <mask id="mask-2" fill="white">
                                                 <use xlink:href="#path-1"></use>
                                             </mask>
-                                            <use fill="#572EE5" fill-rule="nonzero" xlink:href="#path-1"></use>
+                                            <use fill="currentColor" fill-rule="nonzero" xlink:href="#path-1"></use>
                                         </g>
                                     </g>
                                 </g>
-                            </svg></a>
+                            </svg>
+                            </a>
                         </div>
                     </li>
                 </ul>
@@ -75,30 +93,22 @@
     </header>
     <main>
         <section class="favoritos">
-            <div>
+            <div class="logo_corazon">
                 <img src="Sources\assets\icon-favoritos.svg" alt="Corazon">
             </div>
             <h2>Favoritos</h2>
-            <section class="no_found">
+            
+            <section class="no_found_fav">
                 <img src="Sources\assets\icon-fav-sin-contenido.svg" alt="Corazon sonriente">
                     <h2>"¡Guarda tu primer GIFO en Favoritos para que se muestre aquí!"</h2>
             </section>
-            <section class="busqueda_img">
-                <section class="imagenes_resultado">
-                    <img src="https://via.placeholder.com/156x120" alt="">
-                    <img src="https://via.placeholder.com/156x120" alt="">
-                    <img src="https://via.placeholder.com/156x120" alt="">
-                    <img src="https://via.placeholder.com/156x120" alt="">
-                    <img src="https://via.placeholder.com/156x120" alt="">
-                    <img src="https://via.placeholder.com/156x120" alt="">
-                    <img src="https://via.placeholder.com/156x120" alt="">
-                    <img src="https://via.placeholder.com/156x120" alt="">
-                    <img src="https://via.placeholder.com/156x120" alt="">
-                    <img src="https://via.placeholder.com/156x120" alt="">
-                    <img src="https://via.placeholder.com/156x120" alt="">
-                    <img src="https://via.placeholder.com/156x120" alt="">
+            
+            <section class="busqueda_fav">
+
+                <section class="lista_favoritos">
                 </section>
-                <section class="ver_mas">
+
+                <section class="ver_mas" id="mas_fav">
                     <h2>VER MÁS</h2>
                 </section>
             </section>
@@ -112,99 +122,27 @@
             </section>
 
             <section class="imagenes">
-                <section class="sombra">
-                    <div class="links">
-                        <div class="box">
-                            <a  href=""><img src="Sources\assets\icon-fav-hover.svg" alt=""></a>
-                        </div>
-                        <div class="box">
-                            <a href=""> <img src="Sources\assets\icon-download.svg" alt=""></a>
-                        </div>
-                        <div class="box ultimo">
-                            <a href=""> <img src="Sources\assets\icon-max.svg" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="contenido">
-                        <p>User</p>
-                        <h2>Titulo GIFO</h2>
-                    </div>
-                </section>
 
-                <section class="flechas">
+                <section class="flechas left">
                     <svg width="8" height="14" viewBox="0 0 8 14">
                         <path d="M2.41421356,7 L7.70710678,1.70710678 C8.09763107,1.31658249 8.09763107,0.683417511 7.70710678,0.292893219 C7.31658249,-0.0976310729 6.68341751,-0.0976310729 6.29289322,0.292893219 L0.292893219,6.29289322 C-0.0976310729,6.68341751 -0.0976310729,7.31658249 0.292893219,7.70710678 L6.29289322,13.7071068 C6.68341751,14.0976311 7.31658249,14.0976311 7.70710678,13.7071068 C8.09763107,13.3165825 8.09763107,12.6834175 7.70710678,12.2928932 L2.41421356,7 Z"></path>
-                    </svg>                    
+                    </svg>
+                    
                 </section>
+                
                 <div class="contenedor">
-                    <div>
-                        <img src="https://via.placeholder.com/243x187" alt="">
-                        <section class="sombra desktop">
-                            <div class="links">
-                                <div class="box">
-                                    <a  href=""><img src="Sources\assets\icon-fav-hover.svg" alt=""></a>
-                                </div>
-                                <div class="box">
-                                    <a href=""> <img src="Sources\assets\icon-download.svg" alt=""></a>
-                                </div>
-                                <div class="box ultimo">
-                                    <a href=""> <img src="Sources\assets\icon-max.svg" alt=""></a>
-                                </div>
-                            </div>
-                            <div class="contenido">
-                                <p>User</p>
-                                <h2>Titulo GIFO</h2>
-                            </div>
-                        </section>
-                    </div>
-                    <div>
-                        <img src="https://via.placeholder.com/243x187" alt="">
-                        <section class="sombra desktop">
-                            <div class="links">
-                                <div class="box">
-                                    <a  href=""><img src="Sources\assets\icon-fav-hover.svg" alt=""></a>
-                                </div>
-                                <div class="box">
-                                    <a href=""> <img src="Sources\assets\icon-download.svg" alt=""></a>
-                                </div>
-                                <div class="box ultimo">
-                                    <a href=""> <img src="Sources\assets\icon-max.svg" alt=""></a>
-                                </div>
-                            </div>
-                            <div class="contenido">
-                                <p>User</p>
-                                <h2>Titulo GIFO</h2>
-                            </div>
-                        </section>
-                    </div>
-                    <div>
-                        <img src="https://via.placeholder.com/243x187" alt="">
-                        <section class="sombra desktop">
-                            <div class="links">
-                                <div class="box">
-                                    <a  href=""><img src="Sources\assets\icon-fav-hover.svg" alt=""></a>
-                                </div>
-                                <div class="box">
-                                    <a href=""> <img src="Sources\assets\icon-download.svg" alt=""></a>
-                                </div>
-                                <div class="box ultimo">
-                                    <a href=""> <img src="Sources\assets\icon-max.svg" alt=""></a>
-                                </div>
-                            </div>
-                            <div class="contenido">
-                                <p>User</p>
-                                <h2>Titulo GIFO</h2>
-                            </div>
-                        </section>
-                    </div>
+                   
                 </div>
-                <section class="flechas">
+                
+                <section class="flechas right">
                     <svg width="8" height="14" viewBox="0 0 8 14">
                         <path d="M5.58578644,7 L0.292893219,12.2928932 C-0.0976310729,12.6834175 -0.0976310729,13.3165825 0.292893219,13.7071068 C0.683417511,14.0976311 1.31658249,14.0976311 1.70710678,13.7071068 L7.70710678,7.70710678 C8.09763107,7.31658249 8.09763107,6.68341751 7.70710678,6.29289322 L1.70710678,0.292893219 C1.31658249,-0.0976310729 0.683417511,-0.0976310729 0.292893219,0.292893219 C-0.0976310729,0.683417511 -0.0976310729,1.31658249 0.292893219,1.70710678 L5.58578644,7 Z"></path>
                     </svg>
                 </section>
-
+                
             </section>
         </section>
+        
 
     </main>
     <footer>
@@ -262,6 +200,6 @@
 
         <p> &#169; GIFOS 2020 All Rights Reserved.</p>
     </footer>
-    <script src="script.js"></script>
+    <script src="JS\script.js"></script>
 </body>
 </html>
